@@ -803,7 +803,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager,
+					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
@@ -811,7 +811,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
 					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -827,7 +826,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager,
+					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
@@ -835,7 +834,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
 					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
