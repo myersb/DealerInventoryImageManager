@@ -372,9 +372,14 @@
     fetchRequest.predicate=predicate;
     
     // Put data into new object based on filtered fetch request.
-    InventoryImage *changeImageData = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    NSArray *deleteImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+
     
-    [self.managedObjectContext deleteObject:changeImageData];
+    for (id object in deleteImageData) {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    
     
     
     
@@ -382,9 +387,12 @@
     
     // Put new Home image data into the database.
     // --------------------------------------------------
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@inventoryPackageId=%@",inventoryImageURL, inventoryPackageId];
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@&inventoryPackageId=%@",inventoryImageURL, inventoryPackageId];
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
+    
+    
+    NSLog(@" TARGET URL : %@",url);
 	
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
 	_dataDictionary = [_jSON objectForKey:@"data"];
