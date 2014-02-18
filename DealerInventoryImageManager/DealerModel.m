@@ -83,16 +83,47 @@
     
     //pass data to web service login and get back values.
     //
-    NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
+    //NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
     
+	NSString *urlText = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
+	urlText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSURL *url = [NSURL URLWithString:urlText];
+	
+	NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+	
+	[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[urlRequest setHTTPMethod:@"POST"];
+	[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+	[urlRequest setValue:@"username" forHTTPHeaderField:userName];
+	[urlRequest setValue:@"password" forHTTPHeaderField:password];
+	
+//	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+//	NSLog(@"%@", connection);
+//	
+//	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
+//	NSURL *invURL = [NSURL URLWithString:urlString];
+	//NSData *data = [NSData dataWithContentsOfURL:urlRequest];
+	
+	NSHTTPURLResponse *response = nil;
+	NSError *error = nil;
+	NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+	
+	// Sticks all of the jSON data inside of a dictionary
+    NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+	NSLog(@"%@", urlRequest);
+	
+	// Creates a dictionary that goes inside the first data object eg. {data:[
+	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
+
+	
     // Retrieve the dealer List JSON data from the webservice
 	//
-    NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
+   // NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:urlRequest dataSelector:modelListDataSector];
 
     
     // Loop over the dealerTopArray, and return the result set of each array loop as a Dictionary.
     //
-    for (NSDictionary *JSONInfo in dealerTopArray)
+    for (NSDictionary *JSONInfo in dataDictionary)
     {
 
         // These params hold the results of two deciding factors for whether a user is valid.
