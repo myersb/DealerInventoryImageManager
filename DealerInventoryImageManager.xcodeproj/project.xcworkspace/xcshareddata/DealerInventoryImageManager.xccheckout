@@ -5,41 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BEA4EC90-FC19-4D87-8DBC-B9A954A488D5</string>
+	<string>23CF2A99-E62E-4262-B112-43B08BD83792</string>
 	<key>IDESourceControlProjectName</key>
 	<string>DealerInventoryImageManager</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E138EF40-3EF3-4577-84E3-17CF8C77C00F</key>
-		<string>https://subversion.clayton.net/svn/PUBWEB/InventoryImageManagerApp_iOS/trunk</string>
+		<key>6571A360-84D9-402C-8596-0A6E353DAE1E</key>
+		<string>https://github.com/myersb/DealerInventoryImageManager.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DealerInventoryImageManager.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E138EF40-3EF3-4577-84E3-17CF8C77C00F</key>
+		<key>6571A360-84D9-402C-8596-0A6E353DAE1E</key>
 		<string>../..</string>
 	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>E138EF40-3EF3-4577-84E3-17CF8C77C00F</key>
-		<string>https://subversion.clayton.net/svn/PUBWEB</string>
-	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://subversion.clayton.net/svn/PUBWEB/InventoryImageManagerApp_iOS/trunk/DealerInventoryImageManager.xcodeproj</string>
+	<string>https://github.com/myersb/DealerInventoryImageManager.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E138EF40-3EF3-4577-84E3-17CF8C77C00F</string>
+	<string>6571A360-84D9-402C-8596-0A6E353DAE1E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
-			<string>InventoryImageManagerApp_iOS/trunk</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E138EF40-3EF3-4577-84E3-17CF8C77C00F</string>
+			<string>6571A360-84D9-402C-8596-0A6E353DAE1E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>DealerInventoryImageManager</string>
 		</dict>
