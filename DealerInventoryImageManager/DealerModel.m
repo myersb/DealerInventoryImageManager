@@ -84,7 +84,7 @@
     //pass data to web service login and get back values.
     //
     NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
-	
+    
     // Retrieve the dealer List JSON data from the webservice
 	//
     NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
