@@ -79,6 +79,7 @@
 		B5691B8018B2AFFD00FE34AE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF918044822009C4E38 /* UIDevice-Hardware.m */; };
 		B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */; };
 		B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8218B2B05300FE34AE /* CameraViewController.m */; };
+		B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
@@ -192,6 +193,7 @@
 		B5659AFF18046664009C4E38 /* ch_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ch_AppDelegate.m; sourceTree = "<group>"; };
 		B5691B6918B2AF2100FE34AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5691B8218B2B05300FE34AE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DealerInventoryImageManager.xcdatamodel; sourceTree = "<group>"; };
 		B59070B718ABC70E00E15B2C /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		B59070BB18ABEAC100E15B2C /* shutterBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterBtn.png; sourceTree = "<group>"; };
 		B591F064189BFB3B003AB1D9 /* blankThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankThumbnail.png; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */,
 				B5691B6818B2AF2100FE34AE /* InfoPlist.strings */,
 				B59070BB18ABEAC100E15B2C /* shutterBtn.png */,
 				B59070B718ABC70E00E15B2C /* cancelBtn.png */,
@@ -666,6 +669,7 @@
 				B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */,
 				B5691B7118B2AFFD00FE34AE /* JSONToArray.m in Sources */,
 				B5691B7218B2AFFD00FE34AE /* InventoryHome.m in Sources */,
+				B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */,
 				B5691B7318B2AFFD00FE34AE /* InventoryImage.m in Sources */,
 				B5691B7418B2AFFD00FE34AE /* Dealer.m in Sources */,
 				B5691B7518B2AFFD00FE34AE /* DataHelper.m in Sources */,
@@ -913,6 +917,16 @@
 			currentVersion = 8198423B17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodel */;
 			name = DealerInventoryImageManager.xcdatamodeld;
 			path = DealerInventoryImageManager/DealerInventoryImageManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */,
+			);
+			currentVersion = B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */;
+			path = DealerInventoryImageManager.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
