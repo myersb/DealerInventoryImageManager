@@ -12,7 +12,7 @@
 #import "DealerModel.h"
 
 
-#define inventoryImageURL @"https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryImagesRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
+#define inventoryImageURL @"https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryImagesRead&key=KzdEOSBGJEdQQzFKM14pWCAK"
 
 @interface InventoryImageModel()
 {
@@ -303,27 +303,12 @@
 
     
     
-    // ****************  Update Core Data ****************** //
+    // ****************  Insert Into Core Data ****************** //
     if (processSuccess == YES)
     {
-        /*
-        NSDictionary *imageDictionary = [[NSDictionary alloc]init ];
-        
-		InventoryImage *image = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
-		NSString *trimmedSerialNumber = [NSString stringWithFormat:@"%@",[NSLocalizedString([imageDictionary objectForKey:@"serialnumber"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-		
-		image.assetID = NSLocalizedString([imageDictionary objectForKey:@"aid"], nil);
-		image.sourceURL = NSLocalizedString([imageDictionary objectForKey:@"imagereference"], nil);
-		image.serialNumber = trimmedSerialNumber;
-		image.group = NSLocalizedString([imageDictionary objectForKey:@"imagegroup"], nil);
-        image.imageTagId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"searchtagid"]];
-        image.imagesId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"imagesid"]];
-        image.imageCaption = featureText;
-        image.imageSource = imageSource;
-        image.inventoryPackageID = inventoryPackageId;
 
-        [self.managedObjectContext save:nil];
-        */
+        [self downloadImagesByinventoryPackageId:inventoryPackageId];
+
     }
     
    
@@ -337,17 +322,12 @@
 /* --------------------------------------------------------------- */
 #pragma mark - Save Inserted data
 /* --------------------------------------------------------------- */
--(BOOL)insertImageDataByImageReferenec:(NSString*) imageReference
-{
-    return 1;
-}
-
 
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
 
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@",inventoryImageURL, dealerNumber];
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@&DealerNumber=%@",inventoryImageURL, dealerNumber];
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	
@@ -371,6 +351,61 @@
 	NSError *error;
 	[_managedObjectContext save:&error];
 
+}
+
+
+
+- (void)downloadImagesByinventoryPackageId:(NSString *)inventoryPackageId
+{
+    
+    
+    // Clear out old data to prepare for data refresh.
+    // --------------------------------------------------
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    // Data object call
+    NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"InventoryImage"];
+    
+    // Setup filter
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"inventoryPackageID==%@",inventoryPackageId];
+    fetchRequest.predicate=predicate;
+    
+    // Put data into new object based on filtered fetch request.
+    InventoryImage *changeImageData = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    
+    [self.managedObjectContext deleteObject:changeImageData];
+    
+    
+    
+    
+    
+    // Put new Home image data into the database.
+    // --------------------------------------------------
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@inventoryPackageId=%@",inventoryImageURL, inventoryPackageId];
+	NSURL *url = [NSURL URLWithString:stringImageURL];
+	NSData *imageData = [NSData dataWithContentsOfURL:url];
+	
+	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
+	_dataDictionary = [_jSON objectForKey:@"data"];
+	
+	for (NSDictionary *imageDictionary in _dataDictionary) {
+		InventoryImage *image = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
+		NSString *trimmedSerialNumber = [NSString stringWithFormat:@"%@",[NSLocalizedString([imageDictionary objectForKey:@"serialnumber"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+		
+		image.assetID = NSLocalizedString([imageDictionary objectForKey:@"aid"], nil);
+		image.sourceURL = NSLocalizedString([imageDictionary objectForKey:@"imagereference"], nil);
+		image.serialNumber = trimmedSerialNumber;
+		image.group = NSLocalizedString([imageDictionary objectForKey:@"imagegroup"], nil);
+        image.imageTagId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"searchtagid"]];
+        image.imagesId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"imagesid"]];
+        image.imageCaption = NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil);
+        image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
+        image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
+	}
+	NSError *error;
+	[_managedObjectContext save:&error];
+    
 }
 
 
