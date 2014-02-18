@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Dealer" representedClassName="Dealer" syncable="YES">
+        <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAuthorizationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ImageTags" representedClassName="ImageTags" syncable="YES">
+        <attribute name="tagDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tagId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ImageTypes" representedClassName="ImageTypes" syncable="YES">
+        <attribute name="tagId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="InventoryHome" representedClassName="InventoryHome" syncable="YES">
+        <attribute name="assetID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="baths" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beds" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="brandDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hopePrice" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="inventoryPackageID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelNumber" optional="YES" attributeType="String" minValueString="11" indexed="YES" syncable="YES"/>
+        <attribute name="plantNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serialNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sqFt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryImage" inverseName="home" inverseEntity="InventoryImage" syncable="YES"/>
+    </entity>
+    <entity name="InventoryImage" representedClassName="InventoryImage" syncable="YES">
+        <attribute name="assetID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageCached" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="imageCaption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageOrderNdx" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imagesId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageSource" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageTagId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inventoryPackageID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="localPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serialNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryHome" inverseName="images" inverseEntity="InventoryHome" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dealer" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ImageTags" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ImageTypes" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="InventoryHome" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="InventoryImage" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
