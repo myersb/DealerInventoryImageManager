@@ -80,11 +80,11 @@
 		B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */; };
 		B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8218B2B05300FE34AE /* CameraViewController.m */; };
 		B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */; };
-		B5691BA818B3E42800FE34AE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5691BA218B3E42800FE34AE /* libzbar.a */; };
 		B5691BA918B3E42800FE34AE /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA418B3E42800FE34AE /* zbar-back.png */; };
 		B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA518B3E42800FE34AE /* zbar-help.html */; };
 		B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA618B3E42800FE34AE /* zbar-helpicons.png */; };
 		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
+		B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5691BA218B3E42800FE34AE /* libzbar.a */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
@@ -239,10 +239,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
-				B5691BA818B3E42800FE34AE /* libzbar.a in Frameworks */,
 				B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */,
 				B525AB9417FF34B500619E3D /* CoreMedia.framework in Frameworks */,
 				B525AB9517FF34B500619E3D /* CoreVideo.framework in Frameworks */,
@@ -806,7 +806,10 @@
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -823,7 +826,10 @@
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
