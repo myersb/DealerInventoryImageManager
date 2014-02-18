@@ -801,18 +801,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -824,18 +818,12 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Ben/Documents/Projects/Objective\\ C/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
