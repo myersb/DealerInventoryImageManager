@@ -30,12 +30,12 @@
                                     <action selector="offKeyboardButton:" destination="uAE-a2-xjx" eventType="touchUpInside" id="vTy-Yl-r8T"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jonest" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jonest" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
                                 <rect key="frame" x="28" y="254" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
                                 <rect key="frame" x="28" y="292" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
@@ -51,6 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="hBm-hf-9cn"/>
+                                    <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLogin" id="3jc-5l-dmt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Image Manager" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-sa-QR7">
@@ -105,7 +106,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetails" id="nPp-z5-FXH"/>
+                                            <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetails" id="yVG-si-1YU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -115,7 +116,7 @@
                                 </connections>
                             </tableView>
                             <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrCode.png" translatesAutoresizingMaskIntoConstraints="NO" id="T33-B3-Ldy">
-                                <rect key="frame" x="145" y="533" width="30" height="30"/>
+                                <rect key="frame" x="20" y="531" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="-39" maxX="0.0" maxY="39"/>
@@ -123,6 +124,28 @@
                                     <outletCollection property="gestureRecognizers" destination="YS3-5A-P41" appends="YES" id="8iY-UN-kcq"/>
                                 </connections>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
+                                <rect key="frame" x="107" y="531" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Dealer">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c0V-EJ-AeT" kind="modal" identifier="" id="CtI-2Q-RRX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
+                                <rect key="frame" x="270" y="531" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="logoutBtn.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="iEF-6x-NNF" eventType="touchUpInside" id="g1S-Yv-oKu"/>
+                                    <segue destination="uAE-a2-xjx" kind="modal" id="5g9-aW-HAN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="">
@@ -135,6 +158,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnChangeDealer" destination="vMW-kT-bJn" id="MvE-SK-bqO"/>
                         <outlet property="inventoryListTable" destination="app-tG-Ihp" id="fRJ-lg-6gn"/>
                         <outlet property="qrcScanner" destination="T33-B3-Ldy" id="OQ6-Kh-nc2"/>
                         <outlet property="searchDisplayController" destination="b0D-wl-cVc" id="rk3-Io-Syj"/>
@@ -377,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGi-3U-GNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2910" y="-174"/>
+            <point key="canvasLocation" x="3436" y="-174"/>
         </scene>
         <!--Camera View Controller - New Photo-->
         <scene sceneID="Chg-Ld-21A">
@@ -632,11 +656,64 @@
             </objects>
             <point key="canvasLocation" x="589" y="-336"/>
         </scene>
+        <!--Dealer Select View Controller - Dealer Select-->
+        <scene sceneID="8kJ-1e-MdI">
+            <objects>
+                <viewController id="vo6-7G-XIw" customClass="DealerSelectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dPE-K8-xLJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="arf-oA-1lh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7F9-yG-2Qb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLw-WR-DVZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a dealer number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-zx-jjD">
+                                <rect key="frame" x="20" y="80" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XxZ-JH-Dts">
+                                <rect key="frame" x="20" y="109" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-LU-8ar">
+                                <rect key="frame" x="20" y="147" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get Inventory">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="jG9-tX-G0C"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dealer Select" id="XV2-bv-Yja"/>
+                    <connections>
+                        <outlet property="tfDealerNumber" destination="XxZ-JH-Dts" id="LVV-Tp-EfT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TpW-m3-FXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="-174"/>
+        </scene>
         <!--Navigation Controller - rootNavController-->
         <scene sceneID="ZXJ-So-9Eu">
             <objects>
                 <navigationController storyboardIdentifier="myNavController" title="rootNavController" automaticallyAdjustsScrollViewInsets="NO" id="RVn-5p-Q6b" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Jd3-cX-NpC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gha-5b-tAz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -650,11 +727,30 @@
             </objects>
             <point key="canvasLocation" x="1400" y="488"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H77-6K-3y6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c0V-EJ-AeT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LQC-jz-GRL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vo6-7G-XIw" kind="relationship" relationship="rootViewController" id="GDo-zE-Kvu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51D-QQ-NMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1400" y="-174"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background.png" width="640" height="1136"/>
         <image name="loadScreen.png" width="640" height="1136"/>
         <image name="loginScreen.png" width="640" height="1136"/>
+        <image name="logoutBtn.png" width="60" height="60"/>
         <image name="qrCode.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -664,9 +760,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="jG9-tX-G0C"/>
+        <segue reference="3jc-5l-dmt"/>
+        <segue reference="5g9-aW-HAN"/>
         <segue reference="h4U-di-CFe"/>
-        <segue reference="kgZ-Z3-I4F"/>
         <segue reference="5yM-gN-tF0"/>
-        <segue reference="VBY-Wv-O0o"/>
     </inferredMetricsTieBreakers>
 </document>

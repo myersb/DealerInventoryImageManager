@@ -12,10 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+@property (assign, nonatomic) BOOL isDealerSuccess;
+
 
 - (IBAction)offKeyboardButton:(id)sender;
 - (IBAction)logInSubmit:(id)sender;
 - (BOOL) connectedToInternet;
 - (IBAction)endTyping:(id)sender;
+
+
 
 @end

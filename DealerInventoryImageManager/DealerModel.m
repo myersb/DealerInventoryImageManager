@@ -30,7 +30,7 @@
 /* TEST URL
  https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&username=jonest&password=password&datasource=appclaytonweb&linkonly=1
  */
-#define webServiceLoginURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=1"
+#define webServiceLoginURL @"http://claytonupdatecenter.pubdev.com/cfide/remoteInvoke.cfc?"
 
 /* OPTIONS
  username = jonest
@@ -85,47 +85,78 @@
     //
     //NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
     
-	NSString *urlText = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
-	urlText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSURL *url = [NSURL URLWithString:urlText];
-	
-	NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-	
-	[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	[urlRequest setHTTPMethod:@"POST"];
-	[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-	[urlRequest setValue:@"username" forHTTPHeaderField:userName];
-	[urlRequest setValue:@"password" forHTTPHeaderField:password];
-	
-//	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-//	NSLog(@"%@", connection);
+//	NSString *urlText = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+//	urlText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//	NSURL *url = [NSURL URLWithString:urlText];
 //	
-//	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
-//	NSURL *invURL = [NSURL URLWithString:urlString];
-	//NSData *data = [NSData dataWithContentsOfURL:urlRequest];
-	
-	NSHTTPURLResponse *response = nil;
-	NSError *error = nil;
-	NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-	
-	// Sticks all of the jSON data inside of a dictionary
-    NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-	NSLog(@"%@", urlRequest);
-	
-	// Creates a dictionary that goes inside the first data object eg. {data:[
-	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
+//	NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+//	[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//	[urlRequest setHTTPMethod:@"POST"];
+//	[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//	[urlRequest setValue:userName forHTTPHeaderField:@"username"];
+//	[urlRequest setValue:password forHTTPHeaderField:@"password"];
+//	NSLog(@"%@", urlRequest);
+//	
+//	NSHTTPURLResponse *response = nil;
+//	NSError *error = nil;
+//	NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+//	
+//	// Sticks all of the jSON data inside of a dictionary
+//    NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//	NSLog(@"%@", jSON);
+//	
+//	// Creates a dictionary that goes inside the first data object eg. {data:[
+//	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
 
 	
     // Retrieve the dealer List JSON data from the webservice
 	//
-   // NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:urlRequest dataSelector:modelListDataSector];
+   //NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
 
     
+	// Setup params
+    NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+	
+    // Create request
+	
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+	
+    // Setup Post Body
+    NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=1&username=%@&password=%@", userName, password];
+	
+    // setup request header
+    [request addValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-length"];
+	
+    // Setup the Body of hte post
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+	
+    // Post data and put the returned data into a variable
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
+	NSLog(@"Return Data: %@", returnData);
+	
+    // Stick the encoded returned data into a variable
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+	
+    // Display the results
+    NSLog(@"Return String: %@", returnString);
+	
+	NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
+	NSLog(@"JSON Dict: %@", jSON);
+	
+	// Creates a dictionary that goes inside the first data object eg. {data:[
+	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
+	NSLog(@"dataDict: %@", dataDictionary);
+	
+	
+    // Retrieve the dealer List JSON data from the webservice
+	//
+	//NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
+	
     // Loop over the dealerTopArray, and return the result set of each array loop as a Dictionary.
     //
     for (NSDictionary *JSONInfo in dataDictionary)
     {
-
         // These params hold the results of two deciding factors for whether a user is valid.
         //
         NSString *isActive = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISACTIVE]];
@@ -134,6 +165,8 @@
 
         //If the return is not in error and the user is active, put their data into the database.
         //
+		NSLog(@"isActive: %@", isActive);
+		NSLog(@"isError: %@", isError);
         if ( [isActive isEqualToString:@"1"] &&  [isError isEqualToString:@"0"])
         {
             
@@ -222,6 +255,7 @@
         }
         else
         {
+			NSLog(@"BOOM");
             return NO;
         }
 
@@ -231,7 +265,6 @@
 
 
 }
-
 
 // CHECK DEALER LOG IN EXPIRATION
 // Determines if the current dealer record is expired.  If the dealer is expired, return TRUE,

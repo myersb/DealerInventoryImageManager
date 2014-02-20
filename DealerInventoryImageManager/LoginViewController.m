@@ -148,18 +148,24 @@
         // Register user
         //
         DealerModel *dealerModel = [[DealerModel alloc] init];
-        BOOL isDealerSuccess = [dealerModel registerDealerWithUsername:_userName.text WithPassword:_password.text ];
+        _isDealerSuccess = [dealerModel registerDealerWithUsername:_userName.text WithPassword:_password.text ];
         
         
         // Was the dealer login successful?
         //
-        if (isDealerSuccess == YES){
+        if (_isDealerSuccess == YES){
             NSLog(@"Login successful!!");
             
             // Go to the Inventory View
-            [self performSegueWithIdentifier:@"segueToInventoryViewController" sender:self];
+			if ([dealerModel.dealerNumber isEqualToString:@"000000"] ) {
+				[self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
+			}
+			else{
+				[self performSegueWithIdentifier:@"segueToInventoryViewController" sender:self];
+			}
             
-        }   else {
+        }
+		else {
             // Show an error if login was not correct.
             UIAlertView *alertView = [[UIAlertView alloc]
                                       initWithTitle:@"Login Error"
@@ -172,6 +178,15 @@
         
         
     }
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+	if (_isDealerSuccess) {
+		return YES;
+	}
+	else{
+		return NO;
+	}
 }
 
 
