@@ -37,15 +37,26 @@
     
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	
 	_isConnected = TRUE;
-	
 	[self checkOnlineConnection];
+<<<<<<< HEAD
 	DealerModel *dealer = [[DealerModel alloc]init];
 	[dealer getDealerNumber];
 	_dealerNumber = dealer.dealerNumber;
 	//_dealerNumber = @"000310";
     /*
+=======
+	if (!_isSuperUser) {
+		DealerModel *dealer = [[DealerModel alloc]init];
+		[dealer getDealerNumber];
+		_dealerNumber = dealer.dealerNumber;
+	}
+	else{
+		_btnChangeDealer.hidden = NO;
+	}
+>>>>>>> 006758598b0b1e6abab2756bc8d5838c5572ccfa
 	if (_isConnected == TRUE) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
@@ -254,6 +265,19 @@
 	}
 }
 
+- (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
+{
+	fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+	
+	[fetchRequest setEntity:_entity];
+	
+	NSError *saveError = nil;
+	if (![[self managedObjectContext] save:&saveError]) {
+		NSLog(@"An error has occurred: %@", saveError);
+	}
+}
+
 #pragma mark - QR Reader
 
 - (IBAction)scanQRC:(id)sender
@@ -271,6 +295,10 @@
 	
 	[self presentViewController:reader animated:YES completion:nil];
 	
+}
+
+- (IBAction)logout:(id)sender {
+	[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
