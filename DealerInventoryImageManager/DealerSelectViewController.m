@@ -37,14 +37,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([_tfDealerNumber isFirstResponder] && [touch view] != _tfDealerNumber) {
+        [_tfDealerNumber resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-	if (_tfDealerNumber.text.length > 0) {
-		return YES;
+	if (sender != _btnLogout) {
+		if (_tfDealerNumber.text.length > 0) {
+			return YES;
+		}
+		else{
+			_alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Please enter a valid dealer or lot number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+			[_alert show];
+			return NO;
+		}
 	}
 	else{
-        _alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Please enter a valid dealer or lot number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
-		[_alert show];
-		return NO;
+		return YES;
 	}
 }
 
