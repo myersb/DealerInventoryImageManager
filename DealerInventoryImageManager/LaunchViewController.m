@@ -113,7 +113,7 @@
     
     //1 if user IS in the database, direct user to the InventoryViewController
     //2 If user IS-NOT in the database, direct user to the LoginViewController
-    if ( (unsigned long)fetchedObjects.count == 0) //1
+    if ( (unsigned long)fetchedObjects.count == 0) //2
     {
         NSLog(@"No dealer?  move into the Login View ");
         
@@ -126,10 +126,16 @@
         
         [self performSegueWithIdentifier:@"segueToLoginViewController" sender:self];
     }
-    else //2
+    else //1
     {
+		Dealer *currentDealer = [fetchedObjects objectAtIndex:0];
+		if (![currentDealer.dealerNumber isEqualToString:@"999999"]) {
+			[self performSegueWithIdentifier:@"segueToInventoryViewControllerFromLaunch" sender:self];
+		}
+		else{
+			[self performSegueWithIdentifier:@"segueToDealerSelectFromLaunch" sender:self];
+		}
         NSLog(@"There is a dealer, move into the Inventory View ");
-        [self performSegueWithIdentifier:@"segueToInventoryViewControllerFromLaunch" sender:self];
     }
 }
 

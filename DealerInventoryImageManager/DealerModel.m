@@ -30,7 +30,7 @@
 /* TEST URL
  https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&username=jonest&password=password&datasource=appclaytonweb&linkonly=1
  */
-#define webServiceLoginURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=1"
+#define webServiceLoginURL @"http://claytonupdatecenter.pubdev.com/cfide/remoteInvoke.cfc?"
 
 /* OPTIONS
  username = jonest
@@ -79,27 +79,45 @@
 //
 - (BOOL) registerDealerWithUsername:(NSString *) userName
                        WithPassword:(NSString *) password {
-
     
-    //pass data to web service login and get back values.
-    //
-    NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
-    
-    // Retrieve the dealer List JSON data from the webservice
-	//
-    NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
-
-    
+	// Setup params
+    NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+	
+    // Create request
+	
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+	
+    // Setup Post Body
+    NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=1&username=%@&password=%@", userName, password];
+	
+    // setup request header
+    [request addValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-length"];
+	
+    // Setup the Body of hte post
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+	
+    // Post data and put the returned data into a variable
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
+	
+    // Stick the encoded returned data into a variable
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+	
+    // Display the results
+	
+	NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
+	
+	// Creates a dictionary that goes inside the first data object eg. {data:[
+	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
+	
     // Loop over the dealerTopArray, and return the result set of each array loop as a Dictionary.
     //
-    for (NSDictionary *JSONInfo in dealerTopArray)
+    for (NSDictionary *JSONInfo in dataDictionary)
     {
-
         // These params hold the results of two deciding factors for whether a user is valid.
         //
         NSString *isActive = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISACTIVE]];
         NSString *isError = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISERROR]];
-        
 
         //If the return is not in error and the user is active, put their data into the database.
         //
@@ -126,8 +144,6 @@
             {
                 NSLog(@"problem! %@", error);
             }
-            
-            
             
             // If user IS in the database, edit the date time
             // If the Dealer IS-NOT in the database, then put them into the table
@@ -169,7 +185,7 @@
                 
                 //  Add the dealer info to the entity
                 //
-                NSNumber *getDealerNumber = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) ;
+                NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
                 dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
                 dealer.userName = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_USERNAME], nil);
                 dealer.lastAuthorizationDate = [NSDate date];
@@ -191,6 +207,7 @@
         }
         else
         {
+			NSLog(@"BOOM");
             return NO;
         }
 
@@ -200,7 +217,6 @@
 
 
 }
-
 
 // CHECK DEALER LOG IN EXPIRATION
 // Determines if the current dealer record is expired.  If the dealer is expired, return TRUE,

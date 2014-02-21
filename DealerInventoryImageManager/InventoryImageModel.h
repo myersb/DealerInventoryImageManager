@@ -33,7 +33,6 @@
 
 -(int)deleteImageDataByImageId:(NSString*) imageId
         andByInventoryPackageId:(NSString*) inventoryPackageId;
--(BOOL)isNetworkAvailable;
 
 - (void)downloadImagesByinventoryPackageId:(NSString *)serialNumber;
 - (void)downloadImages:(NSString *)dealerNumber;

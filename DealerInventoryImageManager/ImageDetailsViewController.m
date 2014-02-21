@@ -570,7 +570,7 @@
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     // Display the results that the service gives back.
-    NSLog(returnString);
+    NSLog(@"%@",returnString);
     
 }
 

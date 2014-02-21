@@ -85,6 +85,8 @@
 		B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA618B3E42800FE34AE /* zbar-helpicons.png */; };
 		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
 		B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5691BA218B3E42800FE34AE /* libzbar.a */; };
+		B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */; };
+		B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BB118B50CAB00FE34AE /* logoutBtn.png */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
@@ -219,6 +221,9 @@
 		B5691BA518B3E42800FE34AE /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		B5691BA618B3E42800FE34AE /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		B5691BA718B3E42800FE34AE /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerSelectViewController.h; sourceTree = "<group>"; };
+		B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerSelectViewController.m; sourceTree = "<group>"; };
+		B5691BB118B50CAB00FE34AE /* logoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutBtn.png; sourceTree = "<group>"; };
 		B59070B718ABC70E00E15B2C /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		B59070BB18ABEAC100E15B2C /* shutterBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterBtn.png; sourceTree = "<group>"; };
 		B591F064189BFB3B003AB1D9 /* blankThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankThumbnail.png; sourceTree = "<group>"; };
@@ -358,6 +363,7 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5691BB118B50CAB00FE34AE /* logoutBtn.png */,
 				B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */,
 				B5691B6818B2AF2100FE34AE /* InfoPlist.strings */,
 				B59070BB18ABEAC100E15B2C /* shutterBtn.png */,
@@ -427,6 +433,8 @@
 				81BDB86818ABF96400C71247 /* CameraOverlayView.m */,
 				8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */,
 				8140ACBC18ABEDAC00D04E05 /* CameraOverlayView.h */,
+				B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */,
+				B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */,
 				8142C97F1888410000C32E83 /* InventoryCell.h */,
 				8142C9801888410000C32E83 /* InventoryCell.m */,
 				8142C9811888410000C32E83 /* InventoryCell.xib */,
@@ -601,6 +609,7 @@
 			files = (
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
+				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
 				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
@@ -673,6 +682,7 @@
 				B5691B7318B2AFFD00FE34AE /* InventoryImage.m in Sources */,
 				B5691B7418B2AFFD00FE34AE /* Dealer.m in Sources */,
 				B5691B7518B2AFFD00FE34AE /* DataHelper.m in Sources */,
+				B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */,
 				B5691B7618B2AFFD00FE34AE /* DealerModel.m in Sources */,
 				B5691B7718B2AFFD00FE34AE /* Reachability.m in Sources */,
 				B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */,

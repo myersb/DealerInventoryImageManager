@@ -260,9 +260,9 @@ NSString * entityName = @"ImageTags";
     NSManagedObject *myMO32 = [NSEntityDescription insertNewObjectForEntityForName:entityName
                                                             inManagedObjectContext:[self managedObjectContext]];
     // Added values to fields
-    [myMO31 setValue:@"32" forKey:@"tagId"];
-    [myMO31 setValue:@"Interior" forKey:@"tagDescription"];
-    [myMO31 setValue:@"m-INT" forKey:@"typeId"];
+    [myMO32 setValue:@"32" forKey:@"tagId"];
+    [myMO32 setValue:@"Interior" forKey:@"tagDescription"];
+    [myMO32 setValue:@"m-INT" forKey:@"typeId"];
     
     
     
