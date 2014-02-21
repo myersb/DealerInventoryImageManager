@@ -79,40 +79,6 @@
 //
 - (BOOL) registerDealerWithUsername:(NSString *) userName
                        WithPassword:(NSString *) password {
-
-    
-    //pass data to web service login and get back values.
-    //
-    //NSString *webServiceURL = [NSString stringWithFormat:@"%@&username=%@&password=%@", webServiceLoginURL, userName, password];
-    
-//	NSString *urlText = [NSString stringWithFormat:@"%@", webServiceLoginURL];
-//	urlText = [urlText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//	NSURL *url = [NSURL URLWithString:urlText];
-//	
-//	NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-//	[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//	[urlRequest setHTTPMethod:@"POST"];
-//	[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//	[urlRequest setValue:userName forHTTPHeaderField:@"username"];
-//	[urlRequest setValue:password forHTTPHeaderField:@"password"];
-//	NSLog(@"%@", urlRequest);
-//	
-//	NSHTTPURLResponse *response = nil;
-//	NSError *error = nil;
-//	NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-//	
-//	// Sticks all of the jSON data inside of a dictionary
-//    NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//	NSLog(@"%@", jSON);
-//	
-//	// Creates a dictionary that goes inside the first data object eg. {data:[
-//	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
-
-	
-    // Retrieve the dealer List JSON data from the webservice
-	//
-   //NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
-
     
 	// Setup params
     NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
@@ -133,25 +99,16 @@
 	
     // Post data and put the returned data into a variable
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
-	NSLog(@"Return Data: %@", returnData);
 	
     // Stick the encoded returned data into a variable
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
 	
     // Display the results
-    NSLog(@"Return String: %@", returnString);
 	
 	NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
-	NSLog(@"JSON Dict: %@", jSON);
 	
 	// Creates a dictionary that goes inside the first data object eg. {data:[
 	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
-	NSLog(@"dataDict: %@", dataDictionary);
-	
-	
-    // Retrieve the dealer List JSON data from the webservice
-	//
-	//NSArray * dealerTopArray = [JSONToArray retrieveJSONItems:webServiceURL dataSelector:modelListDataSector];
 	
     // Loop over the dealerTopArray, and return the result set of each array loop as a Dictionary.
     //
@@ -161,12 +118,9 @@
         //
         NSString *isActive = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISACTIVE]];
         NSString *isError = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISERROR]];
-        
 
         //If the return is not in error and the user is active, put their data into the database.
         //
-		NSLog(@"isActive: %@", isActive);
-		NSLog(@"isError: %@", isError);
         if ( [isActive isEqualToString:@"1"] &&  [isError isEqualToString:@"0"])
         {
             
@@ -190,8 +144,6 @@
             {
                 NSLog(@"problem! %@", error);
             }
-            
-            
             
             // If user IS in the database, edit the date time
             // If the Dealer IS-NOT in the database, then put them into the table
@@ -233,7 +185,7 @@
                 
                 //  Add the dealer info to the entity
                 //
-                NSNumber *getDealerNumber = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) ;
+                NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
                 dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
                 dealer.userName = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_USERNAME], nil);
                 dealer.lastAuthorizationDate = [NSDate date];

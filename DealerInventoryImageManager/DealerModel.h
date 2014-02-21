@@ -26,6 +26,5 @@
                        WithPassword:(NSString *) password;
 
 - (BOOL) isDealerExpired;
-- (void) confirmDealer;
 
 @end

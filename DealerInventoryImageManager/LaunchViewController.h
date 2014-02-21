@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Dealer.h"
 //#import <BugSense-iOS/BugSenseController.h>
 
 @interface LaunchViewController : UIViewController 

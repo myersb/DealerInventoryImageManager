@@ -103,9 +103,14 @@
  ***************************************************** */
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
+    id delegate = [[UIApplication sharedApplication]delegate];
+	self.managedObjectContext = [delegate managedObjectContext];
     // Are we online?
     [self checkOnlineConnection];
+	
+	if (_currentDealer) {
+		_userName.text = _currentDealer.userName;
+	}
     
     
 }
@@ -143,21 +148,20 @@
     } else {
         
         
-        
+        [self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
         
         // Register user
         //
         DealerModel *dealerModel = [[DealerModel alloc] init];
         _isDealerSuccess = [dealerModel registerDealerWithUsername:_userName.text WithPassword:_password.text ];
-        
+		[dealerModel getDealerNumber];
+		_dealerNumber = dealerModel.dealerNumber;
         
         // Was the dealer login successful?
         //
         if (_isDealerSuccess == YES){
-            NSLog(@"Login successful!!");
-            
             // Go to the Inventory View
-			if ([dealerModel.dealerNumber isEqualToString:@"000000"] ) {
+			if ([_dealerNumber isEqualToString:@"999999"] ) {
 				[self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
 			}
 			else{
@@ -179,6 +183,40 @@
         
     }
 }
+
+- (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
+{
+	fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+	
+	[fetchRequest setEntity:_entity];
+	NSError *error = nil;
+	NSArray *objects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	
+	for (NSManagedObjectContext *dealer in objects) {
+		[[self managedObjectContext] deleteObject:dealer];
+	}
+	
+	NSError *saveError = nil;
+	if (![[self managedObjectContext] save:&saveError]) {
+		NSLog(@"An error has occurred: %@", saveError);
+	}
+}
+
+- (void)loadDealer
+{
+	_fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
+	
+	[_fetchRequest setEntity:_entity];
+	
+	NSError *error = nil;
+	
+	NSArray *dealerArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
+	
+	_currentDealer = [dealerArray objectAtIndex:0];
+}
+
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
 	if (_isDealerSuccess) {
