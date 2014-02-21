@@ -37,9 +37,10 @@ NSMutableArray *models;
     return self;
 }
 
-- (void)viewDidLoad	
+- (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"HomeDetailsViewController : viewDidLoad");
 
     // Instantiate container for Image objects
     images = [[NSMutableArray alloc] init];
@@ -60,6 +61,8 @@ NSMutableArray *models;
 
 - (void)loadDetails
 {
+    NSLog(@"HomeDetailsViewController : loadDetails");
+    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
 	_predicate = [NSPredicate predicateWithFormat:@"serialNumber == %@", _selectedSerialNumber];
@@ -133,6 +136,8 @@ NSMutableArray *models;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"HomeDetailsViewController : tableView");
+    
     static NSString *cellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -242,6 +247,9 @@ NSMutableArray *models;
 #pragma mark Fetched Results Controller section
 - (NSFetchedResultsController *) loadImages
 {
+    NSLog(@"HomeDetailsViewController : loadImages");
+    
+    
 	if (_fetchedResultsController != nil) {
 		return  _fetchedResultsController;
 	}
@@ -262,6 +270,9 @@ NSMutableArray *models;
 }
 
 - (IBAction)addPhoto:(id)sender {
+    
+    NSLog(@"HomeDetailsViewController : addPhoto");
+    
 	// Check to see if dealer activity is expired.
     //
     DealerModel *isConfirmed = [[DealerModel alloc] init];
@@ -286,6 +297,8 @@ NSMutableArray *models;
 #pragma mark - Dealer Login Check Alert
 - (void)confirmDealer:(NSString *)customTitle
 {
+    
+    NSLog(@"HomeDetailsViewController : confirmDealer");
     
     // Get the username
     //
@@ -338,6 +351,8 @@ NSMutableArray *models;
 
 - (void) alertView:(UIAlertView *)alertView
    clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"DealerInventoryImageManager : alertView");
     
     // Stores the title of the button pressed
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
@@ -395,7 +410,7 @@ NSMutableArray *models;
 
 
 - (void) checkOnlineConnection {
-	
+    NSLog(@"HomeDetailsViewController : checkOnlineConnection");
 	
     internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
     
@@ -418,6 +433,8 @@ NSMutableArray *models;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"HomeDetailsViewController : prepareForSegue");
+    
 	if ([[segue identifier]isEqualToString:@"segueToRetailWeb"]) {
 		RetailWebViewController *retailWebViewController = [segue destinationViewController];
 		retailWebViewController.requestedURL = _selectedSerialNumber;

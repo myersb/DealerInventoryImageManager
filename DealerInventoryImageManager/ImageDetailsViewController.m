@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"ImageDtailesViewController : viewDidLoad");
     
 
     
@@ -303,6 +304,7 @@
 /* --------------------------------------------------------------- */
 
 - (IBAction)deleteButton:(id)sender {
+    NSLog(@"ImageDtailesViewController : deleteButton");
     
     InventoryImageModel *deleteImage = [[InventoryImageModel alloc] init];
     [deleteImage deleteImageDataByImageId:_currentInventoryImage.imagesId
@@ -315,7 +317,7 @@
 
 
 - (IBAction)saveButton:(id)sender{
-
+    NSLog(@"ImageDtailesViewController : saveButton");
 
     
     // Take data and update core data
@@ -514,6 +516,7 @@
 
 - (void)uploadImage
 {
+    NSLog(@"ImageDtailesViewController : uploadImage");
     
     // setting up the URL to post to
     NSData *imageData = UIImageJPEGRepresentation(_homeImage.image, 90);
@@ -546,14 +549,14 @@
     
     NSLog(@"%@%@.jpg", imageDirectory, udidString );
     
-    // Set the fiel source reference
+    // Set the field source reference
     _fileSourceReference = [NSString stringWithFormat:@"%@%@.jpg", imageDirectory, udidString];
     
     // Add the form field "imageDirectory" and its value.
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageDirectory\"\r\n\r\n%@",imageDirectory] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    // Now we end with a boundar also followed by two dashes.
+    // Now we end with a boundary also followed by two dashes.
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
     // setting the body of the post to the reqeust

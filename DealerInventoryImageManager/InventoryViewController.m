@@ -33,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"DealerInventoryImageManager : viewDidLoad");
+    
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
 	
@@ -43,6 +45,7 @@
 	[dealer getDealerNumber];
 	_dealerNumber = dealer.dealerNumber;
 	//_dealerNumber = @"000310";
+    /*
 	if (_isConnected == TRUE) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
@@ -51,6 +54,9 @@
 		[self loadInventory];
 		[self loadImages];
 	}
+    */
+    [self loadInventory];
+    [self loadImages];
 	
 }
 
@@ -97,6 +103,8 @@
 
 - (void)downloadInventoryData:(NSString *)dealerNumber
 {
+    NSLog(@"DealerInventoryImageManager : downloadInventoryData");
+    
 	[self loadInventory];
 	
 	if (_isConnected == 1 && [_modelsArray count] > 0) {
@@ -134,6 +142,8 @@
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
+    NSLog(@"DealerInventoryImageManager : downloadImages");
+    
 	[self loadImages];
 	
 	if (_isConnected == 1 && [_imagesArray count] > 0) {
@@ -167,6 +177,9 @@
 
 - (void)loadInventory
 {
+    
+    NSLog(@"DealerInventoryImageManager : loadInventory");
+    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
 	_sort = [NSSortDescriptor sortDescriptorWithKey:@"homeDesc" ascending:YES];
@@ -184,6 +197,9 @@
 
 - (NSNumber *)loadImagesBySerialNumber: (NSString *)serialNumber
 {
+    
+    NSLog(@"DealerInventoryImageManager : loadImagesBySerialNumber");
+    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_imagesPredicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", serialNumber];
@@ -201,6 +217,8 @@
 
 - (void)loadImages
 {
+    NSLog(@"DealerInventoryImageManager : loadImages");
+    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	
@@ -215,6 +233,9 @@
 
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest andArray:(NSArray *)array
 {
+    
+    NSLog(@"DealerInventoryImageManager : clearEntity");
+    
 	fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
 	
@@ -237,7 +258,8 @@
 
 - (IBAction)scanQRC:(id)sender
 {
-	
+	NSLog(@"DealerInventoryImageManager : scanQRC");
+    
 	ZBarReaderViewController *reader = [ZBarReaderViewController new];
 	reader.readerDelegate = self;
 	reader.supportedOrientationsMask = ZBarOrientationMaskAll;
@@ -253,6 +275,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
 	id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results)
@@ -293,6 +316,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"DealerInventoryImageManager : prepareForSegue");
+    
 	if ([[segue identifier]isEqualToString:@"segueToHomeDetails"]) {
 		// Gets the index of the selected row
 		NSIndexPath *path = [self.inventoryListTable indexPathForSelectedRow];

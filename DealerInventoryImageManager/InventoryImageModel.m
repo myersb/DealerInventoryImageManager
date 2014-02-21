@@ -32,6 +32,9 @@
 -(int)deleteImageDataByImageId:(NSString*) imageId
         andByInventoryPackageId:(NSString*) inventoryPackageId
 {
+    
+    NSLog(@"InventoryImageModel : deleteImageDataByImageId");
+    
     int processSuccess = 1;
     
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -108,6 +111,8 @@
                  andImageSource:(NSString*) imageSource
 {
 
+    NSLog(@"InventoryImageModel : updateImageDataByImageId");
+    
     processSuccess = 1;
     
     // Check that user is online
@@ -230,6 +235,7 @@
                             andFeatureText:(NSString*) featureText
                             andImageSource:(NSString*) imageSource
 {
+    NSLog(@"InventoryImageModel : insertImageDataByInventoryPackageId");
     
     id delegate = [[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [delegate managedObjectContext];
@@ -327,6 +333,8 @@
 - (void)downloadImages:(NSString *)dealerNumber
 {
 
+    NSLog(@"InventoryImageModel : downloadImages");
+    
 	NSString *stringImageURL = [NSString stringWithFormat:@"%@&DealerNumber=%@",inventoryImageURL, dealerNumber];
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
@@ -358,6 +366,8 @@
 - (void)downloadImagesByinventoryPackageId:(NSString *)inventoryPackageId
 {
     
+    NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId");
+    
     
     // Clear out old data to prepare for data refresh.
     // --------------------------------------------------
@@ -375,6 +385,8 @@
     NSArray *deleteImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
 
     
+    NSLog(@"%@", deleteImageData);
+    
     for (id object in deleteImageData) {
         [self.managedObjectContext deleteObject:object];
     }
@@ -386,16 +398,17 @@
     
     
     // Put new Home image data into the database.
+    // We do this since we need the imageID for the image we just uploaded
     // --------------------------------------------------
 	NSString *stringImageURL = [NSString stringWithFormat:@"%@&inventoryPackageId=%@",inventoryImageURL, inventoryPackageId];
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
-    
-    
-    NSLog(@" TARGET URL : %@",url);
+
 	
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
 	_dataDictionary = [_jSON objectForKey:@"data"];
+    
+    NSLog(@"%@", _dataDictionary);
 	
 	for (NSDictionary *imageDictionary in _dataDictionary) {
 		InventoryImage *image = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
@@ -425,14 +438,18 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"Received Response : %@", response);
+    
+    NSLog(@"InventoryImageModel : connection.didReceiveResponse");
+    //NSLog(@"InventoryImageModel : Received Response : %@", response);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 {
     
+    NSLog(@"InventoryImageModel : connection.didReceiveData");
+    
     NSString *convertedString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Did receive data : %@", convertedString );
+    //NSLog(@"Did receive data : %@", convertedString );
     
     // Sticks all of the jSON data inside of a dictionary
     _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -442,7 +459,7 @@
     // Creates a dictionary that goes inside the first data object eg. {data:[
     _dataDictionary = [_jSON objectForKey:@"data"];
     
-    NSLog(@"jSON Object: %@", _dataDictionary);
+    //NSLog(@"jSON Object: %@", _dataDictionary);
     
     // Check for other dictionaries inside of the dataDictionary
     for (NSDictionary *serviceReturn in _dataDictionary) {
@@ -464,12 +481,16 @@
  totalBytesWritten:(NSInteger)totalBytesWritten
 totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
+    NSLog(@"InventoryImageModel : connection.didSendBodyData");
+    
     NSLog(@"Sent Body data : %ld", (long)bytesWritten);
 
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSLog(@"InventoryImageModel : connectionDidFinishLoading");
+    
     NSLog(@"Connection Finished : %@", connection);
 }
 
