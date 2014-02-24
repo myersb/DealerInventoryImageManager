@@ -41,13 +41,9 @@
 	
 	_isConnected = TRUE;
 	[self checkOnlineConnection];
-<<<<<<< HEAD
 	DealerModel *dealer = [[DealerModel alloc]init];
 	[dealer getDealerNumber];
 	_dealerNumber = dealer.dealerNumber;
-	//_dealerNumber = @"000310";
-    /*
-=======
 	if (!_isSuperUser) {
 		DealerModel *dealer = [[DealerModel alloc]init];
 		[dealer getDealerNumber];
@@ -56,18 +52,14 @@
 	else{
 		_btnChangeDealer.hidden = NO;
 	}
->>>>>>> 006758598b0b1e6abab2756bc8d5838c5572ccfa
 	if (_isConnected == TRUE) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
 	}
 	else{
-		[self loadInventory];
-		[self loadImages];
+		//[self loadInventory];
+		//[self loadImages];
 	}
-    */
-    [self loadInventory];
-    [self loadImages];
 	
 }
 
@@ -148,14 +140,14 @@
 		home.width = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"width"], nil) intValue]];
         home.inventoryPackageID = NSLocalizedString([modelDictionary objectForKey:@"inventorypackageid"], nil);
 	}
-	[self loadInventory];
+	//[self loadInventory];
 }
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
     NSLog(@"DealerInventoryImageManager : downloadImages");
     
-	[self loadImages];
+	//[self loadImages];
 	
 	if (_isConnected == 1 && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest andArray:_imagesArray];
@@ -167,7 +159,7 @@
 	
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
 	_dataDictionary = [_jSON objectForKey:@"data"];
-	
+	NSLog(@"%@", _dataDictionary);
 	for (NSDictionary *imageDictionary in _dataDictionary) {
 		InventoryImage *image = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 		NSString *trimmedSerialNumber = [NSString stringWithFormat:@"%@",[NSLocalizedString([imageDictionary objectForKey:@"serialnumber"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
@@ -181,7 +173,6 @@
         image.imageCaption = NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil);
         image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
-		//[_managedObjectContext save:nil];
 	}
 	[self.managedObjectContext save:nil];
 }
