@@ -42,19 +42,10 @@
 	
 	_isConnected = TRUE;
 	[self checkOnlineConnection];
-<<<<<<< HEAD
 	DealerModel *dealer = [[DealerModel alloc]init];
 	[dealer getDealerNumber];
 	_dealerNumber = dealer.dealerNumber;
-=======
-
-	DealerModel *dealer = [[DealerModel alloc]init];
-	[dealer getDealerNumber];
-	_dealerNumber = dealer.dealerNumber;
-	//_dealerNumber = @"000310";
-
-
->>>>>>> 673224bb842ae7b3b622553bd28dbb3d1f7c9606
+	
 	if (!_isSuperUser) {
 		DealerModel *dealer = [[DealerModel alloc]init];
 		[dealer getDealerNumber];
@@ -63,23 +54,16 @@
 	else{
 		_btnChangeDealer.hidden = NO;
 	}
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 673224bb842ae7b3b622553bd28dbb3d1f7c9606
 	if (_isConnected == TRUE) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
 	}
 	else{
-		//[self loadInventory];
-		//[self loadImages];
+		[self loadInventory];
+		[self loadImages];
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 673224bb842ae7b3b622553bd28dbb3d1f7c9606
 	
 }
 
