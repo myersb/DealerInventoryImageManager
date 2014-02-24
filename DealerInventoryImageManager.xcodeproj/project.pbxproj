@@ -157,7 +157,6 @@
 		81A0D32218240F2B006FB5E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		81A0D32418243955006FB5E7 /* ImageDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailsViewController.h; sourceTree = "<group>"; };
 		81A0D32518243955006FB5E7 /* ImageDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailsViewController.m; sourceTree = "<group>"; };
-		81BDB86818ABF96400C71247 /* CameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayView.m; sourceTree = "<group>"; };
 		81BDB86A18ABF98D00C71247 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		81BDB86B18B2716F00C71247 /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlay.xib; sourceTree = "<group>"; };
 		81C50D7818159BD70011870C /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
@@ -430,7 +429,6 @@
 				81BDB86B18B2716F00C71247 /* CameraOverlay.xib */,
 				81BDB86A18ABF98D00C71247 /* CameraViewController.h */,
 				B5691B8218B2B05300FE34AE /* CameraViewController.m */,
-				81BDB86818ABF96400C71247 /* CameraOverlayView.m */,
 				8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */,
 				8140ACBC18ABEDAC00D04E05 /* CameraOverlayView.h */,
 				B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */,

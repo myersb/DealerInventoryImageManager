@@ -77,9 +77,7 @@
 - (IBAction)presentCameraView:(id)sender {
 	
 	_picker = [[UIImagePickerController alloc] init];
-
-	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged) name:@"UIDeviceOrientationDidChangeNotification" object:[UIDevice currentDevice]];
+	_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	
 	// Set flag to allow the alert to be shown
 	_showAlert = YES;
@@ -92,13 +90,15 @@
 	
 	_overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
 	_picker.delegate = self;
+	_picker.wantsFullScreenLayout = YES;
 	_picker.allowsEditing = NO;
-	_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	_picker.cameraOverlayView = _overlay;
 	_picker.showsCameraControls = NO;
 	_picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
-	_picker.wantsFullScreenLayout = YES;
 	[self presentViewController:_picker animated:YES completion:NULL];
+	
+	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged) name:@"UIDeviceOrientationDidChangeNotification" object:[UIDevice currentDevice]];
 	
 	if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && _showAlert == YES && _alertIsShowing == NO) {
 		_alert = [[UIAlertView alloc]initWithTitle:@"Check Device Orientation" message:@"Please rotate your phone to the horizontal/landscape orientation" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];

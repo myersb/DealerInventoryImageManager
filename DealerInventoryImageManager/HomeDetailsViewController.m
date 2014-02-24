@@ -47,8 +47,6 @@ NSMutableArray *models;
     
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.leftBarButtonItem = item;
-    
-    
 
     // Instantiate container for Image objects
     images = [[NSMutableArray alloc] init];
@@ -160,26 +158,24 @@ NSMutableArray *models;
 	}
 	
     
+	
+	InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	// Puts the image object into the images array
+	[images addObject:image];
+	UILabel *imageIdLabel = [[UILabel alloc] init];
+	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     // Fill out target fields with Data
 	if (_isConnected == 1) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
-			
-			InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
-			
-			// Puts the image object into the images array
-			[images addObject:image];
-			_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
 			_stringURL = [NSString stringWithFormat:@"%@?width=120", image.sourceURL];
 			_imgURL = [NSURL URLWithString:_stringURL];
 			_imageData = [NSData dataWithContentsOfURL:_imgURL];
-			UIImage *imageToSync = [UIImage imageWithData:_imageData];
-			dispatch_sync(dispatch_get_main_queue(), ^(void) {
-				[[cell imageView]setImage:imageToSync];
+			_imageToSync = [UIImage imageWithData:_imageData];
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[[cell imageView]setImage:_imageToSync];
 				[cell setNeedsLayout];
 				
 				// Create a new label, hide it and fill it with the id for the given object.
-				UILabel *imageIdLabel = [[UILabel alloc] init];
-				
 				imageIdLabel.hidden = TRUE;
 				[cell addSubview:imageIdLabel];
 				

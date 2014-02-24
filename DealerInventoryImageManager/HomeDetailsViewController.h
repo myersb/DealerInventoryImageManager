@@ -49,6 +49,7 @@
 @property (strong, nonatomic) NSString *stringURL;
 @property (strong, nonatomic) NSURL *imgURL;
 @property (strong, nonatomic) NSData *imageData;
+@property (strong, nonatomic) UIImage *imageToSync;
 
 @property (nonatomic, strong) UIAlertView *alert;		// Instantiate an alert object
 @property (nonatomic, assign) BOOL modelAvailable;
