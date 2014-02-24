@@ -234,6 +234,7 @@
                          andImageTypeOrder:(NSNumber*) imageTypeOrder
                             andFeatureText:(NSString*) featureText
                             andImageSource:(NSString*) imageSource
+                           andSerialNumber:(NSString*) serialNumber
 {
     NSLog(@"InventoryImageModel : insertImageDataByInventoryPackageId");
     
@@ -258,7 +259,7 @@
     {
         
         
-        // ****************  Submit to server ****************** //
+        // ****************  Submit Data to server ****************** //
         // If online, submit data up to server
         // Create the request.
         NSString *url = @"https://www.claytonupdatecenter.com/cfide/remoteinvoke.cfc";
@@ -269,7 +270,7 @@
         NSString *obj = @"inventory";
         
         
-        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&ImageReference=%@&init"
+        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&init"
                                  ,url
                                  ,method
                                  ,methodToInvoke
@@ -281,43 +282,23 @@
                                  ,[featureText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                                  //,imageTypeOrder
                                  ,tagId
+                                 ,serialNumber
                                  ,imageSource];
         
         
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:queryString]];
+        NSURL *completeQueryString = [NSURL URLWithString:queryString];
+        NSLog(@"%@", completeQueryString);
         
-        NSLog(@"%@",queryString);
-        
-        // Specify that it will be a POST request
-        request.HTTPMethod = @"POST";
-        
-        // This is how we set header fields
-        [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        NSData *imageIdReturn = [NSData dataWithContentsOfURL:completeQueryString];
+        NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId : %@", imageIdReturn);
         
         
-        // Setting a timeout
-        request.timeoutInterval = 20.0;
-        
-        
-        // Fire request
-        [NSURLConnection connectionWithRequest:request delegate:self];
-     
-        
-        
-    }
-    
-
-    
-    
-    // ****************  Insert Into Core Data ****************** //
-    if (processSuccess == YES)
-    {
-
+        // ****************  Refresh Data ****************** //
         [self downloadImagesByinventoryPackageId:inventoryPackageId];
 
     }
     
-   
+
     
     return processSuccess;
     
@@ -352,7 +333,7 @@
 		image.group = NSLocalizedString([imageDictionary objectForKey:@"imagegroup"], nil);
         image.imageTagId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"searchtagid"]];
         image.imagesId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"imagesid"]];
-        image.imageCaption = NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil);
+        image.imageCaption = [NSString stringWithFormat:@"%@", NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil)];
         image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
 	}
@@ -385,11 +366,16 @@
     NSArray *deleteImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
 
     
-    NSLog(@"%@", deleteImageData);
+    NSLog(@"Before - %@", deleteImageData);
     
     for (id object in deleteImageData) {
         [self.managedObjectContext deleteObject:object];
     }
+    
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *checkImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    NSLog(@"After Delete - %@", checkImageData);
     
     
     
@@ -420,12 +406,17 @@
 		image.group = NSLocalizedString([imageDictionary objectForKey:@"imagegroup"], nil);
         image.imageTagId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"searchtagid"]];
         image.imagesId = [NSString stringWithFormat:@"%@", [imageDictionary objectForKey:@"imagesid"]];
-        image.imageCaption = NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil);
+        image.imageCaption = [NSString stringWithFormat:@"%@", NSLocalizedString([imageDictionary objectForKey:@"imagecaption"], nil)];
         image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
 	}
 	NSError *error;
 	[_managedObjectContext save:&error];
+    
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *newImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    NSLog(@"After Data Inserted - %@", newImageData);
     
 }
 
@@ -440,7 +431,7 @@
 {
     
     NSLog(@"InventoryImageModel : connection.didReceiveResponse");
-    //NSLog(@"InventoryImageModel : Received Response : %@", response);
+    //NSLog(@"Received Response : %@", response);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
@@ -465,7 +456,7 @@
     for (NSDictionary *serviceReturn in _dataDictionary) {
         
         
-        //NSLog(@"%@", [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]]);
+        NSLog(@"%@", [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]]);
         
         if([ [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]] isEqualToString:@"Success"])
         {
