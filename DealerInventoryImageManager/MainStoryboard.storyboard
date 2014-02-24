@@ -772,20 +772,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="CtI-2Q-RRX"/>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="5yM-gN-tF0"/>
-        <segue reference="yYU-7B-a5w"/>
-        <segue reference="bFb-T4-uZA"/>
-=======
         <segue reference="bFb-T4-uZA"/>
         <segue reference="VBY-Wv-O0o"/>
         <segue reference="yVG-si-1YU"/>
         <segue reference="5yM-gN-tF0"/>
         <segue reference="CtI-2Q-RRX"/>
         <segue reference="yYU-7B-a5w"/>
->>>>>>> 43e6ba38640e65ca99ef9b443c1f5781de93c8fa
     </inferredMetricsTieBreakers>
 </document>

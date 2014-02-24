@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811870D218BBD9B4002FFBA6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
@@ -106,6 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		811870D118BBD9B4002FFBA6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTags.h; sourceTree = "<group>"; };
 		811B9C3B183D223B0075EB20 /* ImageTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTags.m; sourceTree = "<group>"; };
 		811B9C3D183D223C0075EB20 /* ImageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTypes.h; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
 				B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */,
 				B525AB9417FF34B500619E3D /* CoreMedia.framework in Frameworks */,
+				811870D218BBD9B4002FFBA6 /* Crashlytics.framework in Frameworks */,
 				B525AB9517FF34B500619E3D /* CoreVideo.framework in Frameworks */,
 				B525AB9117FF34A600619E3D /* AVFoundation.framework in Frameworks */,
 				8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */,
@@ -321,6 +324,7 @@
 		8198421F17E0D40900B619C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				811870D118BBD9B4002FFBA6 /* Crashlytics.framework */,
 				81D7A7D41887374400F561DF /* CFNetwork.framework */,
 				81A0D32218240F2B006FB5E7 /* libz.dylib */,
 				81A0D32018240F02006FB5E7 /* BugSense-iOS.framework */,
@@ -541,6 +545,7 @@
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
 				8198421B17E0D40900B619C7 /* Resources */,
+				811870D018BBD975002FFBA6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -653,6 +658,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		811870D018BBD975002FFBA6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd c192f6b118cc23296cb10f2a98e70f92d373842a9257c8679a8c97a8b96275f8";
+		};
 		8198424017E0D40A00B619C7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -811,7 +829,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
@@ -831,7 +852,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";

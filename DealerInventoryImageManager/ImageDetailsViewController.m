@@ -31,10 +31,6 @@
     [super viewDidLoad];
     NSLog(@"ImageDetailesViewController : viewDidLoad");
     
-
-    
-    NSLog(@"IDVC Test1 - %@", self.currentInventoryImage);
-    
 	
     // Do any additional setup after loading the view.
     
@@ -521,14 +517,18 @@
 {
     NSLog(@"ImageDetailesViewController : uploadImage");
     
+    //[typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""]
+    
     // setting up the URL to post to
     NSData *imageData = UIImageJPEGRepresentation(_homeImage.image, 90);
     NSString *urlString = @"https://www.origin-clayton-media.com/rest/fileupload.cfm";
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *imageType = @"MOBILE";
+    NSString *imageType = [imageTagObjectSelected.typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""];
     NSString *udidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
+    NSString *finalFileName = [NSString stringWithFormat:@"MOBL1-%@",udidString];
     NSString *imageDirectory = [NSString stringWithFormat:@"/retail/%@/", imageType];
-    
+
+    NSLog(@"%@",finalFileName);
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
     [request setURL:[NSURL URLWithString:urlString]];
@@ -545,7 +545,7 @@
     //Next we build out the body of the call.
     NSMutableData *body = [NSMutableData data];
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageFile\"; filename=\"%@.jpg\"\r\n",udidString] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageFile\"; filename=\"%@.jpg\"\r\n",finalFileName] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:imageData]];
     
@@ -553,7 +553,7 @@
     NSLog(@"%@%@.jpg", imageDirectory, udidString );
     
     // Set the field source reference
-    _fileSourceReference = [NSString stringWithFormat:@"%@%@.jpg", imageDirectory, udidString];
+    _fileSourceReference = [NSString stringWithFormat:@"%@%@.jpg", imageDirectory, finalFileName];
     
     // Add the form field "imageDirectory" and its value.
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
