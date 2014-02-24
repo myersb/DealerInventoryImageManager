@@ -29,7 +29,8 @@
                                  andTypeId:(NSString*) typeId
                          andImageTypeOrder:(NSNumber*) imageTypeOrder
                             andFeatureText:(NSString*) featureText
-                            andImageSource:(NSString*) imageSource;
+                            andImageSource:(NSString*) imageSource
+                           andSerialNumber:(NSString*) imageSerialNumber;
 
 -(int)deleteImageDataByImageId:(NSString*) imageId
         andByInventoryPackageId:(NSString*) inventoryPackageId;

@@ -41,6 +41,14 @@ NSMutableArray *models;
 {
     [super viewDidLoad];
     NSLog(@"HomeDetailsViewController : viewDidLoad");
+    
+    // Setup overriding back button with text and a call to a method when selected.
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToInventoryViewController)];
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItem = item;
+    
+    
 
     // Instantiate container for Image objects
     images = [[NSMutableArray alloc] init];
@@ -58,6 +66,12 @@ NSMutableArray *models;
 	[self checkOnlineConnection];
 	[self loadDetails];
 }
+
+-(void)backToInventoryViewController
+{
+    [self performSegueWithIdentifier:@"noInventorySegue" sender:self];
+}
+
 
 - (void)loadDetails
 {
@@ -145,6 +159,7 @@ NSMutableArray *models;
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 	}
 	
+    
     // Fill out target fields with Data
 	if (_isConnected == 1) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
@@ -176,15 +191,20 @@ NSMutableArray *models;
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
+    NSLog(@"HomeDetailsViewController : controllerWillChangeContent");
 	[self.imageTableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+    NSLog(@"HomeDetailsViewController : controllerDidChangeContent");
+    
 	[self.imageTableView endUpdates];
 	[self.managedObjectContext processPendingChanges];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
+    NSLog(@"HomeDetailsViewController : controller.didChangeObject");
+    
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
 			[self.imageTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -206,6 +226,8 @@ NSMutableArray *models;
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
+    NSLog(@"HomeDetailsViewController : tcontroller.didChangeSection");
+    
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
 			[self.imageTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -218,8 +240,18 @@ NSMutableArray *models;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"HomeDetailsViewController : tableView.commitEditingStyle");
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		InventoryImage *imageToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        InventoryImage *imageToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        // Delete from remote database
+        InventoryImageModel *invImgMdl = [[InventoryImageModel alloc] init];
+        [invImgMdl deleteImageDataByImageId:(NSString*) imageToDelete.imagesId
+                    andByInventoryPackageId:(NSString*) imageToDelete.inventoryPackageID ];
+        
+        // Remove from CoreData
 		[_managedObjectContext deleteObject:imageToDelete];
 		
 		NSError *error = nil;
@@ -253,7 +285,8 @@ NSMutableArray *models;
 	if (_fetchedResultsController != nil) {
 		return  _fetchedResultsController;
 	}
-	
+
+    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_predicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", _selectedSerialNumber];

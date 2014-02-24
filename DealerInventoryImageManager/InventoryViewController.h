@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
 @property (nonatomic, strong) NSFetchRequest *imagesFetchRequest;
 @property (nonatomic, strong) NSEntityDescription *entity;
-@property (nonatomic, strong) NSSortDescriptor *sort;
+@property (nonatomic, strong) NSMutableArray *sort;
 @property (nonatomic, strong) NSArray *sortDescriptors;
 @property (nonatomic, strong) NSPredicate *imagesPredicate;
 

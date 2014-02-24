@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"ImageDtailesViewController : viewDidLoad");
+    NSLog(@"ImageDetailesViewController : viewDidLoad");
     
 
     
@@ -304,7 +304,7 @@
 /* --------------------------------------------------------------- */
 
 - (IBAction)deleteButton:(id)sender {
-    NSLog(@"ImageDtailesViewController : deleteButton");
+    NSLog(@"ImageDetailesViewController : deleteButton");
     
     InventoryImageModel *deleteImage = [[InventoryImageModel alloc] init];
     [deleteImage deleteImageDataByImageId:_currentInventoryImage.imagesId
@@ -317,7 +317,7 @@
 
 
 - (IBAction)saveButton:(id)sender{
-    NSLog(@"ImageDtailesViewController : saveButton");
+    NSLog(@"ImageDetailesViewController : saveButton");
 
     
     // Take data and update core data
@@ -376,8 +376,11 @@
                                                       andTypeId:imageTagObjectSelected.typeId
                                               andImageTypeOrder:_currentInventoryImage.imageOrderNdx
                                                  andFeatureText:_featuresField.text
-                                                 andImageSource:_fileSourceReference];
-             
+                                                 andImageSource:_fileSourceReference
+                                                 andSerialNumber:_currentInventoryImage.serialNumber];
+            
+
+                
             }
             
             
@@ -516,7 +519,7 @@
 
 - (void)uploadImage
 {
-    NSLog(@"ImageDtailesViewController : uploadImage");
+    NSLog(@"ImageDetailesViewController : uploadImage");
     
     // setting up the URL to post to
     NSData *imageData = UIImageJPEGRepresentation(_homeImage.image, 90);
@@ -539,7 +542,7 @@
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     
-    //Next we build out the bode of the call.
+    //Next we build out the body of the call.
     NSMutableData *body = [NSMutableData data];
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageFile\"; filename=\"%@.jpg\"\r\n",udidString] dataUsingEncoding:NSUTF8StringEncoding]];
