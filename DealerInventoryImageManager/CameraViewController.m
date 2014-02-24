@@ -124,7 +124,7 @@
 }
 
 - (IBAction)dismissCameraView:(UIButton *)sender {
-	[self dismissViewControllerAnimated:YES completion:nil];
+	[_picker dismissViewControllerAnimated:YES completion:nil];
 	_endAlerts = YES;
 }
 

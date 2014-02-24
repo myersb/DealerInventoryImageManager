@@ -122,7 +122,7 @@
 	if (_isConnected == 1 && [_modelsArray count] > 0) {
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest andArray:_modelsArray];
 	}
-	NSLog(@"%@", dealerNumber);
+	
 	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
 	NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
@@ -156,7 +156,7 @@
 {
     NSLog(@"InventoryViewController : downloadImages");
     
-	//[self loadImages];
+	[self loadImages];
 	
 	if (_isConnected == 1 && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest andArray:_imagesArray];
