@@ -11,5 +11,6 @@
 @interface DealerSelectViewController : UIViewController <UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *tfDealerNumber;
 @property (strong, nonatomic) UIAlertView *alert;
+@property (strong, nonatomic) IBOutlet UIButton *btnLogout;
 
 @end
