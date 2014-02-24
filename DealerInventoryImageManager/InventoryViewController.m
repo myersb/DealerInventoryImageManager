@@ -44,7 +44,12 @@
 	[self checkOnlineConnection];
 	DealerModel *dealer = [[DealerModel alloc]init];
 	[dealer getDealerNumber];
-	_dealerNumber = dealer.dealerNumber;
+	if (!_chosenDealerNumber.length) {
+		_dealerNumber = dealer.dealerNumber;
+	}
+	else{
+		_dealerNumber = _chosenDealerNumber;
+	}
 	
 	if (!_isSuperUser) {
 		DealerModel *dealer = [[DealerModel alloc]init];
@@ -117,7 +122,7 @@
 	if (_isConnected == 1 && [_modelsArray count] > 0) {
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest andArray:_modelsArray];
 	}
-
+	
 	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
 	NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
@@ -144,14 +149,14 @@
 		home.width = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"width"], nil) intValue]];
         home.inventoryPackageID = NSLocalizedString([modelDictionary objectForKey:@"inventorypackageid"], nil);
 	}
-	//[self loadInventory];
+	[self loadInventory];
 }
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
     NSLog(@"InventoryViewController : downloadImages");
     
-	//[self loadImages];
+	[self loadImages];
 	
 	if (_isConnected == 1 && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest andArray:_imagesArray];

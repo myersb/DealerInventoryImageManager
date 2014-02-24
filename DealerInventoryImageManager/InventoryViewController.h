@@ -38,6 +38,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnChangeDealer;
 
 @property (nonatomic, strong) NSString *dealerNumber;
+@property (nonatomic, strong) NSString *chosenDealerNumber;
 
 @property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) BOOL isSuperUser;

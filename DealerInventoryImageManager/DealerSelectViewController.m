@@ -64,7 +64,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([[segue identifier] isEqualToString:@"segueFromDealerSelectToIventoryView"]) {
 		InventoryViewController *ivc = [segue destinationViewController];
-		ivc.dealerNumber = _tfDealerNumber.text;
+		ivc.chosenDealerNumber = _tfDealerNumber.text;
+		NSLog(@"Pre Segue:%@", ivc.dealerNumber);
 		ivc.isSuperUser = YES;
 	}
 }
