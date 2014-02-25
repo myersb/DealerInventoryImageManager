@@ -41,7 +41,6 @@
 @property (nonatomic, strong) NSString *chosenDealerNumber;
 
 @property (nonatomic, assign) BOOL isConnected;
-@property (nonatomic, assign) BOOL isSuperUser;
 
 - (IBAction)scanQRC:(id)sender;
 - (IBAction)logout:(id)sender;

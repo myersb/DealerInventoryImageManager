@@ -12,6 +12,7 @@
 #import "InventoryImage.h"
 #import "DealerModel.h"
 #import "Reachability.h"
+#import "Dealer.h"
 
 #define webServiceInventoryListURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
 
@@ -43,15 +44,27 @@
 	_isConnected = TRUE;
 	[self checkOnlineConnection];
 	DealerModel *dealer = [[DealerModel alloc]init];
+	
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
+	[fetchRequest setEntity:entity];
+	NSError *error = nil;
+	NSArray *dealerObj =  [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	Dealer *savedDealer = [dealerObj objectAtIndex:0];
+	
 	[dealer getDealerNumber];
 	if (!_chosenDealerNumber.length) {
 		_dealerNumber = dealer.dealerNumber;
 	}
 	else{
 		_dealerNumber = _chosenDealerNumber;
+		Dealer *savedDealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
+		savedDealer.dealerNumber = _chosenDealerNumber;
+		dealer.dealerNumber = _chosenDealerNumber;
+		_btnChangeDealer.hidden = NO;
 	}
 	
-	if (!_isSuperUser) {
+	if (![savedDealer.userName isEqualToString:@"Admin"]) {
 		DealerModel *dealer = [[DealerModel alloc]init];
 		[dealer getDealerNumber];
 		_dealerNumber = dealer.dealerNumber;
@@ -70,6 +83,9 @@
 		[self loadImages];
 	}
 	
+}
+
+-(void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)didReceiveMemoryWarning

@@ -30,7 +30,7 @@
 /* TEST URL
  https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&username=jonest&password=password&datasource=appclaytonweb&linkonly=1
  */
-#define webServiceLoginURL @"http://claytonupdatecenter.pubdev.com/cfide/remoteInvoke.cfc?"
+#define webServiceLoginURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?"
 
 /* OPTIONS
  username = jonest
@@ -207,7 +207,6 @@
         }
         else
         {
-			NSLog(@"BOOM");
             return NO;
         }
 
