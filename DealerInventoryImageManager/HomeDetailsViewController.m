@@ -276,7 +276,7 @@ NSMutableArray *models;
 - (NSFetchedResultsController *) loadImages
 {
     NSLog(@"HomeDetailsViewController : loadImages");
-    
+
     
 	if (_fetchedResultsController != nil) {
 		return  _fetchedResultsController;
