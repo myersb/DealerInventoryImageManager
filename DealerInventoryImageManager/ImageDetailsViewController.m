@@ -558,9 +558,7 @@
 {
     NSLog(@"ImageDetailsViewController : uploadImage");
     
-    
-    // setting up the URL to post to
-    
+
     // Scale the image down to the 3.2 aspect ratio needed.
     float actualHeight = _homeImage.image.size.height;
     float actualWidth = _homeImage.image.size.width;
@@ -586,6 +584,7 @@
     UIGraphicsEndImageContext();
     
     
+    // setting up the URL to post to
     // .6 = %60 image quality
     NSData *imageData = UIImageJPEGRepresentation(img, .6);
     NSString *urlString = @"https://www.origin-clayton-media.com/rest/fileupload.cfm";
