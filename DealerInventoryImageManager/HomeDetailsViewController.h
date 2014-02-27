@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSEntityDescription *entity;
 @property (nonatomic, strong) NSSortDescriptor *sort;
+@property (nonatomic, strong) NSSortDescriptor *imagesIDSort;
 @property (nonatomic, strong) NSArray *sortDescriptors;
 @property (nonatomic, strong) NSPredicate *predicate;
 
@@ -54,6 +55,7 @@
 @property (strong, nonatomic) NSURL *imgURL;
 @property (strong, nonatomic) NSData *imageData;
 @property (strong, nonatomic) UIImage *imageToSync;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
 
 @property (nonatomic, strong) UIAlertView *alert;		// Instantiate an alert object
 @property (nonatomic, assign) BOOL modelAvailable;
