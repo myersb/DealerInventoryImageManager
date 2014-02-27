@@ -49,14 +49,14 @@ NSMutableArray *models;
     activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
     activityViewBackground.layer.borderWidth = 1;
     
-
+    
     
     // Setup overriding back button with text and a call to a method when selected.
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToInventoryViewController)];
     
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.leftBarButtonItem = item;
-
+    
     // Instantiate container for Image objects
     images = [[NSMutableArray alloc] init];
     models = [[NSMutableArray alloc] init];
@@ -85,7 +85,7 @@ NSMutableArray *models;
 
 -(void)showActivity
 {
-   activityViewBackground.frame = CGRectMake(106, 91, 100, 100);
+    activityViewBackground.frame = CGRectMake(106, 91, 100, 100);
 }
 
 - (void)loadDetails
@@ -98,14 +98,14 @@ NSMutableArray *models;
 	
 	[_fetchRequest setEntity:_entity];
 	[_fetchRequest setPredicate:_predicate];
-
+    
 	NSError *error = nil;
-
+    
 	_modelArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
 	
 	if ([_modelArray count] > 0) {
 		InventoryHome *home = [_modelArray objectAtIndex:0];
-
+        
 		// Add to the homeDetails array which will be passed to the following view.
 		[models addObject:home];
 		
@@ -124,7 +124,7 @@ NSMutableArray *models;
 		[_alert show];
 		_modelAvailable = NO;
 	}
-
+    
 	if (![[self loadImages]performFetch:&error]) {
 		NSLog(@"An error has occurred: %@", error);
 		abort();
@@ -167,13 +167,20 @@ NSMutableArray *models;
 {
     NSLog(@"HomeDetailsViewController : tableView");
     
+
     static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
+   
     
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-	}
-	
+        NSLog(@"Create new cell");
+        
+	} else {
+        // Clear the data from the cell
+        [[cell imageView]setImage:nil];
+    }
+
     
 	
 	InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -181,6 +188,8 @@ NSMutableArray *models;
 	[images addObject:image];
 	UILabel *imageIdLabel = [[UILabel alloc] init];
 	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 90, 60)];
+    
+    
     // Fill out target fields with Data
 	if (_isConnected == 1) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
@@ -188,18 +197,28 @@ NSMutableArray *models;
 			_imgURL = [NSURL URLWithString:_stringURL];
 			_imageData = [NSData dataWithContentsOfURL:_imgURL];
 			_imageToSync = [UIImage imageWithData:_imageData];
+            
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
-				[[cell imageView]setImage:_imageToSync];
-				[cell setNeedsLayout];
-				
-				// Create a new label, hide it and fill it with the id for the given object.
-				imageIdLabel.hidden = TRUE;
-				[cell addSubview:imageIdLabel];
-				
-				cell.textLabel.text = image.imageCaption;
+                
+                
+                [[cell imageView]setImage:_imageToSync];
+                [cell setNeedsLayout];
+                
+                // Create a new label, hide it and fill it with the id for the given object.
+                imageIdLabel.hidden = TRUE;
+                [cell addSubview:imageIdLabel];
+                
+                cell.textLabel.text = image.imageCaption;
+                
+                
 			});
+            
 		});
 	}
+    
+ 
+    
+ 
     return cell;
 }
 
@@ -293,12 +312,12 @@ NSMutableArray *models;
 - (NSFetchedResultsController *) loadImages
 {
     NSLog(@"HomeDetailsViewController : loadImages");
-
+    
     
 	if (_fetchedResultsController != nil) {
 		return  _fetchedResultsController;
 	}
-
+    
     
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
@@ -396,7 +415,7 @@ NSMutableArray *models;
 
 
 - (void) alertView:(UIAlertView *)alertView
-   clickedButtonAtIndex:(NSInteger)buttonIndex{
+clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     NSLog(@"DealerInventoryImageManager : alertView");
     
@@ -492,7 +511,7 @@ NSMutableArray *models;
 	}
     
     if ([[segue identifier]isEqualToString:@"fromInventoryHomeToImageDetails"]) {
-	
+        
         // Get the destination class file for the target view
         ImageDetailsViewController *idvc = [segue destinationViewController];
 		idvc.selectedSerialNumber = _selectedSerialNumber;
@@ -507,12 +526,12 @@ NSMutableArray *models;
             rowNumber += [self.imageTableView numberOfRowsInSection:i];
         }
         rowNumber += path.row;
-
+        
         
         InventoryImage *imageObj = [images objectAtIndex:rowNumber];
         [idvc setCurrentInventoryImage:imageObj];
         
-
+        
         // Get the model object at index 0 since there is only one and put it into the associated property in the target
         InventoryHome *modelObj = [models objectAtIndex:0];
         [idvc setCurrentInventoryModel:modelObj];
