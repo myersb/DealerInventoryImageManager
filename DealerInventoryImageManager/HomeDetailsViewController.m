@@ -173,8 +173,10 @@ NSMutableArray *models;
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 	}
+	cell.imageView.backgroundColor = [UIColor whiteColor];
+	[[cell imageView]addSubview:_activityIndicatorImage];
 	
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
 	
 	InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	// Puts the image object into the images array
@@ -200,7 +202,19 @@ NSMutableArray *models;
 			});
 		});
 	}
+	
+    [NSThread detachNewThreadSelector:@selector(threadStopAnimating) toTarget:self withObject:nil];
+	
     return cell;
+}
+
+- (void) threadStartAnimating {
+	_activityIndicatorImage.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.activityIndicatorImage startAnimating];
+}
+
+- (void) threadStopAnimating {
+    [self.activityIndicatorImage stopAnimating];
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
@@ -304,7 +318,8 @@ NSMutableArray *models;
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_predicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", _selectedSerialNumber];
 	_sort = [NSSortDescriptor sortDescriptorWithKey:@"group" ascending:YES];
-	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, nil];
+	_imagesIDSort = [NSSortDescriptor sortDescriptorWithKey:@"imagesId" ascending:YES];
+	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, _imagesIDSort, nil];
 	
 	[_imagesFetchRequest setSortDescriptors:_sortDescriptors];
 	[_imagesFetchRequest setEntity:_entity];
