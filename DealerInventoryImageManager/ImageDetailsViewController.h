@@ -57,6 +57,8 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIImageView *homeImage;
 @property (weak, nonatomic) IBOutlet UIPickerView *imageTag;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
+@property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
+
 @property (weak, nonatomic) IBOutlet UIView *pickerViewContainer;
 
 

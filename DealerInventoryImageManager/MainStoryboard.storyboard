@@ -9,8 +9,8 @@
             <objects>
                 <viewController wantsFullScreenLayout="YES" id="uAE-a2-xjx" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="K1q-Db-8Qu"/>
-                        <viewControllerLayoutGuide type="bottom" id="XhR-Nq-E98"/>
+                        <viewControllerLayoutGuide type="top" id="LvJ-wj-cLH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xhc-tY-aWs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zOd-AO-y18">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -82,8 +82,8 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="iEF-6x-NNF" customClass="InventoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oFf-qS-xOY"/>
-                        <viewControllerLayoutGuide type="bottom" id="EgG-zF-kah"/>
+                        <viewControllerLayoutGuide type="top" id="Kye-Ro-FZh"/>
+                        <viewControllerLayoutGuide type="bottom" id="INq-Ys-OyA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JeV-1B-LYE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -186,8 +186,8 @@
             <objects>
                 <viewController id="l4i-wu-eBC" customClass="HomeDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RRZ-E6-AiX"/>
-                        <viewControllerLayoutGuide type="bottom" id="uez-pa-0lg"/>
+                        <viewControllerLayoutGuide type="top" id="jSb-RO-hoC"/>
+                        <viewControllerLayoutGuide type="bottom" id="nz2-JT-1Cn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="46x-l0-HZC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -345,6 +345,19 @@
                                     <outlet property="delegate" destination="l4i-wu-eBC" id="D72-94-I2T"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cK3-Xr-cgV">
+                                <rect key="frame" x="400" y="91" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cSy-Kl-KDe">
+                                        <rect key="frame" x="32" y="31" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -357,6 +370,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityView" destination="cSy-Kl-KDe" id="SZv-ud-JsO"/>
+                        <outlet property="activityViewBackground" destination="cK3-Xr-cgV" id="y85-H5-d5k"/>
                         <outlet property="detailsView" destination="46x-l0-HZC" id="vf8-0M-e2T"/>
                         <outlet property="imageTableView" destination="Lc4-Xj-8in" id="RLM-hU-It7"/>
                         <outlet property="lblBaths" destination="00b-o7-WcN" id="UO9-tI-dlc"/>
@@ -379,8 +394,8 @@
             <objects>
                 <viewController id="qCZ-Yh-4qa" customClass="RetailWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8LN-xX-Afo"/>
-                        <viewControllerLayoutGuide type="bottom" id="hi9-Kh-LR2"/>
+                        <viewControllerLayoutGuide type="top" id="BMV-EL-S2o"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1W-Ny-307"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aWy-3l-7ip">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -408,8 +423,8 @@
             <objects>
                 <viewController id="jT0-Dd-hZP" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kbg-Ih-ITG"/>
-                        <viewControllerLayoutGuide type="bottom" id="mXA-gR-lfT"/>
+                        <viewControllerLayoutGuide type="top" id="2A7-cX-3C2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ewo-JF-9bL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CH7-SR-I5w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -494,8 +509,8 @@
             <objects>
                 <viewController title="ImageDetails" hidesBottomBarWhenPushed="YES" id="clY-9V-Vh5" customClass="ImageDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1zU-me-0m8"/>
-                        <viewControllerLayoutGuide type="bottom" id="sch-XY-tbj"/>
+                        <viewControllerLayoutGuide type="top" id="gax-Bi-M4s"/>
+                        <viewControllerLayoutGuide type="bottom" id="KQM-hu-4en"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TWA-aD-nQO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -550,10 +565,6 @@
                                             <outlet property="delegate" destination="clY-9V-Vh5" id="eb5-5V-UDt"/>
                                         </connections>
                                     </textField>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-p5-xru">
-                                        <rect key="frame" x="142" y="113" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYE-IB-D4x">
                                         <rect key="frame" x="0.0" y="800" width="320" height="226"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -597,9 +608,20 @@
                                 </state>
                                 <connections>
                                     <action selector="saveButton:" destination="clY-9V-Vh5" eventType="touchUpInside" id="m6c-xm-uAR"/>
-                                    <action selector="uploadImage" destination="clY-9V-Vh5" eventType="touchUpInside" id="kkQ-cC-fdo"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Pd-7Im">
+                                <rect key="frame" x="110" y="145" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-p5-xru">
+                                        <rect key="frame" x="31" y="32" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -612,6 +634,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorBackground" destination="6iv-Pd-7Im" id="CHK-KN-buQ"/>
                         <outlet property="activityIndicatorImage" destination="aS3-p5-xru" id="fub-zY-vHL"/>
                         <outlet property="featuresField" destination="P0g-Na-YMT" id="qNE-Na-1tM"/>
                         <outlet property="homeDescriptionLabel" destination="LRq-dK-1jZ" id="dK3-Wj-mcd"/>
@@ -633,8 +656,8 @@
             <objects>
                 <viewController id="c5n-er-YFP" customClass="LaunchViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uvO-h7-vqa"/>
-                        <viewControllerLayoutGuide type="bottom" id="ev7-ON-q9r"/>
+                        <viewControllerLayoutGuide type="top" id="34W-6u-2wC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vk8-7I-ydE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w0R-FD-gXj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -662,8 +685,8 @@
             <objects>
                 <viewController id="vo6-7G-XIw" customClass="DealerSelectViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dPE-K8-xLJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="arf-oA-1lh"/>
+                        <viewControllerLayoutGuide type="top" id="XXa-n8-QOC"/>
+                        <viewControllerLayoutGuide type="bottom" id="W43-lC-PV9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7F9-yG-2Qb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -757,6 +780,33 @@
             </objects>
             <point key="canvasLocation" x="1400" y="-174"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="e9A-bT-sOf">
+            <objects>
+                <tableViewController id="E1N-KN-Six" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="t4g-P5-lDT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EUF-dQ-hXc">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EUF-dQ-hXc" id="Pv7-nU-tes">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="E1N-KN-Six" id="c1A-EG-Q9u"/>
+                            <outlet property="delegate" destination="E1N-KN-Six" id="zbz-MA-ddJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5r-x9-F6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="background.png" width="640" height="1136"/>
@@ -772,11 +822,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bFb-T4-uZA"/>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="yVG-si-1YU"/>
         <segue reference="5yM-gN-tF0"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="VBY-Wv-O0o"/>
         <segue reference="CtI-2Q-RRX"/>
         <segue reference="yYU-7B-a5w"/>
+        <segue reference="bFb-T4-uZA"/>
     </inferredMetricsTieBreakers>
 </document>

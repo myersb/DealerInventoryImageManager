@@ -23,7 +23,7 @@
 
 @implementation ImageDetailsViewController
 
-@synthesize activeTextField, imageTagRow, pickerViewContainer;
+@synthesize activeTextField, imageTagRow, pickerViewContainer, activityIndicatorBackground;
 
 
 - (void)viewDidLoad
@@ -33,8 +33,12 @@
     
 	
     // Do any additional setup after loading the view.
-    
-    
+    // Draw the activity view background
+    activityIndicatorBackground.layer.cornerRadius = 10.0;
+    activityIndicatorBackground.layer.borderColor = [[UIColor grayColor] CGColor];
+    activityIndicatorBackground.layer.borderWidth = 1;
+
+
 	
     // *** Load data into the Pickers ***
     ImageTagsModel *imageTagsModel  = [[ImageTagsModel alloc] init];
@@ -65,10 +69,24 @@
 		
         // Get and set the image
         NSString *ImageURL =  _currentInventoryImage.sourceURL;
-        NSString *imageUrlSized = [ImageURL stringByAppendingString:@""];
+        NSString *imageUrlSized = [ImageURL stringByAppendingString:@"?width=240&height=160"];
         
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlSized]];
-        _homeImage.image = [UIImage imageWithData:imageData];
+    
+        // Do this as its own process so that the user isn't held up.
+        // Activate the Activity indicator on a seperate thread.
+        [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlSized]];
+            
+            _homeImage.image = [UIImage imageWithData:imageData];
+            
+            [NSThread detachNewThreadSelector:@selector(threadStopAnimating) toTarget:self withObject:nil];
+            
+        });
+        
+        
+        
         
     }
     
@@ -180,6 +198,27 @@
 	}
 }
 
+-(void)showView{
+    
+    //[UIView beginAnimations: @"Fade Out" context:nil];
+    //[UIView setAnimationDelay:0];
+    //[UIView setAnimationDuration:.5];
+    //show your view with Fade animation lets say myView
+    [activityIndicatorBackground setHidden:FALSE];
+    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideView) userInfo:nil repeats:YES];
+    //[UIView commitAnimations];
+}
+
+
+-(void)hideView{
+    //[UIView beginAnimations: @"Fade In" context:nil];
+    //[UIView setAnimationDelay:0];
+    //[UIView setAnimationDuration:.5];
+    //hide your view with Fad animation
+    [activityIndicatorBackground setHidden:TRUE];
+    //[UIView commitAnimations];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -255,9 +294,6 @@
 #pragma mark - Drawing Methods
 #pragma mark Fetches data and fills objects with image infromation.
 /* --------------------------------------------------------------- */
-- (void)drawData
-{
-}
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -289,8 +325,13 @@
     
 }
 
+- (void) threadStopAnimating {
+    [self.activityIndicatorImage stopAnimating];
+    [self hideView];
+}
 - (void) threadStartAnimating {
     [self.activityIndicatorImage startAnimating];
+    [self showView];
 }
 
 
@@ -344,7 +385,7 @@
             if (_returnVal == 0)
             {
                 // Activate the Activity indicator on a seperate thread.
-                [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+                [NSThread detachNewThreadSelector:@selector(showView) toTarget:self withObject:nil];
                 
                 // Run the long process on the main thread.
                 [self uploadImage];
@@ -515,15 +556,43 @@
 
 - (void)uploadImage
 {
-    NSLog(@"ImageDetailesViewController : uploadImage");
+    NSLog(@"ImageDetailsViewController : uploadImage");
     
-    //[typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""]
     
     // setting up the URL to post to
-    NSData *imageData = UIImageJPEGRepresentation(_homeImage.image, 90);
+    
+    // Scale the image down to the 3.2 aspect ratio needed.
+    float actualHeight = _homeImage.image.size.height;
+    float actualWidth = _homeImage.image.size.width;
+    float imgRatio = actualWidth/actualHeight;
+    float maxRatio = 1920.0/1280.0;
+    
+    if(imgRatio!=maxRatio){
+        if(imgRatio < maxRatio){
+            imgRatio = 1280.0 / actualHeight;
+            actualWidth = imgRatio * actualWidth;
+            actualHeight = 1280.0;
+        }
+        else{
+            imgRatio = 1920.0 / actualWidth;
+            actualHeight = imgRatio * actualHeight;
+            actualWidth = 1920.0;
+        }
+    }
+    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+    UIGraphicsBeginImageContext(rect.size);
+    [_homeImage.image drawInRect:rect];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    // .6 = %60 image quality
+    NSData *imageData = UIImageJPEGRepresentation(img, .6);
     NSString *urlString = @"https://www.origin-clayton-media.com/rest/fileupload.cfm";
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
+    
     NSString *imageType = [imageTagObjectSelected.typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""];
+    //NSString *imageType = @"Mobile";
     NSString *udidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
     NSString *finalFileName = [NSString stringWithFormat:@"MOBL1-%@",udidString];
     NSString *imageDirectory = [NSString stringWithFormat:@"/retail/%@/", imageType];
@@ -576,7 +645,6 @@
     NSLog(@"%@",returnString);
     
 }
-
 
 
 - (void)basicAuthForRequest:(NSMutableURLRequest *)request withUsername:(NSString *)username andPassword:(NSString *)password

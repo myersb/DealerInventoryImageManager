@@ -28,6 +28,8 @@ NSMutableArray *models;
 
 @implementation HomeDetailsViewController
 
+@synthesize activityViewBackground;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +43,13 @@ NSMutableArray *models;
 {
     [super viewDidLoad];
     NSLog(@"HomeDetailsViewController : viewDidLoad");
+    
+    // Draw the activity view background
+    activityViewBackground.layer.cornerRadius = 10.0;
+    activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
+    activityViewBackground.layer.borderWidth = 1;
+    
+
     
     // Setup overriding back button with text and a call to a method when selected.
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToInventoryViewController)];
@@ -67,9 +76,17 @@ NSMutableArray *models;
 
 -(void)backToInventoryViewController
 {
+    
+    [NSThread detachNewThreadSelector:@selector(showActivity) toTarget:self withObject:nil];
+    
     [self performSegueWithIdentifier:@"noInventorySegue" sender:self];
 }
 
+
+-(void)showActivity
+{
+   activityViewBackground.frame = CGRectMake(106, 91, 100, 100);
+}
 
 - (void)loadDetails
 {
@@ -163,11 +180,11 @@ NSMutableArray *models;
 	// Puts the image object into the images array
 	[images addObject:image];
 	UILabel *imageIdLabel = [[UILabel alloc] init];
-	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 90, 60)];
     // Fill out target fields with Data
 	if (_isConnected == 1) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
-			_stringURL = [NSString stringWithFormat:@"%@?width=120", image.sourceURL];
+			_stringURL = [NSString stringWithFormat:@"%@?width=90&height=60", image.sourceURL];
 			_imgURL = [NSURL URLWithString:_stringURL];
 			_imageData = [NSData dataWithContentsOfURL:_imgURL];
 			_imageToSync = [UIImage imageWithData:_imageData];

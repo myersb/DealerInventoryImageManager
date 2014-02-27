@@ -111,6 +111,7 @@
                  andImageSource:(NSString*) imageSource
 {
 
+
     NSLog(@"InventoryImageModel : updateImageDataByImageId");
     
     processSuccess = 1;

@@ -39,6 +39,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblLength;
 @property (strong, nonatomic) IBOutlet UILabel *lblWidth;
 
+//Handles the Activity view that will show up.
+@property (weak, nonatomic) IBOutlet UIView *activityViewBackground;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+
 @property (strong, nonatomic) IBOutlet UIView *detailsView;
 @property (strong, nonatomic) IBOutlet UITableView *imageTableView;
 
