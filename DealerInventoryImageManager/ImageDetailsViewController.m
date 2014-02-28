@@ -342,7 +342,7 @@
 
 - (IBAction)deleteButton:(id)sender {
     NSLog(@"ImageDetailesViewController : deleteButton");
-	UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Delete Confirmation" message:@"Are you sure that you want to delete this image? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+	UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"Are you sure that you want to delete this image? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
 	[deleteAlert show];
 }
 
