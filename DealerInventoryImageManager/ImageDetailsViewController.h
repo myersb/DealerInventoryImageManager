@@ -13,7 +13,7 @@
 #import "ImageTypes.h"
 #import "HomeDetailsViewController.h"
 
-@interface ImageDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ImageDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate>
 {
     
     __weak IBOutlet UIScrollView *theScrollView;

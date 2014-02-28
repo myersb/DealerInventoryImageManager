@@ -84,17 +84,19 @@
 	_endAlerts = NO;
 	
 	CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-	float cameraAspectRatio = 4.0 / 3.0;
+	float cameraAspectRatio = 3.0 / 2.0;
 	float imageWidth = floorf(screenSize.width * cameraAspectRatio);
 	float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
 	
 	_overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
+	
 	_picker.delegate = self;
 	_picker.wantsFullScreenLayout = YES;
 	_picker.allowsEditing = NO;
 	_picker.cameraOverlayView = _overlay;
 	_picker.showsCameraControls = NO;
-	_picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+	//_picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+	_picker.view.frame = CGRectMake(0, 80, 320, 480);
 	[self presentViewController:_picker animated:YES completion:NULL];
 	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];

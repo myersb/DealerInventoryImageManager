@@ -342,14 +342,20 @@
 
 - (IBAction)deleteButton:(id)sender {
     NSLog(@"ImageDetailesViewController : deleteButton");
-    
-    InventoryImageModel *deleteImage = [[InventoryImageModel alloc] init];
-    [deleteImage deleteImageDataByImageId:_currentInventoryImage.imagesId
-                  andByInventoryPackageId:_currentInventoryImage.inventoryPackageID];
-    
-    // Go back to the previous page.
-    [self performSegueWithIdentifier:@"segueToHomeDetailsFromImageDetails" sender:self];
-    
+	UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Delete Confirmation" message:@"Are you sure that you want to delete this image? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+	[deleteAlert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 1) {
+		InventoryImageModel *deleteImage = [[InventoryImageModel alloc] init];
+		[deleteImage deleteImageDataByImageId:_currentInventoryImage.imagesId
+					  andByInventoryPackageId:_currentInventoryImage.inventoryPackageID];
+		
+		// Go back to the previous page.
+		[self performSegueWithIdentifier:@"segueToHomeDetailsFromImageDetails" sender:self];
+		
+	}
 }
 
 
