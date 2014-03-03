@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */; };
 		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
@@ -107,6 +108,7 @@
 
 /* Begin PBXFileReference section */
 		811870D118BBD9B4002FFBA6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActivityIndicator.png; sourceTree = "<group>"; };
 		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTags.h; sourceTree = "<group>"; };
 		811B9C3B183D223B0075EB20 /* ImageTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTags.m; sourceTree = "<group>"; };
 		811B9C3D183D223C0075EB20 /* ImageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTypes.h; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		8198426817E0E26F00B619C7 /* Artifacts */ = {
 			isa = PBXGroup;
 			children = (
+				8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */,
 				8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */,
 				8198426F17E0E2F300B619C7 /* claytonLogo.jpg */,
 				8198426917E0E28A00B619C7 /* bgUpper.jpg */,
@@ -630,6 +633,7 @@
 				B5691BA918B3E42800FE34AE /* zbar-back.png in Resources */,
 				B53418A517FC8BA800917AF6 /* loginScreen.png in Resources */,
 				8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
+				8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */,
 				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */,

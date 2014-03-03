@@ -30,6 +30,7 @@ NSMutableArray *models;
 
 @synthesize activityViewBackground;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -163,53 +164,76 @@ NSMutableArray *models;
 	return sectionTitle;
 }
 
+// Force select action
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"fromInventoryHomeToImageDetails" sender:nil];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"HomeDetailsViewController : tableView");
     
+    InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    static NSString *cellIdentifier = @"Cell";
+    //static NSString *cellIdentifier = nil;
+    NSString *cellIdentifier = [NSString stringWithFormat:@"%@", image.imagesId];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-   
+
+
     
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         NSLog(@"Create new cell");
-        
-	} else {
-        // Clear the data from the cell
-        [[cell imageView]setImage:nil];
     }
-
     
 	
-	InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	// Puts the image object into the images array
 	[images addObject:image];
 	UILabel *imageIdLabel = [[UILabel alloc] init];
 	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 90, 60)];
     
     
+    // This is the temp image, where we show a static activity indicator image.
+    UIImageView *tempImage = [[UIImageView alloc] initWithFrame:CGRectMake(40, 15, 20, 20)];
+    UIImage *getImage = [UIImage imageNamed:@"ActivityIndicator.png"];
+
+    tempImage.image = getImage;
+   
+    
+    tempImage.tag = image.imagesId; //Have to give it a unique identifier so that we can remove it later when the image loads
+
+    
+    [cell addSubview:tempImage ];
+    
     // Fill out target fields with Data
 	if (_isConnected == 1) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
-			_stringURL = [NSString stringWithFormat:@"%@?width=90&height=60", image.sourceURL];
-			_imgURL = [NSURL URLWithString:_stringURL];
-			_imageData = [NSData dataWithContentsOfURL:_imgURL];
-			_imageToSync = [UIImage imageWithData:_imageData];
+            
+			NSString *getStringURL = [NSString stringWithFormat:@"%@?width=90&height=60", image.sourceURL];
+			NSURL *getImgURL = [NSURL URLWithString:getStringURL];
+			NSData *getImageData = [NSData dataWithContentsOfURL:getImgURL];
+			UIImage *getImageToSync = [UIImage imageWithData:getImageData];
+            
+            
             
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
+
                 
+                // This removes the temporary image based on the unique identifier
+                UIImageView *viewToRemove = [self.view viewWithTag:image.imagesId];
+                [viewToRemove removeFromSuperview];
                 
-                [[cell imageView]setImage:_imageToSync];
+                // Load actual image.
+                [[cell imageView]setImage:getImageToSync];
                 [cell setNeedsLayout];
                 
                 // Create a new label, hide it and fill it with the id for the given object.
                 imageIdLabel.hidden = TRUE;
                 [cell addSubview:imageIdLabel];
-                
                 cell.textLabel.text = image.imageCaption;
                 
+               
                 
 			});
             
@@ -221,6 +245,8 @@ NSMutableArray *models;
  
     return cell;
 }
+
+
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     NSLog(@"HomeDetailsViewController : controllerWillChangeContent");
@@ -500,6 +526,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 {
     NSLog(@"HomeDetailsViewController : prepareForSegue");
     
+    NSLog(@"%@", sender);
+    
 	if ([[segue identifier]isEqualToString:@"segueToRetailWeb"]) {
 		RetailWebViewController *retailWebViewController = [segue destinationViewController];
 		retailWebViewController.requestedURL = _selectedSerialNumber;
@@ -537,6 +565,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         [idvc setCurrentInventoryModel:modelObj];
         
 	}
+    
+    
     
     
     

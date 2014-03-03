@@ -44,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UIView *activityViewBackground;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
+
 @property (strong, nonatomic) IBOutlet UIView *detailsView;
 @property (strong, nonatomic) IBOutlet UITableView *imageTableView;
 
@@ -55,7 +56,7 @@
 @property (strong, nonatomic) NSURL *imgURL;
 @property (strong, nonatomic) NSData *imageData;
 @property (strong, nonatomic) UIImage *imageToSync;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
+
 
 @property (nonatomic, strong) UIAlertView *alert;		// Instantiate an alert object
 @property (nonatomic, assign) BOOL modelAvailable;
@@ -68,4 +69,6 @@
 
 - (IBAction)addPhoto:(id)sender;
 - (void) checkOnlineConnection;
++ (UIImage*)resizeImage:(UIImage*)image withWidth:(int)width withHeight:(int)height;
+
 @end
