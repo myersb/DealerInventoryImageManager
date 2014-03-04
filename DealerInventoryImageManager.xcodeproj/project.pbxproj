@@ -99,6 +99,7 @@
 		B5922EC7181841AE000B15DF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B5922EC6181841AE000B15DF /* background.png */; };
 		B5922EC918184FAB000B15DF /* loadScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5922EC818184FAB000B15DF /* loadScreen.png */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
+		B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +245,7 @@
 		B5922EC6181841AE000B15DF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		B5922EC818184FAB000B15DF /* loadScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadScreen.png; sourceTree = "<group>"; };
 		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
+		B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraCaptureArea.png; sourceTree = "<group>"; };
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
 		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */,
 				B5364DB618C61460005E84EF /* icon57x57.png */,
 				B5364DB718C61460005E84EF /* icon114x114@2x.png */,
 				B5364DB818C61460005E84EF /* settingsicon29x29.png */,
@@ -636,6 +639,7 @@
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
+				B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */,
 				B5922EC918184FAB000B15DF /* loadScreen.png in Resources */,
 				B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */,
 				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,

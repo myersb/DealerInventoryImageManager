@@ -72,8 +72,7 @@
 	else{
 		_btnChangeDealer.hidden = NO;
 	}
-
-
+	
 	if (_isConnected == TRUE) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
