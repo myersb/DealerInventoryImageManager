@@ -24,7 +24,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.ClaytonHomes.${PRODUCT_NAME}</string>
+	<string>com.ClaytonHomes.DealerInventoryImageManager</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
