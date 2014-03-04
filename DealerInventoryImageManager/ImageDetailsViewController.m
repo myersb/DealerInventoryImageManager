@@ -31,14 +31,11 @@
     [super viewDidLoad];
     NSLog(@"ImageDetailesViewController : viewDidLoad");
     
-	
     // Do any additional setup after loading the view.
     // Draw the activity view background
     activityIndicatorBackground.layer.cornerRadius = 10.0;
     activityIndicatorBackground.layer.borderColor = [[UIColor grayColor] CGColor];
     activityIndicatorBackground.layer.borderWidth = 1;
-
-
 	
     // *** Load data into the Pickers ***
     ImageTagsModel *imageTagsModel  = [[ImageTagsModel alloc] init];
@@ -50,17 +47,14 @@
     NSArray *sortedArray = [getImageTags sortedArrayUsingDescriptors:sortDescriptors];
     imageTagArray = sortedArray;
     
-    
     // Load data for Image Type
     ImageTypesModel *imageTypesModel = [[ImageTypesModel alloc] init];
     NSArray *getImageType = [imageTypesModel readImageTypes];
     imageTypeArray = getImageType;
     
-    
     // *** Set Values in display ***
     
     NSLog(@"%@", _selectedSerialNumber);
-    
     
     if (!_currentInventoryModel.serialNumber) {
 		_homeImage.image = _selectedImage;
@@ -82,20 +76,13 @@
             _homeImage.image = [UIImage imageWithData:imageData];
             
             [NSThread detachNewThreadSelector:@selector(threadStopAnimating) toTarget:self withObject:nil];
-            
         });
-        
-        
-        
-        
     }
-    
     
     // Put the values into the fields
     [_serialNumberLabel setText:[_currentInventoryModel serialNumber]];
     [_homeDescriptionLabel setText:[_currentInventoryModel homeDesc]];
     [_featuresField setText:[_currentInventoryImage imageCaption]];
-    
    
     // manage Keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -107,8 +94,6 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    
-    
     
     // Check to see if there is a feature assocaited with image.  If not, then select one that matches the Group
     NSString *getTagIdForImage;
@@ -131,7 +116,6 @@
         getTagIdForImage = _currentInventoryImage.imageTagId;
     }
     
-    
     // Loop over the tagArray, and where there is a match make that the default.
     // Each row starts at 0, so set to 0 first and increment
     int currentRow = 0;
@@ -151,10 +135,6 @@
         currentRow++;
         
     }
-    
-    
-    
-    
 }
 
 
@@ -187,7 +167,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([[segue identifier]isEqualToString:@"segueToHomeDetailsFromImageDetails"]) {
@@ -209,7 +188,6 @@
     //[UIView commitAnimations];
 }
 
-
 -(void)hideView{
     //[UIView beginAnimations: @"Fade In" context:nil];
     //[UIView setAnimationDelay:0];
@@ -227,7 +205,6 @@
     // setting "Y" to 800 will put the view off the screen.
     self.pickerViewContainer.frame = CGRectMake(0, 800, 320, 226);
 }
-
 
 /* --------------------------------------------------------------- */
 #pragma mark Keyboard management
@@ -277,7 +254,6 @@
     self.activeTextField = nil;
 }
 
-
 // Dismiss the keyboard
 - (IBAction)dismissKeyboard:(id)sender
 {
@@ -285,10 +261,6 @@
     [self.activeTextField resignFirstResponder];
 
 }
-
-
-
-
 
 /* --------------------------------------------------------------- */
 #pragma mark - Drawing Methods
@@ -334,8 +306,6 @@
     [self showView];
 }
 
-
-
 /* --------------------------------------------------------------- */
 #pragma mark - Actions methods
 /* --------------------------------------------------------------- */
@@ -358,14 +328,11 @@
 	}
 }
 
-
 - (IBAction)saveButton:(id)sender{
     NSLog(@"ImageDetailesViewController : saveButton");
-
     
     // Take data and update core data
     _returnVal = 0;
-
     
     // push data and image to recieving service
     //
@@ -386,8 +353,6 @@
                 _returnVal = 1;
             }
             
-            
-            
             if (_returnVal == 0)
             {
                 // Activate the Activity indicator on a seperate thread.
@@ -396,7 +361,6 @@
                 // Run the long process on the main thread.
                 [self uploadImage];
 
-                
                 id delegate = [[UIApplication sharedApplication] delegate];
                 self.managedObjectContext = [delegate managedObjectContext];
                 
@@ -411,8 +375,6 @@
                 
                 _modelArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
                 
-                
-                
                 InventoryImageModel *saveInsert = [[InventoryImageModel alloc] init];
                 [saveInsert insertImageDataByInventoryPackageId:[[_modelArray objectAtIndex:0] inventoryPackageID]
                                                        andTagId:imageTagObjectSelected.tagId
@@ -421,26 +383,14 @@
                                                  andFeatureText:_featuresField.text
                                                  andImageSource:_fileSourceReference
                                                  andSerialNumber:_currentInventoryImage.serialNumber];
-            
-
-                
             }
-            
-            
-            
         }
         else
         {
             // Image Type wasn't selected.  Set to throw error.
             
-            
             _returnVal = 2;
         }
-        
-        
-
-
-        
     }
     else // This is an image edit
     {
@@ -455,13 +405,8 @@
         {
             _returnVal = 2;
         }
-        
-        
     }
 
-    
-    
-    
     // Check for failures otherwise segue
     warningCheck doCheck = _returnVal;
     switch(doCheck)
@@ -506,24 +451,14 @@
         {
             [self.activityIndicatorImage stopAnimating];
             [self performSegueWithIdentifier:@"segueToHomeDetailsFromImageDetails" sender:self];
-        
-            
         }break;
-            
     };
- 
-    
-    
-    
-    
     // Segue to listing screen and refresh image data.
-    
 }
 
 -(NSString *) yesButtonTitle{
     return @"Ok";
 }
-
 
 - (IBAction)pickerDoneButton:(id)sender {
     //Setup use of animation
@@ -538,7 +473,6 @@
 
 - (IBAction)imageTypeFieldTouch:(id)sender {
 }
-
 
 // This prevents the keyboard from popping up.
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -558,7 +492,6 @@
     return YES;
     
 }
-
 
 - (void)uploadImage
 {
@@ -608,13 +541,10 @@
     [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
     
-    
-    
     // First we have to setup the initial content type that defines the type of content expected as a whole as well as the boundary delimiter
     NSString *boundary = @"-----------------------------7de3463020606";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
     
     //Next we build out the body of the call.
     NSMutableData *body = [NSMutableData data];
@@ -622,7 +552,6 @@
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"imageFile\"; filename=\"%@.jpg\"\r\n",finalFileName] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:imageData]];
-    
     
     NSLog(@"%@%@.jpg", imageDirectory, udidString );
     
@@ -651,7 +580,6 @@
     
 }
 
-
 - (void)basicAuthForRequest:(NSMutableURLRequest *)request withUsername:(NSString *)username andPassword:(NSString *)password
 {
     
@@ -675,17 +603,10 @@
     // Add authorizationStringRef as value for 'Authorization' HTTP header
     [request setValue:(__bridge NSString *)authorizationStringRef forHTTPHeaderField:@"Authorization"];
     
-    
-    
-    
     // Cleanup
     //CFRelease(authorizationStringRef);
     //CFRelease(authoriztionMessageRef);
     
 }
-
-
-
-
 
 @end

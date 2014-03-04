@@ -30,7 +30,6 @@ NSMutableArray *models;
 
 @synthesize activityViewBackground;
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,8 +48,6 @@ NSMutableArray *models;
     activityViewBackground.layer.cornerRadius = 10.0;
     activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
     activityViewBackground.layer.borderWidth = 1;
-    
-    
     
     // Setup overriding back button with text and a call to a method when selected.
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToInventoryViewController)];
@@ -179,31 +176,24 @@ NSMutableArray *models;
     //static NSString *cellIdentifier = nil;
     NSString *cellIdentifier = [NSString stringWithFormat:@"%@", image.imagesId];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-
-
-    
+	
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         NSLog(@"Create new cell");
     }
-    
 	
 	// Puts the image object into the images array
 	[images addObject:image];
 	UILabel *imageIdLabel = [[UILabel alloc] init];
 	_imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 90, 60)];
     
-    
     // This is the temp image, where we show a static activity indicator image.
     UIImageView *tempImage = [[UIImageView alloc] initWithFrame:CGRectMake(40, 15, 20, 20)];
     UIImage *getImage = [UIImage imageNamed:@"ActivityIndicator.png"];
 
     tempImage.image = getImage;
-   
-    
     tempImage.tag = image.imagesId; //Have to give it a unique identifier so that we can remove it later when the image loads
 
-    
     [cell addSubview:tempImage ];
     
     // Fill out target fields with Data
@@ -215,11 +205,8 @@ NSMutableArray *models;
 			NSData *getImageData = [NSData dataWithContentsOfURL:getImgURL];
 			UIImage *getImageToSync = [UIImage imageWithData:getImageData];
             
-            
-            
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 
-                
                 // This removes the temporary image based on the unique identifier
                 UIImageView *viewToRemove = [self.view viewWithTag:image.imagesId];
                 [viewToRemove removeFromSuperview];
@@ -233,20 +220,13 @@ NSMutableArray *models;
                 [cell addSubview:imageIdLabel];
                 cell.textLabel.text = image.imageCaption;
                 
-               
-                
 			});
             
 		});
 	}
-    
- 
-    
  
     return cell;
 }
-
-
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     NSLog(@"HomeDetailsViewController : controllerWillChangeContent");
@@ -344,7 +324,6 @@ NSMutableArray *models;
 		return  _fetchedResultsController;
 	}
     
-    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_predicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", _selectedSerialNumber];
@@ -379,8 +358,6 @@ NSMutableArray *models;
     }
     
 }
-
-
 
 /* ****************************************************
  Dealer Login Check
@@ -456,8 +433,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         //
         DealerModel *setupParams = [[DealerModel alloc]init];
         [setupParams getDealerNumber];
-        
-        
         
         // Get the values out of the fields in the alert and show them
         //
@@ -547,7 +522,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         // Get the selected image object and put it into the associated property in the target
         NSIndexPath *path = [self.imageTableView indexPathForSelectedRow];
         
-        
         // Figure out what the real data row is based on the row and section.
         NSInteger rowNumber = 0;
         for (NSInteger i = 0; i < path.section; i++) {
@@ -555,21 +529,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         }
         rowNumber += path.row;
         
-        
         InventoryImage *imageObj = [images objectAtIndex:rowNumber];
         [idvc setCurrentInventoryImage:imageObj];
-        
         
         // Get the model object at index 0 since there is only one and put it into the associated property in the target
         InventoryHome *modelObj = [models objectAtIndex:0];
         [idvc setCurrentInventoryModel:modelObj];
         
 	}
-    
-    
-    
-    
-    
 }
 
 @end
