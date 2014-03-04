@@ -296,6 +296,10 @@
 	}
 }
 
+- (IBAction)logout:(id)sender {
+	[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+}
+
 #pragma mark - QR Reader
 
 - (IBAction)scanQRC:(id)sender
@@ -313,10 +317,6 @@
 	
 	[self presentViewController:reader animated:YES completion:nil];
 	
-}
-
-- (IBAction)logout:(id)sender {
-	[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

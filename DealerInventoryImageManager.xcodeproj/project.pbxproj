@@ -54,6 +54,10 @@
 		B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9617FF34BD00619E3D /* QuartzCore.framework */; };
 		B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9817FF34C600619E3D /* libiconv.dylib */; };
 		B53418A517FC8BA800917AF6 /* loginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B53418A417FC8BA800917AF6 /* loginScreen.png */; };
+		B5364DBA18C61460005E84EF /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB618C61460005E84EF /* icon57x57.png */; };
+		B5364DBB18C61460005E84EF /* icon114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB718C61460005E84EF /* icon114x114@2x.png */; };
+		B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB818C61460005E84EF /* settingsicon29x29.png */; };
+		B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB918C61460005E84EF /* spotlighticon29x29.png */; };
 		B5691B6718B2AF0200FE34AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198422E17E0D40900B619C7 /* main.m */; };
 		B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5691B6818B2AF2100FE34AE /* InfoPlist.strings */; };
 		B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198423217E0D40900B619C7 /* AppDelegate.m */; };
@@ -181,6 +185,10 @@
 		B525AB9617FF34BD00619E3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B525AB9817FF34C600619E3D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		B53418A417FC8BA800917AF6 /* loginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreen.png; sourceTree = "<group>"; };
+		B5364DB618C61460005E84EF /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
+		B5364DB718C61460005E84EF /* icon114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon114x114@2x.png"; sourceTree = "<group>"; };
+		B5364DB818C61460005E84EF /* settingsicon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon29x29.png; sourceTree = "<group>"; };
+		B5364DB918C61460005E84EF /* spotlighticon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlighticon29x29.png; sourceTree = "<group>"; };
 		B5659AEC18034256009C4E38 /* InventoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryImage.h; sourceTree = "<group>"; };
 		B5659AED18034256009C4E38 /* InventoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryImage.m; sourceTree = "<group>"; };
 		B5659AEF18034257009C4E38 /* InventoryHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryHome.h; sourceTree = "<group>"; };
@@ -366,6 +374,10 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5364DB618C61460005E84EF /* icon57x57.png */,
+				B5364DB718C61460005E84EF /* icon114x114@2x.png */,
+				B5364DB818C61460005E84EF /* settingsicon29x29.png */,
+				B5364DB918C61460005E84EF /* spotlighticon29x29.png */,
 				B5691BB118B50CAB00FE34AE /* logoutBtn.png */,
 				B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */,
 				B5691B6818B2AF2100FE34AE /* InfoPlist.strings */,
@@ -614,12 +626,15 @@
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
+				B5364DBB18C61460005E84EF /* icon114x114@2x.png in Resources */,
 				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
+				B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
 				B5922EC918184FAB000B15DF /* loadScreen.png in Resources */,
+				B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */,
 				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
@@ -637,6 +652,7 @@
 				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */,
+				B5364DBA18C61460005E84EF /* icon57x57.png in Resources */,
 				B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */,
 				B525AB6C17FF138100619E3D /* spotlighticon80x80@2x.png in Resources */,
 			);
