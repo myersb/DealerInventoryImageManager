@@ -58,6 +58,7 @@
 		B5364DBB18C61460005E84EF /* icon114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB718C61460005E84EF /* icon114x114@2x.png */; };
 		B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB818C61460005E84EF /* settingsicon29x29.png */; };
 		B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB918C61460005E84EF /* spotlighticon29x29.png */; };
+		B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5364DBE18C6477B005E84EF /* Images.xcassets */; };
 		B5691B6718B2AF0200FE34AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198422E17E0D40900B619C7 /* main.m */; };
 		B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5691B6818B2AF2100FE34AE /* InfoPlist.strings */; };
 		B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198423217E0D40900B619C7 /* AppDelegate.m */; };
@@ -189,6 +190,7 @@
 		B5364DB718C61460005E84EF /* icon114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon114x114@2x.png"; sourceTree = "<group>"; };
 		B5364DB818C61460005E84EF /* settingsicon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon29x29.png; sourceTree = "<group>"; };
 		B5364DB918C61460005E84EF /* spotlighticon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlighticon29x29.png; sourceTree = "<group>"; };
+		B5364DBE18C6477B005E84EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5659AEC18034256009C4E38 /* InventoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryImage.h; sourceTree = "<group>"; };
 		B5659AED18034256009C4E38 /* InventoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryImage.m; sourceTree = "<group>"; };
 		B5659AEF18034257009C4E38 /* InventoryHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryHome.h; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */,
 				8198423117E0D40900B619C7 /* AppDelegate.h */,
 				8198423217E0D40900B619C7 /* AppDelegate.m */,
+				B5364DBE18C6477B005E84EF /* Images.xcassets */,
 				8198422917E0D40900B619C7 /* Supporting Files */,
 			);
 			path = DealerInventoryImageManager;
@@ -638,6 +641,7 @@
 				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
+				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
 				81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */,
 				8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */,
 				B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */,
@@ -842,6 +846,8 @@
 		8198425617E0D40A00B619C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -866,6 +872,8 @@
 		8198425717E0D40A00B619C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
