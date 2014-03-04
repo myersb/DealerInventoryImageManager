@@ -25,9 +25,12 @@
 @property (nonatomic, strong) UIAlertView *alert;
 
 @property (nonatomic) UIView *overlay;
+@property (nonatomic, strong) UIImage *capturedImage;
+
 
 @property (strong, nonatomic) NSString *selectedSerialNumber;
 @property (strong, nonatomic) IBOutlet UILabel *lblSerialNumber;
+
 - (IBAction)savePhoto;
 - (IBAction)presentCameraView:(id)sender;
 - (IBAction)selectPhoto:(id)sender;

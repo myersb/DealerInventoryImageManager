@@ -156,10 +156,15 @@
 	
 	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
 		UIImageWriteToSavedPhotosAlbum([info objectForKey:@"UIImagePickerControllerOriginalImage"], nil, nil, nil);
+		_capturedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+		UIGraphicsBeginImageContext(_capturedImage.size);
+		[_capturedImage drawInRect:CGRectMake(0, 0, 500, 1000)];
+		_imageView.image = _capturedImage;
 		_endAlerts = YES;
 	}
-	
-	_imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	else{
+		_imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	}
 	
 	_saveBtn.hidden = NO;
 }
