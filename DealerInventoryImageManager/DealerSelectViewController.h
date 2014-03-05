@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface DealerSelectViewController : UIViewController <UIAlertViewDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchRequest *fetchRequest;
+@property (nonatomic, strong) NSEntityDescription *entity;
+
 @property (strong, nonatomic) IBOutlet UITextField *tfDealerNumber;
 @property (strong, nonatomic) UIAlertView *alert;
 @property (strong, nonatomic) IBOutlet UIButton *btnLogout;
 
+- (IBAction)logout:(id)sender;
 @end

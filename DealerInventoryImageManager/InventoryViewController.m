@@ -135,7 +135,7 @@
 	[self loadInventory];
 	
 	if (_isConnected == 1 && [_modelsArray count] > 0) {
-		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest andArray:_modelsArray];
+		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	
 	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
@@ -174,7 +174,7 @@
 	[self loadImages];
 	
 	if (_isConnected == 1 && [_imagesArray count] > 0) {
-		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest andArray:_imagesArray];
+		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest];
 	}
 
 	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@",inventoryImageURL, dealerNumber];
@@ -198,7 +198,7 @@
         image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
 	}
-	[self.managedObjectContext save:nil];
+	[self loadImages];
 }
 
 - (void)loadInventory
@@ -259,35 +259,19 @@
 	[_inventoryListTable reloadData];
 }
 
-- (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest andArray:(NSArray *)array
-{
-    
-    NSLog(@"InventoryViewController : clearEntity");
-    
-	fetchRequest = [[NSFetchRequest alloc]init];
-	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
-	
-	[fetchRequest setEntity:_entity];
-
-	NSError *error = nil;
-	array = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-	
-	for (NSManagedObject *object in array) {
-		[[self managedObjectContext] deleteObject:object];
-	}
-
-	NSError *saveError = nil;
-	if (![[self managedObjectContext] save:&saveError]) {
-		NSLog(@"An error has occurred: %@", saveError);
-	}
-}
-
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
 {
 	fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
 	
 	[fetchRequest setEntity:_entity];
+	
+	NSError *error = nil;
+	NSArray* result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	
+	for (NSManagedObject *object in result) {
+		[[self managedObjectContext] deleteObject:object];
+	}
 	
 	NSError *saveError = nil;
 	if (![[self managedObjectContext] save:&saveError]) {
