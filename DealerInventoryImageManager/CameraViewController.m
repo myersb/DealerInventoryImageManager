@@ -83,11 +83,6 @@
 	_showAlert = YES;
 	_endAlerts = NO;
 	
-	CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-	float cameraAspectRatio = 3.0 / 2.0;
-	float imageWidth = floorf(screenSize.width * cameraAspectRatio);
-	//float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
-	
 	_overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
 	_overlay.frame = _picker.cameraOverlayView.frame;
 	[self prefersStatusBarHidden];
@@ -96,11 +91,8 @@
 	_picker.cameraOverlayView = _overlay;
 	_picker.showsCameraControls = NO;
 	CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 71.0); //This slots the preview exactly in the middle of the screen by moving it down 71 points
-    _picker.cameraViewTransform = translate;
-	
-    //CGAffineTransform scale = CGAffineTransformScale(translate, 1.25, 1.25);
-    //_picker.cameraViewTransform = scale;
-	//_picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+    CGAffineTransform scale = CGAffineTransformScale(translate, 0.8888889, 1);
+    _picker.cameraViewTransform = scale;
 	[self presentViewController:_picker animated:YES completion:NULL];
 	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -158,14 +150,30 @@
 		_endAlerts = YES;
 	}
 	
-//	UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-//	UIGraphicsBeginImageContext(selectedImage.size);
-//	[selectedImage drawInRect:CGRectMake(0, 0, selectedImage.size.width, ((selectedImage.size.width * 2)/3))];
-//	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-//	UIGraphicsEndImageContext();
-	_imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	int yCoord = (selectedImage.size.height - ((selectedImage.size.width*2)/3))/2;
+	UIImage *croppedImage = [self cropImage:selectedImage andFrame:CGRectMake(0, yCoord, selectedImage.size.width, ((selectedImage.size.width*2)/3))];
+	UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
+	_imageView.image = croppedImage;
 	
 	_saveBtn.hidden = NO;
+}
+
+- (UIImage *)cropImage:(UIImage*)image andFrame:(CGRect)rect {
+	
+	//Note : rec is nothing but the image frame which u want to crop exactly.
+	
+    rect = CGRectMake(rect.origin.x*image.scale,
+                      rect.origin.y*image.scale,
+                      rect.size.width*image.scale,
+                      rect.size.height*image.scale);
+	
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+    UIImage *result = [UIImage imageWithCGImage:imageRef
+                                          scale:image.scale
+                                    orientation:image.imageOrientation];
+    CGImageRelease(imageRef);
+    return result;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
