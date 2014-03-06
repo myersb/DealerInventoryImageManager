@@ -41,8 +41,10 @@
 @property (nonatomic, strong) NSString *chosenDealerNumber;
 
 @property (nonatomic, assign) BOOL isConnected;
+@property (nonatomic) BOOL logoutSegue;
 
 - (IBAction)scanQRC:(id)sender;
 - (IBAction)logout:(id)sender;
+- (IBAction)changeDelear:(id)sender;
 
 @end

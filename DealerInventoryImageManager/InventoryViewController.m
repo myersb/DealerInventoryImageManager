@@ -280,7 +280,22 @@
 }
 
 - (IBAction)logout:(id)sender {
-	[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+	_alert = [[UIAlertView alloc]initWithTitle:@"Confirm Logout" message:[NSString stringWithFormat:@"Are you sure that you want to logout?"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Logout", nil];
+	[_alert show];
+	_logoutSegue = NO;
+}
+
+- (IBAction)changeDelear:(id)sender {
+	[self performSegueWithIdentifier:@"segueToChangeDealerFromInventoryList" sender:self];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 1) {
+		_logoutSegue = YES;
+		NSLog(@"logout");
+		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+		[self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
+	}
 }
 
 #pragma mark - QR Reader
@@ -340,6 +355,19 @@
     
     [internetReachable startNotifier];
     
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+	if (_logoutSegue == NO){
+		return NO;
+		NSLog(@"NO!");
+	}
+	else if (sender == _btnChangeDealer && _logoutSegue == NO){
+		return YES;
+	}
+	else{
+		return YES;
+	}
 }
 
 

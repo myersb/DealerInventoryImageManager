@@ -133,7 +133,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="c0V-EJ-AeT" kind="modal" identifier="" id="CtI-2Q-RRX"/>
+                                    <action selector="changeDelear:" destination="iEF-6x-NNF" eventType="touchUpInside" id="Npe-32-X98"/>
+                                    <segue destination="vo6-7G-XIw" kind="push" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
@@ -144,7 +145,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logout:" destination="iEF-6x-NNF" eventType="touchUpInside" id="g1S-Yv-oKu"/>
-                                    <segue destination="uAE-a2-xjx" kind="modal" id="5g9-aW-HAN"/>
+                                    <segue destination="uAE-a2-xjx" kind="modal" identifier="segueFromInventoryListToLogin" id="5g9-aW-HAN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -728,7 +729,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logout:" destination="vo6-7G-XIw" eventType="touchUpInside" id="ZnE-c4-iWl"/>
-                                    <segue destination="uAE-a2-xjx" kind="modal" id="yYU-7B-a5w"/>
+                                    <segue destination="uAE-a2-xjx" kind="modal" identifier="segueToLoginFromDealerSelect" id="yYU-7B-a5w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -823,11 +824,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="jG9-tX-G0C"/>
-        <segue reference="CtI-2Q-RRX"/>
-        <segue reference="yYU-7B-a5w"/>
-        <segue reference="BF5-Bq-G8l"/>
         <segue reference="bFb-T4-uZA"/>
+        <segue reference="tnu-uY-fSb"/>
+        <segue reference="dje-3c-QTt"/>
+        <segue reference="jG9-tX-G0C"/>
+        <segue reference="5g9-aW-HAN"/>
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="BF5-Bq-G8l"/>
     </inferredMetricsTieBreakers>
 </document>

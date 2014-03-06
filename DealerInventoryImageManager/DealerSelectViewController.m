@@ -58,6 +58,9 @@
 			return NO;
 		}
 	}
+	else if (_logoutSegue == NO){
+		return NO;
+	}
 	else{
 		return YES;
 	}
@@ -91,6 +94,16 @@
 }
 
 - (IBAction)logout:(id)sender {
-	[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+	_alert = [[UIAlertView alloc]initWithTitle:@"Confirm Logout" message:[NSString stringWithFormat:@"Are you sure that you want to logout?"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Logout", nil];
+	[_alert show];
+	_logoutSegue = NO;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if (buttonIndex == 1) {
+		_logoutSegue = YES;
+		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+		[self performSegueWithIdentifier:@"segueToLoginFromDealerSelect" sender:self];
+	}
 }
 @end
