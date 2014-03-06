@@ -145,15 +145,13 @@
 	_showAlert = NO;
 	_alertIsShowing = NO;
 	
-	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-		UIImageWriteToSavedPhotosAlbum([info objectForKey:@"UIImagePickerControllerOriginalImage"], nil, nil, nil);
-		_endAlerts = YES;
-	}
-	
 	UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
 	int yCoord = (selectedImage.size.height - ((selectedImage.size.width*2)/3))/2;
 	UIImage *croppedImage = [self cropImage:selectedImage andFrame:CGRectMake(0, yCoord, selectedImage.size.width, ((selectedImage.size.width*2)/3))];
-	UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
+	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+		_endAlerts = YES;
+		UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
+	}
 	_imageView.image = croppedImage;
 	
 	_saveBtn.hidden = NO;
