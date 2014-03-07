@@ -246,6 +246,7 @@
 		B5922EC818184FAB000B15DF /* loadScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadScreen.png; sourceTree = "<group>"; };
 		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
 		B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraCaptureArea.png; sourceTree = "<group>"; };
+		B5CDF8FC18C77EE60063CC0F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
 		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 		8198421F17E0D40900B619C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5CDF8FC18C77EE60063CC0F /* iAd.framework */,
 				811870D118BBD9B4002FFBA6 /* Crashlytics.framework */,
 				81D7A7D41887374400F561DF /* CFNetwork.framework */,
 				81A0D32218240F2B006FB5E7 /* libz.dylib */,
@@ -862,7 +864,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,
@@ -887,7 +889,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,

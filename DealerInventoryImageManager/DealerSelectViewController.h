@@ -18,5 +18,7 @@
 @property (strong, nonatomic) UIAlertView *alert;
 @property (strong, nonatomic) IBOutlet UIButton *btnLogout;
 
+@property (nonatomic) BOOL logoutSegue;
+
 - (IBAction)logout:(id)sender;
 @end
