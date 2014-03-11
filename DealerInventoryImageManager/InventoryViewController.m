@@ -85,12 +85,37 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+	[self adjustHeightOfTableview];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)adjustHeightOfTableview
+{
+    CGFloat height = self.inventoryListTable.contentSize.height;
+	NSLog(@"orig height: %f",height);
+    //CGFloat maxHeight = self.inventoryListTable.superview.frame.size.height - self.inventoryListTable.frame.origin.y;
+	
+    // if the height of the content is greater than the maxHeight of
+    // total space on the screen, limit the height to the size of the
+    // superview.
+	
+    if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
+	{
+		if ([[UIScreen mainScreen] bounds].size.height < 568)
+		{
+			// now set the frame accordingly
+			NSLog(@"%f", height);
+			CGRect frame = self.inventoryListTable.frame;
+			frame.size.height = 364;
+			self.inventoryListTable.frame = frame;
+			[_inventoryListTable reloadData];
+		}
+	}
 }
 
 #pragma mark - Table view data source

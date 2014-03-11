@@ -133,12 +133,12 @@
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8198421D17E0D40900B619C7 /* DealerInventoryImageManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DealerInventoryImageManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8198421D17E0D40900B619C7 /* PhotoUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8198422017E0D40900B619C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8198422217E0D40900B619C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8198422417E0D40900B619C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8198422617E0D40900B619C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8198422A17E0D40900B619C7 /* DealerInventoryImageManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DealerInventoryImageManager-Info.plist"; sourceTree = "<group>"; };
+		8198422A17E0D40900B619C7 /* PhotoUp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoUp-Info.plist"; sourceTree = "<group>"; };
 		8198422E17E0D40900B619C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DealerInventoryImageManager-Prefix.pch"; sourceTree = "<group>"; };
 		8198423117E0D40900B619C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,9 +147,9 @@
 		8198423617E0D40900B619C7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8198423817E0D40900B619C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8198423B17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DealerInventoryImageManager.xcdatamodel; sourceTree = "<group>"; };
-		8198424217E0D40A00B619C7 /* DealerInventoryImageManagerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DealerInventoryImageManagerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8198424217E0D40A00B619C7 /* PhotoUpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoUpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8198424317E0D40A00B619C7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		8198424C17E0D40A00B619C7 /* DealerInventoryImageManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DealerInventoryImageManagerTests-Info.plist"; sourceTree = "<group>"; };
+		8198424C17E0D40A00B619C7 /* PhotoUpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoUpTests-Info.plist"; sourceTree = "<group>"; };
 		8198424E17E0D40A00B619C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8198425017E0D40A00B619C7 /* DealerInventoryImageManagerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DealerInventoryImageManagerTests.h; sourceTree = "<group>"; };
 		8198425117E0D40A00B619C7 /* DealerInventoryImageManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DealerInventoryImageManagerTests.m; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 				B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */,
 				8198426517E0DA6700B619C7 /* MainStoryboard.storyboard */,
 				8198423A17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodeld */,
-				8198422817E0D40900B619C7 /* DealerInventoryImageManager */,
-				8198424A17E0D40A00B619C7 /* DealerInventoryImageManagerTests */,
+				8198422817E0D40900B619C7 /* PhotoUp */,
+				8198424A17E0D40A00B619C7 /* PhotoUpTests */,
 				8198421F17E0D40900B619C7 /* Frameworks */,
 				8198421E17E0D40900B619C7 /* Products */,
 			);
@@ -327,8 +327,8 @@
 		8198421E17E0D40900B619C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8198421D17E0D40900B619C7 /* DealerInventoryImageManager.app */,
-				8198424217E0D40A00B619C7 /* DealerInventoryImageManagerTests.octest */,
+				8198421D17E0D40900B619C7 /* PhotoUp.app */,
+				8198424217E0D40A00B619C7 /* PhotoUpTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8198422817E0D40900B619C7 /* DealerInventoryImageManager */ = {
+		8198422817E0D40900B619C7 /* PhotoUp */ = {
 			isa = PBXGroup;
 			children = (
 				B5691B8A18B3E42800FE34AE /* ZBarSDK */,
@@ -375,6 +375,7 @@
 				B5364DBE18C6477B005E84EF /* Images.xcassets */,
 				8198422917E0D40900B619C7 /* Supporting Files */,
 			);
+			name = PhotoUp;
 			path = DealerInventoryImageManager;
 			sourceTree = "<group>";
 		};
@@ -399,7 +400,7 @@
 				B525AB6717FF123F00619E3D /* icon@2x.png */,
 				B525AB6217FDCC0000619E3D /* qrCode@2x.png */,
 				B53418A417FC8BA800917AF6 /* loginScreen.png */,
-				8198422A17E0D40900B619C7 /* DealerInventoryImageManager-Info.plist */,
+				8198422A17E0D40900B619C7 /* PhotoUp-Info.plist */,
 				8198422E17E0D40900B619C7 /* main.m */,
 				8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */,
 				8198423417E0D40900B619C7 /* Default.png */,
@@ -409,20 +410,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8198424A17E0D40A00B619C7 /* DealerInventoryImageManagerTests */ = {
+		8198424A17E0D40A00B619C7 /* PhotoUpTests */ = {
 			isa = PBXGroup;
 			children = (
 				8198425017E0D40A00B619C7 /* DealerInventoryImageManagerTests.h */,
 				8198425117E0D40A00B619C7 /* DealerInventoryImageManagerTests.m */,
 				8198424B17E0D40A00B619C7 /* Supporting Files */,
 			);
+			name = PhotoUpTests;
 			path = DealerInventoryImageManagerTests;
 			sourceTree = "<group>";
 		};
 		8198424B17E0D40A00B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8198424C17E0D40A00B619C7 /* DealerInventoryImageManagerTests-Info.plist */,
+				8198424C17E0D40A00B619C7 /* PhotoUpTests-Info.plist */,
 				8198424D17E0D40A00B619C7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -557,9 +559,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8198421C17E0D40900B619C7 /* DealerInventoryImageManager */ = {
+		8198421C17E0D40900B619C7 /* PhotoUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "DealerInventoryImageManager" */;
+			buildConfigurationList = 8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "PhotoUp" */;
 			buildPhases = (
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
@@ -570,14 +572,14 @@
 			);
 			dependencies = (
 			);
-			name = DealerInventoryImageManager;
+			name = PhotoUp;
 			productName = DealerInventoryImageManager;
-			productReference = 8198421D17E0D40900B619C7 /* DealerInventoryImageManager.app */;
+			productReference = 8198421D17E0D40900B619C7 /* PhotoUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8198424117E0D40A00B619C7 /* DealerInventoryImageManagerTests */ = {
+		8198424117E0D40A00B619C7 /* PhotoUpTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "DealerInventoryImageManagerTests" */;
+			buildConfigurationList = 8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "PhotoUpTests" */;
 			buildPhases = (
 				8198423D17E0D40A00B619C7 /* Sources */,
 				8198423E17E0D40A00B619C7 /* Frameworks */,
@@ -589,9 +591,9 @@
 			dependencies = (
 				8198424917E0D40A00B619C7 /* PBXTargetDependency */,
 			);
-			name = DealerInventoryImageManagerTests;
+			name = PhotoUpTests;
 			productName = DealerInventoryImageManagerTests;
-			productReference = 8198424217E0D40A00B619C7 /* DealerInventoryImageManagerTests.octest */;
+			productReference = 8198424217E0D40A00B619C7 /* PhotoUpTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -608,7 +610,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8198421817E0D40900B619C7 /* Build configuration list for PBXProject "DealerInventoryImageManager" */;
+			buildConfigurationList = 8198421817E0D40900B619C7 /* Build configuration list for PBXProject "PhotoUp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -620,8 +622,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8198421C17E0D40900B619C7 /* DealerInventoryImageManager */,
-				8198424117E0D40A00B619C7 /* DealerInventoryImageManagerTests */,
+				8198421C17E0D40900B619C7 /* PhotoUp */,
+				8198424117E0D40A00B619C7 /* PhotoUpTests */,
 			);
 		};
 /* End PBXProject section */
@@ -768,7 +770,7 @@
 /* Begin PBXTargetDependency section */
 		8198424917E0D40A00B619C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8198421C17E0D40900B619C7 /* DealerInventoryImageManager */;
+			target = 8198421C17E0D40900B619C7 /* PhotoUp */;
 			targetProxy = 8198424817E0D40A00B619C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -862,8 +864,8 @@
 					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
+				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -887,8 +889,8 @@
 					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
+				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -910,8 +912,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManagerTests/DealerInventoryImageManagerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
+				PRODUCT_NAME = PhotoUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -927,8 +929,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManagerTests/DealerInventoryImageManagerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
+				PRODUCT_NAME = PhotoUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -937,7 +939,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8198421817E0D40900B619C7 /* Build configuration list for PBXProject "DealerInventoryImageManager" */ = {
+		8198421817E0D40900B619C7 /* Build configuration list for PBXProject "PhotoUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425317E0D40A00B619C7 /* Debug */,
@@ -946,7 +948,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "DealerInventoryImageManager" */ = {
+		8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "PhotoUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425617E0D40A00B619C7 /* Debug */,
@@ -955,7 +957,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "DealerInventoryImageManagerTests" */ = {
+		8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "PhotoUpTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425917E0D40A00B619C7 /* Debug */,

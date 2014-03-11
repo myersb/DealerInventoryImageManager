@@ -36,6 +36,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *qrcScanner;
 @property (nonatomic, strong) IBOutlet UITableView *inventoryListTable;
 @property (nonatomic, strong) IBOutlet UIButton *btnChangeDealer;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightContstraint;
 
 @property (nonatomic, strong) NSString *dealerNumber;
 @property (nonatomic, strong) NSString *chosenDealerNumber;
