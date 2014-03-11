@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "InventoryCell.h"
 
-@interface InventoryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ZBarReaderDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface InventoryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet InventoryCell *inventoryCell;
 
@@ -36,7 +36,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *qrcScanner;
 @property (nonatomic, strong) IBOutlet UITableView *inventoryListTable;
 @property (nonatomic, strong) IBOutlet UIButton *btnChangeDealer;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightContstraint;
 
 @property (nonatomic, strong) NSString *dealerNumber;
 @property (nonatomic, strong) NSString *chosenDealerNumber;

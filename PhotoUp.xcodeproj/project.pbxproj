@@ -90,7 +90,6 @@
 		B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA518B3E42800FE34AE /* zbar-help.html */; };
 		B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA618B3E42800FE34AE /* zbar-helpicons.png */; };
 		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
-		B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5691BA218B3E42800FE34AE /* libzbar.a */; };
 		B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */; };
 		B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BB118B50CAB00FE34AE /* logoutBtn.png */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
@@ -259,7 +258,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
