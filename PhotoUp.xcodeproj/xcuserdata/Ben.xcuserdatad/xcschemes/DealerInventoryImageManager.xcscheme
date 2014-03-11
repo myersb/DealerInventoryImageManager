@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8198421C17E0D40900B619C7"
-               BuildableName = "DealerInventoryImageManager.app"
+               BuildableName = "PhotoUp.app"
                BlueprintName = "PhotoUp"
                ReferencedContainer = "container:PhotoUp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8198424117E0D40A00B619C7"
-               BuildableName = "DealerInventoryImageManagerTests.octest"
+               BuildableName = "PhotoUpTests.octest"
                BlueprintName = "PhotoUpTests"
                ReferencedContainer = "container:PhotoUp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "DealerInventoryImageManager.app"
+            BuildableName = "PhotoUp.app"
             BlueprintName = "PhotoUp"
             ReferencedContainer = "container:PhotoUp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "DealerInventoryImageManager.app"
+            BuildableName = "PhotoUp.app"
             BlueprintName = "PhotoUp"
             ReferencedContainer = "container:PhotoUp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "DealerInventoryImageManager.app"
+            BuildableName = "PhotoUp.app"
             BlueprintName = "PhotoUp"
             ReferencedContainer = "container:PhotoUp.xcodeproj">
          </BuildableReference>
