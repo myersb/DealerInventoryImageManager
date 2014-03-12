@@ -443,7 +443,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-6q-vIe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photoDetailsBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-6q-vIe">
                                 <rect key="frame" x="0.0" y="0.0" width="331" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -451,10 +451,14 @@
                                 <rect key="frame" x="0.0" y="133" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
-                                <rect key="frame" x="20" y="532" width="88" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
+                                <rect key="frame" x="0.0" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Select Photo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="IGI-Bt-7fW"/>
+                                    <constraint firstAttribute="width" constant="105" id="jPa-c7-kEZ"/>
+                                </constraints>
+                                <state key="normal" image="newPhotoSelectBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -462,10 +466,14 @@
                                     <action selector="selectPhoto:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="Oxq-0h-OXL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
-                                <rect key="frame" x="223" y="532" width="77" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
+                                <rect key="frame" x="215" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take Photo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="iwE-eX-vhQ"/>
+                                    <constraint firstAttribute="width" constant="105" id="sdx-QI-nhs"/>
+                                </constraints>
+                                <state key="normal" image="newPhotoTakeBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -473,10 +481,14 @@
                                     <action selector="presentCameraView:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="3WS-xD-5Yi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
-                                <rect key="frame" x="125" y="532" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
+                                <rect key="frame" x="107" y="515" width="106" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save Photo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="gpZ-8Y-9C6"/>
+                                    <constraint firstAttribute="width" constant="106" id="wjx-Ew-LJn"/>
+                                </constraints>
+                                <state key="normal" image="newPhotoSaveBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -502,9 +514,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" constant="6" id="CF4-fb-LBD"/>
-                            <constraint firstAttribute="bottom" secondItem="3Ix-x1-M4M" secondAttribute="bottom" constant="6" id="IiI-Ic-osP"/>
-                            <constraint firstAttribute="bottom" secondItem="4St-zb-Bw9" secondAttribute="bottom" constant="6" id="UCt-ex-64y"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="4St-zb-Bw9" secondAttribute="bottom" id="5ON-gl-2NF"/>
+                            <constraint firstItem="3Ix-x1-M4M" firstAttribute="leading" secondItem="GZP-Uy-Uhv" secondAttribute="trailing" constant="2" id="HN2-FL-Gvv"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" id="NWD-ek-HsS"/>
+                            <constraint firstItem="4St-zb-Bw9" firstAttribute="leading" secondItem="3Ix-x1-M4M" secondAttribute="trailing" constant="2" id="qLT-BS-YU8"/>
+                            <constraint firstItem="GZP-Uy-Uhv" firstAttribute="width" secondItem="4St-zb-Bw9" secondAttribute="width" id="wfR-Ue-qt4"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="3Ix-x1-M4M" secondAttribute="bottom" id="zhb-Hz-4LO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Photo" id="0cZ-jg-HVz">
@@ -534,7 +549,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="UgW-8m-Z1P">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photoDetailsBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="UgW-8m-Z1P">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -562,8 +577,16 @@
                                         <rect key="frame" x="40" y="52" width="240" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Features : i.e. An open floorplan " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-Na-YMT" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
-                                        <rect key="frame" x="20" y="284" width="280" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inputBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="0a9-Xh-a7k">
+                                        <rect key="frame" x="19" y="233" width="281" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inputBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="pte-SI-oNg">
+                                        <rect key="frame" x="19" y="281" width="281" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Features : i.e. An open floorplan " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-Na-YMT" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
+                                        <rect key="frame" x="24" y="284" width="271" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -572,8 +595,8 @@
                                             <outlet property="delegate" destination="clY-9V-Vh5" id="zUz-DZ-wnV"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="imageTypeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an image type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-8K-hA3" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
-                                        <rect key="frame" x="20" y="236" width="280" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="imageTypeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select an image type" minimumFontSize="17" background="inputBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-8K-hA3" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
+                                        <rect key="frame" x="24" y="236" width="271" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -610,24 +633,6 @@
                                     </view>
                                 </subviews>
                             </scrollView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-8a-piw">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riA-ba-P9h">
-                                <rect key="frame" x="240" y="531" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="clY-9V-Vh5" eventType="touchUpInside" id="m6c-xm-uAR"/>
-                                </connections>
-                            </button>
                             <view hidden="YES" alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Pd-7Im">
                                 <rect key="frame" x="110" y="145" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -640,10 +645,33 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6D-2w-NuZ">
+                                <rect key="frame" x="0.0" y="515" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="BEm-CO-Hnl"/>
+                                    <constraint firstAttribute="height" constant="55" id="C4c-hT-Ub9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riA-ba-P9h">
+                                <rect key="frame" x="213" y="515" width="107" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="2RJ-l0-fMg"/>
+                                    <constraint firstAttribute="width" constant="107" id="5zG-yK-Rj8"/>
+                                </constraints>
+                                <state key="normal" image="imageDetailsSaveBtn.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="clY-9V-Vh5" eventType="touchUpInside" id="m6c-xm-uAR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="riA-ba-P9h" secondAttribute="bottom" constant="7" id="Txj-qx-l7i"/>
+                            <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="riA-ba-P9h" secondAttribute="bottom" id="HHe-sg-1V0"/>
+                            <constraint firstAttribute="bottom" secondItem="h6D-2w-NuZ" secondAttribute="bottom" constant="-2" id="W70-KV-B1k"/>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="xXJ-Qf-9hB" secondAttribute="bottom" constant="44" id="qmm-zb-zDE"/>
                         </constraints>
                     </view>
@@ -826,10 +854,16 @@
         <image name="dealerSelect.png" width="640" height="1136"/>
         <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
         <image name="getInventoryBtn.png" width="321" height="72"/>
+        <image name="imageDetailsSaveBtn.png" width="216" height="106"/>
+        <image name="inputBG.png" width="562" height="72"/>
         <image name="inventoryListChangeDealerBtn.png" width="210" height="106"/>
         <image name="inventoryListLogoutBtn.png" width="216" height="106"/>
         <image name="loginBtn.png" width="239" height="72"/>
         <image name="loginScreen.png" width="640" height="1136"/>
+        <image name="newPhotoSaveBtn.png" width="210" height="106"/>
+        <image name="newPhotoSelectBtn.png" width="210" height="106"/>
+        <image name="newPhotoTakeBtn.png" width="216" height="106"/>
+        <image name="photoDetailsBackground.png" width="640" height="1136"/>
         <image name="titleScreen.png" width="640" height="1136"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -841,8 +875,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="5g9-aW-HAN"/>
         <segue reference="VBY-Wv-O0o"/>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="5yM-gN-tF0"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="BF5-Bq-G8l"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="h4U-di-CFe"/>
         <segue reference="3jc-5l-dmt"/>
