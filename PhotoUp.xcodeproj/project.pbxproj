@@ -261,15 +261,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
-=======
-<<<<<<< HEAD:DealerInventoryImageManager.xcodeproj/project.pbxproj
 				8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */,
 				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
-=======
->>>>>>> FETCH_HEAD:PhotoUp.xcodeproj/project.pbxproj
->>>>>>> FETCH_HEAD
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
