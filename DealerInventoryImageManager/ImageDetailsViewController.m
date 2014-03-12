@@ -31,6 +31,7 @@
     [super viewDidLoad];
     NSLog(@"ImageDetailesViewController : viewDidLoad");
     
+    
     // Do any additional setup after loading the view.
     // Draw the activity view background
     activityIndicatorBackground.layer.cornerRadius = 10.0;
@@ -257,6 +258,8 @@
 // Dismiss the keyboard
 - (IBAction)dismissKeyboard:(id)sender
 {
+    // unhide the save button
+    self.saveButton.hidden = FALSE;
     
     [self.activeTextField resignFirstResponder];
 
@@ -288,6 +291,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+
+    
     // Set object picked to a higher varialbe to be used later.
     imageTagObjectSelected = [imageTagArray objectAtIndex:row] ;
     
@@ -311,6 +316,7 @@
 /* --------------------------------------------------------------- */
 
 - (IBAction)deleteButton:(id)sender {
+    
     NSLog(@"ImageDetailesViewController : deleteButton");
 	UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"Are you sure that you want to delete this image? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
 	[deleteAlert show];
@@ -461,6 +467,10 @@
 }
 
 - (IBAction)pickerDoneButton:(id)sender {
+    
+    // unhide the save button
+    self.saveButton.hidden = FALSE;
+    
     //Setup use of animation
     [UIView beginAnimations:nil context:nil];
     // A snappy action time
@@ -477,7 +487,9 @@
 // This prevents the keyboard from popping up.
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-
+    // hide the save button
+    self.saveButton.hidden = TRUE;
+    
     if( [ textField.restorationIdentifier isEqualToString:@"imageTypeField" ] )
     {
     // Display the view that contains the picker.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="DlQ-Xs-eDk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="DlQ-Xs-eDk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -31,21 +31,21 @@
                                     <action selector="offKeyboardButton:" destination="uAE-a2-xjx" eventType="touchUpInside" id="vTy-Yl-r8T"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
-                                <rect key="frame" x="28" y="254" width="263" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
+                                <rect key="frame" x="29" y="224" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
-                                <rect key="frame" x="28" y="292" width="263" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
+                                <rect key="frame" x="29" y="262" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="endTyping:" destination="uAE-a2-xjx" eventType="editingDidEndOnExit" id="pzi-8A-rSj"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
-                                <rect key="frame" x="32" y="332" width="43" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
+                                <rect key="frame" x="33" y="302" width="43" height="32"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,8 +55,8 @@
                                     <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLogin" id="3jc-5l-dmt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Image Manager" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-sa-QR7">
-                                <rect key="frame" x="77" y="186" width="166" height="52"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inventory Image Manager" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-sa-QR7">
+                                <rect key="frame" x="77" y="152" width="166" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,6 +64,14 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LPO-4e-maB" firstAttribute="top" secondItem="2x9-CB-1Ie" secondAttribute="bottom" constant="8" id="KKw-az-2NH"/>
+                            <constraint firstItem="Khh-cQ-2pT" firstAttribute="top" secondItem="LPO-4e-maB" secondAttribute="bottom" constant="10" id="NQJ-gO-qjb"/>
+                            <constraint firstItem="c2b-sa-QR7" firstAttribute="leading" secondItem="zOd-AO-y18" secondAttribute="leading" constant="77" id="S2v-r4-5iG"/>
+                            <constraint firstItem="2x9-CB-1Ie" firstAttribute="top" secondItem="c2b-sa-QR7" secondAttribute="bottom" constant="20" id="ngY-Ms-ooz"/>
+                            <constraint firstItem="LPO-4e-maB" firstAttribute="width" secondItem="2x9-CB-1Ie" secondAttribute="width" id="qMI-gg-Umw"/>
+                            <constraint firstItem="Xhc-tY-aWs" firstAttribute="top" secondItem="Khh-cQ-2pT" secondAttribute="bottom" constant="263" id="uag-kr-O8R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BvX-dh-Que"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -521,6 +529,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-8a-piw">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riA-ba-P9h">
+                                <rect key="frame" x="240" y="531" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="clY-9V-Vh5" eventType="touchUpInside" id="m6c-xm-uAR"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
                                 <rect key="frame" x="0.0" y="66" width="320" height="458"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -545,8 +571,8 @@
                                         <rect key="frame" x="40" y="52" width="240" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Features : i.e. An open floorplan " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-Na-YMT" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
-                                        <rect key="frame" x="20" y="284" width="280" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="i.e. Open floorplan" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-Na-YMT" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
+                                        <rect key="frame" x="20" y="295" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -555,8 +581,8 @@
                                             <outlet property="delegate" destination="clY-9V-Vh5" id="zUz-DZ-wnV"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="imageTypeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an image type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-8K-hA3" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
-                                        <rect key="frame" x="20" y="236" width="280" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="imageTypeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tap to add location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-8K-hA3" userLabel="Round Style Text Field - Features : i.e. An open floorplan">
+                                        <rect key="frame" x="20" y="243" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -591,26 +617,36 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVb-er-wEU">
+                                        <rect key="frame" x="20" y="220" width="119" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Location">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOj-bb-6ri">
+                                        <rect key="frame" x="20" y="275" width="119" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Caption">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-8a-piw">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riA-ba-P9h">
-                                <rect key="frame" x="240" y="531" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="clY-9V-Vh5" eventType="touchUpInside" id="m6c-xm-uAR"/>
-                                </connections>
-                            </button>
                             <view hidden="YES" alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Pd-7Im">
                                 <rect key="frame" x="110" y="145" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -647,6 +683,7 @@
                         <outlet property="imageTag" destination="8aF-Gc-mYG" id="Csn-2N-nIp"/>
                         <outlet property="imageTypeField" destination="0Wu-8K-hA3" id="5zu-gP-fEI"/>
                         <outlet property="pickerViewContainer" destination="kYE-IB-D4x" id="r5Y-tT-rQA"/>
+                        <outlet property="saveButton" destination="riA-ba-P9h" id="mLo-GT-TTS"/>
                         <outlet property="serialNumberLabel" destination="81D-DA-qtt" id="fGC-DT-wxK"/>
                         <outlet property="theScrollView" destination="xXJ-Qf-9hB" id="oA8-4m-UND"/>
                         <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetailsFromImageDetails" id="kgZ-Z3-I4F"/>
@@ -817,7 +854,6 @@
     <resources>
         <image name="background.png" width="640" height="1136"/>
         <image name="loadScreen.png" width="640" height="1136"/>
-        <image name="loginScreen.png" width="640" height="1136"/>
         <image name="logoutBtn.png" width="60" height="60"/>
         <image name="qrCode.png" width="30" height="30"/>
     </resources>
@@ -828,20 +864,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="jG9-tX-G0C"/>
-        <segue reference="CtI-2Q-RRX"/>
         <segue reference="yYU-7B-a5w"/>
-        <segue reference="kgZ-Z3-I4F"/>
-        <segue reference="BF5-Bq-G8l"/>
-=======
->>>>>>> ad0bbbc92988b8eaa233e1801755a66e053be7cf
-        <segue reference="bFb-T4-uZA"/>
-        <segue reference="tnu-uY-fSb"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="jG9-tX-G0C"/>
-        <segue reference="5g9-aW-HAN"/>
-        <segue reference="yVG-si-1YU"/>
+        <segue reference="3jc-5l-dmt"/>
+        <segue reference="h4U-di-CFe"/>
         <segue reference="BF5-Bq-G8l"/>
+        <segue reference="kgZ-Z3-I4F"/>
     </inferredMetricsTieBreakers>
 </document>
