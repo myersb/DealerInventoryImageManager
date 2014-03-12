@@ -14,7 +14,6 @@
 		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
 		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
-		8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
 		8198422317E0D40900B619C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422217E0D40900B619C7 /* Foundation.framework */; };
 		8198422517E0D40900B619C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422417E0D40900B619C7 /* CoreGraphics.framework */; };
@@ -274,7 +273,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
+<<<<<<< HEAD
+=======
 				8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */,
+<<<<<<< HEAD
+=======
+				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
+>>>>>>> FETCH_HEAD
+>>>>>>> FETCH_HEAD
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
@@ -588,7 +594,7 @@
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
 				8198421B17E0D40900B619C7 /* Resources */,
-				811870D018BBD975002FFBA6 /* Run Script */,
+				811870D018BBD975002FFBA6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -714,19 +720,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		811870D018BBD975002FFBA6 /* Run Script */ = {
+		811870D018BBD975002FFBA6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd 3feeb08100895a4a2684bdbbf7ae45bf7b19eab8ca5fc35f7f67b1eed4392147";
+			shellScript = "";
 		};
 		8198424017E0D40A00B619C7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -891,7 +896,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
@@ -917,7 +921,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
