@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+>>>>>>> FETCH_HEAD
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -102,8 +106,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="app-tG-Ihp">
-                                <rect key="frame" x="0.0" y="70" width="320" height="453"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="app-tG-Ihp">
+                                <rect key="frame" x="0.0" y="20" width="320" height="453"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -124,7 +128,7 @@
                                     <outlet property="delegate" destination="iEF-6x-NNF" id="ZI8-CV-Hy3"/>
                                 </connections>
                             </tableView>
-                            <imageView hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrCode.png" translatesAutoresizingMaskIntoConstraints="NO" id="T33-B3-Ldy">
+                            <imageView hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="qrCode.png" translatesAutoresizingMaskIntoConstraints="NO" id="T33-B3-Ldy">
                                 <rect key="frame" x="20" y="531" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -133,7 +137,7 @@
                                     <outletCollection property="gestureRecognizers" destination="YS3-5A-P41" appends="YES" id="8iY-UN-kcq"/>
                                 </connections>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
                                 <rect key="frame" x="107" y="531" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Dealer">
@@ -145,9 +149,13 @@
                                     <segue destination="vo6-7G-XIw" kind="push" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
                                 <rect key="frame" x="270" y="531" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="emo-ei-a71"/>
+                                    <constraint firstAttribute="width" constant="30" id="f8y-xp-hwf"/>
+                                </constraints>
                                 <state key="normal" image="logoutBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -161,6 +169,13 @@
                         <accessibility key="accessibilityConfiguration" label="">
                             <accessibilityTraits key="traits" none="YES" button="YES"/>
                         </accessibility>
+                        <constraints>
+                            <constraint firstItem="app-tG-Ihp" firstAttribute="top" secondItem="Kye-Ro-FZh" secondAttribute="bottom" id="339-Ka-aQT"/>
+                            <constraint firstItem="INq-Ys-OyA" firstAttribute="top" secondItem="app-tG-Ihp" secondAttribute="bottom" constant="60" id="6bF-ke-iXC"/>
+                            <constraint firstAttribute="bottom" secondItem="PLu-kd-AeA" secondAttribute="bottom" constant="15" id="Y1N-iQ-eff"/>
+                            <constraint firstAttribute="bottom" secondItem="vMW-kT-bJn" secondAttribute="bottom" constant="15" id="sYK-zi-sJI"/>
+                            <constraint firstAttribute="bottom" secondItem="T33-B3-Ldy" secondAttribute="bottom" constant="15" id="wNB-gE-aEc"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Inventory List" id="8M6-Vp-VWP">
@@ -312,18 +327,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-aa-BoL">
-                                <rect key="frame" x="220" y="78" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="View On Web">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="qCZ-Yh-4qa" kind="push" identifier="segueToRetailWeb" id="HnA-sr-OFP"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-Xj-8in">
                                 <rect key="frame" x="0.0" y="223" width="320" height="302"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -447,7 +450,7 @@
                                 <rect key="frame" x="0.0" y="133" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
                                 <rect key="frame" x="20" y="532" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Photo">
@@ -458,7 +461,7 @@
                                     <action selector="selectPhoto:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="Oxq-0h-OXL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
                                 <rect key="frame" x="223" y="532" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Take Photo">
@@ -469,7 +472,7 @@
                                     <action selector="presentCameraView:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="3WS-xD-5Yi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
                                 <rect key="frame" x="125" y="532" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Photo">
@@ -497,6 +500,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" constant="6" id="CF4-fb-LBD"/>
+                            <constraint firstAttribute="bottom" secondItem="3Ix-x1-M4M" secondAttribute="bottom" constant="6" id="IiI-Ic-osP"/>
+                            <constraint firstAttribute="bottom" secondItem="4St-zb-Bw9" secondAttribute="bottom" constant="6" id="UCt-ex-64y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Photo" id="0cZ-jg-HVz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="jDF-Kc-uIV"/>
@@ -762,9 +770,13 @@
                                     <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="jG9-tX-G0C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
-                                <rect key="frame" x="270" y="518" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
+                                <rect key="frame" x="270" y="531" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="KES-oc-NFs"/>
+                                    <constraint firstAttribute="height" constant="30" id="mQX-zx-YS6"/>
+                                </constraints>
                                 <state key="normal" image="logoutBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -775,6 +787,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="bhp-z6-QHV" secondAttribute="bottom" constant="15" id="1dx-6a-6Ed"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dealer Select" id="XV2-bv-Yja"/>
                     <connections>
@@ -823,33 +838,6 @@
             </objects>
             <point key="canvasLocation" x="1400" y="-174"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="e9A-bT-sOf">
-            <objects>
-                <tableViewController id="E1N-KN-Six" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="t4g-P5-lDT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EUF-dQ-hXc">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EUF-dQ-hXc" id="Pv7-nU-tes">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="E1N-KN-Six" id="c1A-EG-Q9u"/>
-                            <outlet property="delegate" destination="E1N-KN-Six" id="zbz-MA-ddJ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l5r-x9-F6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="background.png" width="640" height="1136"/>
@@ -864,6 +852,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="yYU-7B-a5w"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="jG9-tX-G0C"/>
@@ -871,5 +860,14 @@
         <segue reference="h4U-di-CFe"/>
         <segue reference="BF5-Bq-G8l"/>
         <segue reference="kgZ-Z3-I4F"/>
+=======
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="jG9-tX-G0C"/>
+        <segue reference="dje-3c-QTt"/>
+        <segue reference="yYU-7B-a5w"/>
+        <segue reference="h4U-di-CFe"/>
+        <segue reference="BF5-Bq-G8l"/>
+        <segue reference="tnu-uY-fSb"/>
+>>>>>>> FETCH_HEAD
     </inferredMetricsTieBreakers>
 </document>
