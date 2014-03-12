@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "InventoryCell.h"
 
-@interface InventoryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ZBarReaderDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface InventoryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet InventoryCell *inventoryCell;
 

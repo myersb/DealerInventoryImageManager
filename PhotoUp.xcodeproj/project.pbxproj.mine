@@ -7,27 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */; };
+		811B9C3C183D223B0075EB20 /* ImageTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C3B183D223B0075EB20 /* ImageTags.m */; };
+		811B9C3F183D223C0075EB20 /* ImageTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C3E183D223C0075EB20 /* ImageTypes.m */; };
+		811B9C42183D22930075EB20 /* ImageTypesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C41183D22930075EB20 /* ImageTypesModel.m */; };
+		811B9C45183D22A30075EB20 /* ImageTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C44183D22A30075EB20 /* ImageTagsModel.m */; };
+		813B81C917FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
-		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
-		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
-		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
+		8188875C17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
-		8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
 		8198422317E0D40900B619C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422217E0D40900B619C7 /* Foundation.framework */; };
 		8198422517E0D40900B619C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422417E0D40900B619C7 /* CoreGraphics.framework */; };
 		8198422717E0D40900B619C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422617E0D40900B619C7 /* CoreData.framework */; };
+		8198422D17E0D40900B619C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8198422B17E0D40900B619C7 /* InfoPlist.strings */; };
+		8198422F17E0D40900B619C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198422E17E0D40900B619C7 /* main.m */; };
+		8198423317E0D40900B619C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198423217E0D40900B619C7 /* AppDelegate.m */; };
 		8198423517E0D40900B619C7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423417E0D40900B619C7 /* Default.png */; };
 		8198423717E0D40900B619C7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423617E0D40900B619C7 /* Default@2x.png */; };
 		8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423817E0D40900B619C7 /* Default-568h@2x.png */; };
+		8198423C17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8198423A17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodeld */; };
 		8198424417E0D40A00B619C7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198424317E0D40A00B619C7 /* SenTestingKit.framework */; };
 		8198424517E0D40A00B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
 		8198424617E0D40A00B619C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422217E0D40900B619C7 /* Foundation.framework */; };
 		8198424717E0D40A00B619C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422617E0D40900B619C7 /* CoreData.framework */; };
 		8198424F17E0D40A00B619C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8198424D17E0D40A00B619C7 /* InfoPlist.strings */; };
 		8198425217E0D40A00B619C7 /* DealerInventoryImageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425117E0D40A00B619C7 /* DealerInventoryImageManagerTests.m */; };
+		8198425D17E0D49100B619C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425C17E0D49100B619C7 /* LoginViewController.m */; };
 		8198425E17E0D49100B619C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425C17E0D49100B619C7 /* LoginViewController.m */; };
 		8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8198426517E0DA6700B619C7 /* MainStoryboard.storyboard */; };
 		8198426717E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8198426517E0DA6700B619C7 /* MainStoryboard.storyboard */; };
@@ -39,12 +45,17 @@
 		8198427117E0E2F300B619C7 /* claytonLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426F17E0E2F300B619C7 /* claytonLogo.jpg */; };
 		8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */; };
 		8198427417E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */; };
+		8198427E17E103C000B619C7 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198427D17E103C000B619C7 /* InventoryViewController.m */; };
 		8198427F17E103C000B619C7 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198427D17E103C000B619C7 /* InventoryViewController.m */; };
+		81A0D32118240F02006FB5E7 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0D32018240F02006FB5E7 /* BugSense-iOS.framework */; };
 		81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0D32218240F2B006FB5E7 /* libz.dylib */; };
-		81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BDB86B18B2716F00C71247 /* CameraOverlay.xib */; };
+		81A0D32618243955006FB5E7 /* ImageDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A0D32518243955006FB5E7 /* ImageDetailsViewController.m */; };
+		81C50D7A18159BD70011870C /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C50D7918159BD70011870C /* DataHelper.m */; };
+		81C7525F182A941E00BE68E8 /* InventoryImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C7525E182A941E00BE68E8 /* InventoryImageModel.m */; };
+		81CA9C9E17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
+		81CA9CA217EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
-		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
 		B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6217FDCC0000619E3D /* qrCode@2x.png */; };
 		B525AB6817FF123F00619E3D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6717FF123F00619E3D /* icon@2x.png */; };
 		B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6917FF138100619E3D /* settingsicon58x58@2x.png */; };
@@ -55,52 +66,31 @@
 		B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9617FF34BD00619E3D /* QuartzCore.framework */; };
 		B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9817FF34C600619E3D /* libiconv.dylib */; };
 		B53418A517FC8BA800917AF6 /* loginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B53418A417FC8BA800917AF6 /* loginScreen.png */; };
-		B5364DBA18C61460005E84EF /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB618C61460005E84EF /* icon57x57.png */; };
-		B5364DBB18C61460005E84EF /* icon114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB718C61460005E84EF /* icon114x114@2x.png */; };
-		B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB818C61460005E84EF /* settingsicon29x29.png */; };
-		B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = B5364DB918C61460005E84EF /* spotlighticon29x29.png */; };
-		B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5364DBE18C6477B005E84EF /* Images.xcassets */; };
-		B5691B6718B2AF0200FE34AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198422E17E0D40900B619C7 /* main.m */; };
-		B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5691B6818B2AF2100FE34AE /* InfoPlist.strings */; };
-		B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198423217E0D40900B619C7 /* AppDelegate.m */; };
-		B5691B6C18B2AF7E00FE34AE /* CameraOverlay.xib in Sources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
-		B5691B6D18B2AFB900FE34AE /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
-		B5691B6E18B2AFFD00FE34AE /* ImageTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C3E183D223C0075EB20 /* ImageTypes.m */; };
-		B5691B6F18B2AFFD00FE34AE /* ImageTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C3B183D223B0075EB20 /* ImageTags.m */; };
-		B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF6180447F4009C4E38 /* HB_CoreDataManager.m */; };
-		B5691B7118B2AFFD00FE34AE /* JSONToArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF318044135009C4E38 /* JSONToArray.m */; };
-		B5691B7218B2AFFD00FE34AE /* InventoryHome.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF018034257009C4E38 /* InventoryHome.m */; };
-		B5691B7318B2AFFD00FE34AE /* InventoryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AED18034256009C4E38 /* InventoryImage.m */; };
-		B5691B7418B2AFFD00FE34AE /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
-		B5691B7518B2AFFD00FE34AE /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C50D7918159BD70011870C /* DataHelper.m */; };
-		B5691B7618B2AFFD00FE34AE /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
-		B5691B7718B2AFFD00FE34AE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
-		B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C7525E182A941E00BE68E8 /* InventoryImageModel.m */; };
-		B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C41183D22930075EB20 /* ImageTypesModel.m */; };
-		B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C44183D22A30075EB20 /* ImageTagsModel.m */; };
-		B5691B7B18B2AFFD00FE34AE /* RetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */; };
-		B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425C17E0D49100B619C7 /* LoginViewController.m */; };
-		B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198427D17E103C000B619C7 /* InventoryViewController.m */; };
-		B5691B7E18B2AFFD00FE34AE /* HomeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */; };
-		B5691B7F18B2AFFD00FE34AE /* ImageDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A0D32518243955006FB5E7 /* ImageDetailsViewController.m */; };
-		B5691B8018B2AFFD00FE34AE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF918044822009C4E38 /* UIDevice-Hardware.m */; };
-		B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */; };
-		B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8218B2B05300FE34AE /* CameraViewController.m */; };
-		B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */; };
-		B5691BA918B3E42800FE34AE /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA418B3E42800FE34AE /* zbar-back.png */; };
-		B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA518B3E42800FE34AE /* zbar-help.html */; };
-		B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA618B3E42800FE34AE /* zbar-helpicons.png */; };
-		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
-		B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5691BA218B3E42800FE34AE /* libzbar.a */; };
-		B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */; };
-		B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BB118B50CAB00FE34AE /* logoutBtn.png */; };
+		B5659AEE18034256009C4E38 /* InventoryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AED18034256009C4E38 /* InventoryImage.m */; };
+		B5659AF118034257009C4E38 /* InventoryHome.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF018034257009C4E38 /* InventoryHome.m */; };
+		B5659AF418044135009C4E38 /* JSONToArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF318044135009C4E38 /* JSONToArray.m */; };
+		B5659AF7180447F4009C4E38 /* HB_CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF6180447F4009C4E38 /* HB_CoreDataManager.m */; };
+		B5659AFC18044822009C4E38 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AF918044822009C4E38 /* UIDevice-Hardware.m */; };
+		B5659AFD18044822009C4E38 /* UIDevice-Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */; };
+		B5659B0018046664009C4E38 /* ch_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5659AFF18046664009C4E38 /* ch_AppDelegate.m */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
+		B59070BE18AE8A2300E15B2C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59070BD18AE8A2300E15B2C /* CFNetwork.framework */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
+		B5922EBF18181C9D000B15DF /* HomeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */; };
 		B5922EC7181841AE000B15DF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B5922EC6181841AE000B15DF /* background.png */; };
 		B5922EC918184FAB000B15DF /* loadScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5922EC818184FAB000B15DF /* loadScreen.png */; };
+		B5C8A64218283BCA00D0FF19 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C8A63C18283BCA00D0FF19 /* libzbar.a */; };
+		B5C8A64318283BCA00D0FF19 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C8A63E18283BCA00D0FF19 /* zbar-back.png */; };
+		B5C8A64418283BCA00D0FF19 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = B5C8A63F18283BCA00D0FF19 /* zbar-help.html */; };
+		B5C8A64518283BCA00D0FF19 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C8A64018283BCA00D0FF19 /* zbar-helpicons.png */; };
+		B5C8A64618283BCA00D0FF19 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C8A64118283BCA00D0FF19 /* zbar-samples.png */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
-		B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */; };
+		B5CA35D018A412B300C0A1EE /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA35CF18A412B300C0A1EE /* CameraOverlayView.m */; };
+		B5CA35D318A412E500C0A1EE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA35D118A412E500C0A1EE /* CameraViewController.m */; };
+		B5DCC0351886D3EC00DF4D07 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */; };
+		B5DCC0381886D40500DF4D07 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DCC0371886D40500DF4D07 /* InventoryCell.m */; };
+		B5DFCA4A182196A600AE2A19 /* RetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,23 +104,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		811870D118BBD9B4002FFBA6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActivityIndicator.png; sourceTree = "<group>"; };
-		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTags.h; sourceTree = "<group>"; };
-		811B9C3B183D223B0075EB20 /* ImageTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTags.m; sourceTree = "<group>"; };
-		811B9C3D183D223C0075EB20 /* ImageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTypes.h; sourceTree = "<group>"; };
-		811B9C3E183D223C0075EB20 /* ImageTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTypes.m; sourceTree = "<group>"; };
+		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTags.h; path = ../ImageTags.h; sourceTree = "<group>"; };
+		811B9C3B183D223B0075EB20 /* ImageTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTags.m; path = ../ImageTags.m; sourceTree = "<group>"; };
+		811B9C3D183D223C0075EB20 /* ImageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTypes.h; path = ../ImageTypes.h; sourceTree = "<group>"; };
+		811B9C3E183D223C0075EB20 /* ImageTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTypes.m; path = ../ImageTypes.m; sourceTree = "<group>"; };
 		811B9C40183D22930075EB20 /* ImageTypesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTypesModel.h; sourceTree = "<group>"; };
 		811B9C41183D22930075EB20 /* ImageTypesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTypesModel.m; sourceTree = "<group>"; };
 		811B9C43183D22A30075EB20 /* ImageTagsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTagsModel.h; sourceTree = "<group>"; };
 		811B9C44183D22A30075EB20 /* ImageTagsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTagsModel.m; sourceTree = "<group>"; };
 		813B81C717FC5E660011A2DD /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		813B81C817FC5E660011A2DD /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
-		8140ACBC18ABEDAC00D04E05 /* CameraOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraOverlayView.h; sourceTree = "<group>"; };
-		8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayView.m; sourceTree = "<group>"; };
-		8142C97F1888410000C32E83 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
-		8142C9801888410000C32E83 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
-		8142C9811888410000C32E83 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCell.xib; sourceTree = "<group>"; };
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -140,7 +123,8 @@
 		8198422417E0D40900B619C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8198422617E0D40900B619C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8198422A17E0D40900B619C7 /* DealerInventoryImageManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DealerInventoryImageManager-Info.plist"; sourceTree = "<group>"; };
-		8198422E17E0D40900B619C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8198422C17E0D40900B619C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8198422E17E0D40900B619C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DealerInventoryImageManager-Prefix.pch"; sourceTree = "<group>"; };
 		8198423117E0D40900B619C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8198423217E0D40900B619C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -163,12 +147,10 @@
 		8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRCodeIcon_green1.png; sourceTree = "<group>"; };
 		8198427C17E103C000B619C7 /* InventoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryViewController.h; sourceTree = "<group>"; };
 		8198427D17E103C000B619C7 /* InventoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryViewController.m; sourceTree = "<group>"; };
-		81A0D32018240F02006FB5E7 /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BugSense-iOS.framework"; path = "DealerInventoryImageManager/BugSense-iOS.framework"; sourceTree = "<group>"; };
+		81A0D32018240F02006FB5E7 /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "BugSense-iOS.framework"; sourceTree = "<group>"; };
 		81A0D32218240F2B006FB5E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		81A0D32418243955006FB5E7 /* ImageDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailsViewController.h; sourceTree = "<group>"; };
 		81A0D32518243955006FB5E7 /* ImageDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailsViewController.m; sourceTree = "<group>"; };
-		81BDB86A18ABF98D00C71247 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		81BDB86B18B2716F00C71247 /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlay.xib; sourceTree = "<group>"; };
 		81C50D7818159BD70011870C /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
 		81C50D7918159BD70011870C /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
 		81C7525D182A941E00BE68E8 /* InventoryImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryImageModel.h; sourceTree = "<group>"; };
@@ -177,7 +159,6 @@
 		81CA9C9D17EA28C700E6E1CC /* DealerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerModel.m; sourceTree = "<group>"; };
 		81CA9CA017EA331E00E6E1CC /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
 		81CA9CA117EA331E00E6E1CC /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
-		81D7A7D41887374400F561DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B525AB6217FDCC0000619E3D /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
 		B525AB6717FF123F00619E3D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		B525AB6917FF138100619E3D /* settingsicon58x58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsicon58x58@2x.png"; sourceTree = "<group>"; };
@@ -188,11 +169,6 @@
 		B525AB9617FF34BD00619E3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B525AB9817FF34C600619E3D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		B53418A417FC8BA800917AF6 /* loginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreen.png; sourceTree = "<group>"; };
-		B5364DB618C61460005E84EF /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
-		B5364DB718C61460005E84EF /* icon114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon114x114@2x.png"; sourceTree = "<group>"; };
-		B5364DB818C61460005E84EF /* settingsicon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon29x29.png; sourceTree = "<group>"; };
-		B5364DB918C61460005E84EF /* spotlighticon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlighticon29x29.png; sourceTree = "<group>"; };
-		B5364DBE18C6477B005E84EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5659AEC18034256009C4E38 /* InventoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryImage.h; sourceTree = "<group>"; };
 		B5659AED18034256009C4E38 /* InventoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryImage.m; sourceTree = "<group>"; };
 		B5659AEF18034257009C4E38 /* InventoryHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryHome.h; sourceTree = "<group>"; };
@@ -207,50 +183,47 @@
 		B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Reachability.m"; sourceTree = "<group>"; };
 		B5659AFE18046664009C4E38 /* ch_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ch_AppDelegate.h; sourceTree = "<group>"; };
 		B5659AFF18046664009C4E38 /* ch_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ch_AppDelegate.m; sourceTree = "<group>"; };
-		B5691B6918B2AF2100FE34AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B5691B8218B2B05300FE34AE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DealerInventoryImageManager.xcdatamodel; sourceTree = "<group>"; };
-		B5691B8E18B3E42800FE34AE /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
-		B5691B8F18B3E42800FE34AE /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
-		B5691B9018B3E42800FE34AE /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		B5691B9118B3E42800FE34AE /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
-		B5691B9218B3E42800FE34AE /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
-		B5691B9318B3E42800FE34AE /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
-		B5691B9418B3E42800FE34AE /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
-		B5691B9518B3E42800FE34AE /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
-		B5691B9618B3E42800FE34AE /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
-		B5691B9718B3E42800FE34AE /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
-		B5691B9818B3E42800FE34AE /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
-		B5691B9918B3E42800FE34AE /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
-		B5691B9A18B3E42800FE34AE /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
-		B5691B9B18B3E42800FE34AE /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
-		B5691B9C18B3E42800FE34AE /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
-		B5691B9D18B3E42800FE34AE /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
-		B5691B9E18B3E42800FE34AE /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
-		B5691B9F18B3E42800FE34AE /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
-		B5691BA018B3E42800FE34AE /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
-		B5691BA118B3E42800FE34AE /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		B5691BA218B3E42800FE34AE /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
-		B5691BA418B3E42800FE34AE /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
-		B5691BA518B3E42800FE34AE /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
-		B5691BA618B3E42800FE34AE /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
-		B5691BA718B3E42800FE34AE /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
-		B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerSelectViewController.h; sourceTree = "<group>"; };
-		B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerSelectViewController.m; sourceTree = "<group>"; };
-		B5691BB118B50CAB00FE34AE /* logoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutBtn.png; sourceTree = "<group>"; };
 		B59070B718ABC70E00E15B2C /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		B59070BB18ABEAC100E15B2C /* shutterBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterBtn.png; sourceTree = "<group>"; };
+		B59070BD18AE8A2300E15B2C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B591F064189BFB3B003AB1D9 /* blankThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankThumbnail.png; sourceTree = "<group>"; };
 		B5922EBD18181C9D000B15DF /* HomeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailsViewController.h; sourceTree = "<group>"; };
 		B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsViewController.m; sourceTree = "<group>"; };
 		B5922EC6181841AE000B15DF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		B5922EC818184FAB000B15DF /* loadScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadScreen.png; sourceTree = "<group>"; };
-		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
-		B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraCaptureArea.png; sourceTree = "<group>"; };
-		B5CDF8FC18C77EE60063CC0F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
-		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
-		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
+		B5C8A62818283BCA00D0FF19 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		B5C8A62918283BCA00D0FF19 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		B5C8A62A18283BCA00D0FF19 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		B5C8A62B18283BCA00D0FF19 /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		B5C8A62C18283BCA00D0FF19 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		B5C8A62D18283BCA00D0FF19 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		B5C8A62E18283BCA00D0FF19 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		B5C8A62F18283BCA00D0FF19 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		B5C8A63018283BCA00D0FF19 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		B5C8A63118283BCA00D0FF19 /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		B5C8A63218283BCA00D0FF19 /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		B5C8A63318283BCA00D0FF19 /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		B5C8A63418283BCA00D0FF19 /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		B5C8A63518283BCA00D0FF19 /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		B5C8A63618283BCA00D0FF19 /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		B5C8A63718283BCA00D0FF19 /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		B5C8A63818283BCA00D0FF19 /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		B5C8A63918283BCA00D0FF19 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		B5C8A63A18283BCA00D0FF19 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		B5C8A63B18283BCA00D0FF19 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		B5C8A63C18283BCA00D0FF19 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		B5C8A63E18283BCA00D0FF19 /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
+		B5C8A63F18283BCA00D0FF19 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
+		B5C8A64018283BCA00D0FF19 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
+		B5C8A64118283BCA00D0FF19 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlay.xib; sourceTree = "<group>"; };
+		B5CA35CE18A412B300C0A1EE /* CameraOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayView.h; sourceTree = "<group>"; };
+		B5CA35CF18A412B300C0A1EE /* CameraOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayView.m; sourceTree = "<group>"; };
+		B5CA35D118A412E500C0A1EE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		B5CA35D218A412E500C0A1EE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCell.xib; sourceTree = "<group>"; };
+		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InventoryCell.h; path = ../InventoryCell.h; sourceTree = "<group>"; };
+		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InventoryCell.m; path = ../InventoryCell.m; sourceTree = "<group>"; };
 		B5DFCA48182196A600AE2A19 /* RetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetailWebViewController.h; sourceTree = "<group>"; };
 		B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetailWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,11 +233,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */,
-				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
-				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
+				B59070BE18AE8A2300E15B2C /* CFNetwork.framework in Frameworks */,
+				81A0D32118240F02006FB5E7 /* BugSense-iOS.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
+				B5C8A64218283BCA00D0FF19 /* libzbar.a in Frameworks */,
 				B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */,
 				B525AB9417FF34B500619E3D /* CoreMedia.framework in Frameworks */,
 				B525AB9517FF34B500619E3D /* CoreVideo.framework in Frameworks */,
@@ -338,9 +311,7 @@
 		8198421F17E0D40900B619C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5CDF8FC18C77EE60063CC0F /* iAd.framework */,
-				811870D118BBD9B4002FFBA6 /* Crashlytics.framework */,
-				81D7A7D41887374400F561DF /* CFNetwork.framework */,
+				B59070BD18AE8A2300E15B2C /* CFNetwork.framework */,
 				81A0D32218240F2B006FB5E7 /* libz.dylib */,
 				81A0D32018240F02006FB5E7 /* BugSense-iOS.framework */,
 				8188875F17E7626D004B8260 /* SystemConfiguration.framework */,
@@ -361,7 +332,7 @@
 		8198422817E0D40900B619C7 /* DealerInventoryImageManager */ = {
 			isa = PBXGroup;
 			children = (
-				B5691B8A18B3E42800FE34AE /* ZBarSDK */,
+				B5C8A62418283BCA00D0FF19 /* ZBarSDK */,
 				813B81C317FB5DBA0011A2DD /* Data */,
 				8198426217E0D9B300B619C7 /* Models */,
 				8198426817E0E26F00B619C7 /* Artifacts */,
@@ -374,7 +345,6 @@
 				B5659AFB18044822009C4E38 /* UIDevice-Reachability.m */,
 				8198423117E0D40900B619C7 /* AppDelegate.h */,
 				8198423217E0D40900B619C7 /* AppDelegate.m */,
-				B5364DBE18C6477B005E84EF /* Images.xcassets */,
 				8198422917E0D40900B619C7 /* Supporting Files */,
 			);
 			path = DealerInventoryImageManager;
@@ -383,14 +353,6 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */,
-				B5364DB618C61460005E84EF /* icon57x57.png */,
-				B5364DB718C61460005E84EF /* icon114x114@2x.png */,
-				B5364DB818C61460005E84EF /* settingsicon29x29.png */,
-				B5364DB918C61460005E84EF /* spotlighticon29x29.png */,
-				B5691BB118B50CAB00FE34AE /* logoutBtn.png */,
-				B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */,
-				B5691B6818B2AF2100FE34AE /* InfoPlist.strings */,
 				B59070BB18ABEAC100E15B2C /* shutterBtn.png */,
 				B59070B718ABC70E00E15B2C /* cancelBtn.png */,
 				B591F064189BFB3B003AB1D9 /* blankThumbnail.png */,
@@ -402,6 +364,7 @@
 				B525AB6217FDCC0000619E3D /* qrCode@2x.png */,
 				B53418A417FC8BA800917AF6 /* loginScreen.png */,
 				8198422A17E0D40900B619C7 /* DealerInventoryImageManager-Info.plist */,
+				8198422B17E0D40900B619C7 /* InfoPlist.strings */,
 				8198422E17E0D40900B619C7 /* main.m */,
 				8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */,
 				8198423417E0D40900B619C7 /* Default.png */,
@@ -452,16 +415,10 @@
 		8198426317E0D9BC00B619C7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				81BDB86B18B2716F00C71247 /* CameraOverlay.xib */,
-				81BDB86A18ABF98D00C71247 /* CameraViewController.h */,
-				B5691B8218B2B05300FE34AE /* CameraViewController.m */,
-				8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */,
-				8140ACBC18ABEDAC00D04E05 /* CameraOverlayView.h */,
-				B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */,
-				B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */,
-				8142C97F1888410000C32E83 /* InventoryCell.h */,
-				8142C9801888410000C32E83 /* InventoryCell.m */,
-				8142C9811888410000C32E83 /* InventoryCell.xib */,
+				B5CA35D218A412E500C0A1EE /* CameraViewController.h */,
+				B5CA35D118A412E500C0A1EE /* CameraViewController.m */,
+				B5CA35CE18A412B300C0A1EE /* CameraOverlayView.h */,
+				B5CA35CF18A412B300C0A1EE /* CameraOverlayView.m */,
 				B5DFCA48182196A600AE2A19 /* RetailWebViewController.h */,
 				B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */,
 				813B81C717FC5E660011A2DD /* LaunchViewController.h */,
@@ -483,7 +440,6 @@
 		8198426817E0E26F00B619C7 /* Artifacts */ = {
 			isa = PBXGroup;
 			children = (
-				8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */,
 				8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */,
 				8198426F17E0E2F300B619C7 /* claytonLogo.jpg */,
 				8198426917E0E28A00B619C7 /* bgUpper.jpg */,
@@ -492,66 +448,66 @@
 			name = Artifacts;
 			sourceTree = "<group>";
 		};
-		B5691B8A18B3E42800FE34AE /* ZBarSDK */ = {
+		B5C8A62418283BCA00D0FF19 /* ZBarSDK */ = {
 			isa = PBXGroup;
 			children = (
-				B5691B8B18B3E42800FE34AE /* Headers */,
-				B5691BA218B3E42800FE34AE /* libzbar.a */,
-				B5691BA318B3E42800FE34AE /* Resources */,
+				B5C8A62518283BCA00D0FF19 /* Headers */,
+				B5C8A63C18283BCA00D0FF19 /* libzbar.a */,
+				B5C8A63D18283BCA00D0FF19 /* Resources */,
 			);
 			path = ZBarSDK;
 			sourceTree = "<group>";
 		};
-		B5691B8B18B3E42800FE34AE /* Headers */ = {
+		B5C8A62518283BCA00D0FF19 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				B5691B8C18B3E42800FE34AE /* ZBarSDK */,
+				B5C8A62618283BCA00D0FF19 /* ZBarSDK */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		B5691B8C18B3E42800FE34AE /* ZBarSDK */ = {
+		B5C8A62618283BCA00D0FF19 /* ZBarSDK */ = {
 			isa = PBXGroup;
 			children = (
-				B5691B8D18B3E42800FE34AE /* zbar */,
-				B5691B9718B3E42800FE34AE /* zbar.h */,
-				B5691B9818B3E42800FE34AE /* ZBarCameraSimulator.h */,
-				B5691B9918B3E42800FE34AE /* ZBarCaptureReader.h */,
-				B5691B9A18B3E42800FE34AE /* ZBarHelpController.h */,
-				B5691B9B18B3E42800FE34AE /* ZBarImage.h */,
-				B5691B9C18B3E42800FE34AE /* ZBarImageScanner.h */,
-				B5691B9D18B3E42800FE34AE /* ZBarReaderController.h */,
-				B5691B9E18B3E42800FE34AE /* ZBarReaderView.h */,
-				B5691B9F18B3E42800FE34AE /* ZBarReaderViewController.h */,
-				B5691BA018B3E42800FE34AE /* ZBarSDK.h */,
-				B5691BA118B3E42800FE34AE /* ZBarSymbol.h */,
+				B5C8A62718283BCA00D0FF19 /* zbar */,
+				B5C8A63118283BCA00D0FF19 /* zbar.h */,
+				B5C8A63218283BCA00D0FF19 /* ZBarCameraSimulator.h */,
+				B5C8A63318283BCA00D0FF19 /* ZBarCaptureReader.h */,
+				B5C8A63418283BCA00D0FF19 /* ZBarHelpController.h */,
+				B5C8A63518283BCA00D0FF19 /* ZBarImage.h */,
+				B5C8A63618283BCA00D0FF19 /* ZBarImageScanner.h */,
+				B5C8A63718283BCA00D0FF19 /* ZBarReaderController.h */,
+				B5C8A63818283BCA00D0FF19 /* ZBarReaderView.h */,
+				B5C8A63918283BCA00D0FF19 /* ZBarReaderViewController.h */,
+				B5C8A63A18283BCA00D0FF19 /* ZBarSDK.h */,
+				B5C8A63B18283BCA00D0FF19 /* ZBarSymbol.h */,
 			);
 			path = ZBarSDK;
 			sourceTree = "<group>";
 		};
-		B5691B8D18B3E42800FE34AE /* zbar */ = {
+		B5C8A62718283BCA00D0FF19 /* zbar */ = {
 			isa = PBXGroup;
 			children = (
-				B5691B8E18B3E42800FE34AE /* Decoder.h */,
-				B5691B8F18B3E42800FE34AE /* Exception.h */,
-				B5691B9018B3E42800FE34AE /* Image.h */,
-				B5691B9118B3E42800FE34AE /* ImageScanner.h */,
-				B5691B9218B3E42800FE34AE /* Processor.h */,
-				B5691B9318B3E42800FE34AE /* Scanner.h */,
-				B5691B9418B3E42800FE34AE /* Symbol.h */,
-				B5691B9518B3E42800FE34AE /* Video.h */,
-				B5691B9618B3E42800FE34AE /* Window.h */,
+				B5C8A62818283BCA00D0FF19 /* Decoder.h */,
+				B5C8A62918283BCA00D0FF19 /* Exception.h */,
+				B5C8A62A18283BCA00D0FF19 /* Image.h */,
+				B5C8A62B18283BCA00D0FF19 /* ImageScanner.h */,
+				B5C8A62C18283BCA00D0FF19 /* Processor.h */,
+				B5C8A62D18283BCA00D0FF19 /* Scanner.h */,
+				B5C8A62E18283BCA00D0FF19 /* Symbol.h */,
+				B5C8A62F18283BCA00D0FF19 /* Video.h */,
+				B5C8A63018283BCA00D0FF19 /* Window.h */,
 			);
 			path = zbar;
 			sourceTree = "<group>";
 		};
-		B5691BA318B3E42800FE34AE /* Resources */ = {
+		B5C8A63D18283BCA00D0FF19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B5691BA418B3E42800FE34AE /* zbar-back.png */,
-				B5691BA518B3E42800FE34AE /* zbar-help.html */,
-				B5691BA618B3E42800FE34AE /* zbar-helpicons.png */,
-				B5691BA718B3E42800FE34AE /* zbar-samples.png */,
+				B5C8A63E18283BCA00D0FF19 /* zbar-back.png */,
+				B5C8A63F18283BCA00D0FF19 /* zbar-help.html */,
+				B5C8A64018283BCA00D0FF19 /* zbar-helpicons.png */,
+				B5C8A64118283BCA00D0FF19 /* zbar-samples.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -566,7 +522,6 @@
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
 				8198421B17E0D40900B619C7 /* Resources */,
-				811870D018BBD975002FFBA6 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -635,37 +590,28 @@
 			files = (
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
-				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
-				B5364DBB18C61460005E84EF /* icon114x114@2x.png in Resources */,
-				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
+				8198422D17E0D40900B619C7 /* InfoPlist.strings in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
-				B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */,
-				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
+				B5C8A64418283BCA00D0FF19 /* zbar-help.html in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
-				B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */,
 				B5922EC918184FAB000B15DF /* loadScreen.png in Resources */,
-				B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */,
 				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
-				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
-				81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */,
+				B5C8A64518283BCA00D0FF19 /* zbar-helpicons.png in Resources */,
 				8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */,
+				B5C8A64318283BCA00D0FF19 /* zbar-back.png in Resources */,
 				B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */,
 				B5922EC7181841AE000B15DF /* background.png in Resources */,
 				8198426B17E0E28A00B619C7 /* bgUpper.jpg in Resources */,
-				B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */,
 				8198426D17E0E28A00B619C7 /* bgLower.jpg in Resources */,
-				B5691BA918B3E42800FE34AE /* zbar-back.png in Resources */,
 				B53418A517FC8BA800917AF6 /* loginScreen.png in Resources */,
 				8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
-				8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */,
-				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
+				B5C8A64618283BCA00D0FF19 /* zbar-samples.png in Resources */,
+				B5DCC0351886D3EC00DF4D07 /* InventoryCell.xib in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */,
-				B5364DBA18C61460005E84EF /* icon57x57.png in Resources */,
-				B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */,
 				B525AB6C17FF138100619E3D /* spotlighticon80x80@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,20 +632,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		811870D018BBD975002FFBA6 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd 3feeb08100895a4a2684bdbbf7ae45bf7b19eab8ca5fc35f7f67b1eed4392147";
-		};
 		8198424017E0D40A00B619C7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,35 +652,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5691B6E18B2AFFD00FE34AE /* ImageTypes.m in Sources */,
-				B5691B6F18B2AFFD00FE34AE /* ImageTags.m in Sources */,
-				B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */,
-				B5691B7118B2AFFD00FE34AE /* JSONToArray.m in Sources */,
-				B5691B7218B2AFFD00FE34AE /* InventoryHome.m in Sources */,
-				B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */,
-				B5691B7318B2AFFD00FE34AE /* InventoryImage.m in Sources */,
-				B5691B7418B2AFFD00FE34AE /* Dealer.m in Sources */,
-				B5691B7518B2AFFD00FE34AE /* DataHelper.m in Sources */,
-				B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */,
-				B5691B7618B2AFFD00FE34AE /* DealerModel.m in Sources */,
-				B5691B7718B2AFFD00FE34AE /* Reachability.m in Sources */,
-				B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */,
-				B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */,
-				B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */,
-				8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */,
-				B5691B7B18B2AFFD00FE34AE /* RetailWebViewController.m in Sources */,
-				B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */,
-				8142C9821888410000C32E83 /* InventoryCell.m in Sources */,
-				B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */,
-				B5691B7E18B2AFFD00FE34AE /* HomeDetailsViewController.m in Sources */,
-				B5691B7F18B2AFFD00FE34AE /* ImageDetailsViewController.m in Sources */,
-				B5691B8018B2AFFD00FE34AE /* UIDevice-Hardware.m in Sources */,
-				B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */,
-				B5691B6D18B2AFB900FE34AE /* LaunchViewController.m in Sources */,
-				B5691B6C18B2AF7E00FE34AE /* CameraOverlay.xib in Sources */,
-				B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */,
-				B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */,
-				B5691B6718B2AF0200FE34AE /* main.m in Sources */,
+				81C7525F182A941E00BE68E8 /* InventoryImageModel.m in Sources */,
+				8198422F17E0D40900B619C7 /* main.m in Sources */,
+				8198423317E0D40900B619C7 /* AppDelegate.m in Sources */,
+				8198423C17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodeld in Sources */,
+				81A0D32618243955006FB5E7 /* ImageDetailsViewController.m in Sources */,
+				81C50D7A18159BD70011870C /* DataHelper.m in Sources */,
+				811B9C45183D22A30075EB20 /* ImageTagsModel.m in Sources */,
+				B5659B0018046664009C4E38 /* ch_AppDelegate.m in Sources */,
+				B5CA35D018A412B300C0A1EE /* CameraOverlayView.m in Sources */,
+				8198425D17E0D49100B619C7 /* LoginViewController.m in Sources */,
+				8198427E17E103C000B619C7 /* InventoryViewController.m in Sources */,
+				B5659AEE18034256009C4E38 /* InventoryImage.m in Sources */,
+				8188875C17E75E53004B8260 /* Reachability.m in Sources */,
+				B5DFCA4A182196A600AE2A19 /* RetailWebViewController.m in Sources */,
+				B5659AFC18044822009C4E38 /* UIDevice-Hardware.m in Sources */,
+				81CA9C9E17EA28C700E6E1CC /* DealerModel.m in Sources */,
+				B5659AF418044135009C4E38 /* JSONToArray.m in Sources */,
+				B5659AF118034257009C4E38 /* InventoryHome.m in Sources */,
+				81CA9CA217EA331E00E6E1CC /* Dealer.m in Sources */,
+				811B9C42183D22930075EB20 /* ImageTypesModel.m in Sources */,
+				B5659AF7180447F4009C4E38 /* HB_CoreDataManager.m in Sources */,
+				B5DCC0381886D40500DF4D07 /* InventoryCell.m in Sources */,
+				811B9C3C183D223B0075EB20 /* ImageTags.m in Sources */,
+				B5659AFD18044822009C4E38 /* UIDevice-Reachability.m in Sources */,
+				B5922EBF18181C9D000B15DF /* HomeDetailsViewController.m in Sources */,
+				813B81C917FC5E660011A2DD /* LaunchViewController.m in Sources */,
+				B5CA35D318A412E500C0A1EE /* CameraViewController.m in Sources */,
+				811B9C3F183D223C0075EB20 /* ImageTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,18 +708,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8198424D17E0D40A00B619C7 /* InfoPlist.strings */ = {
+		8198422B17E0D40900B619C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8198424E17E0D40A00B619C7 /* en */,
+				8198422C17E0D40900B619C7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B5691B6818B2AF2100FE34AE /* InfoPlist.strings */ = {
+		8198424D17E0D40A00B619C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B5691B6918B2AF2100FE34AE /* en */,
+				8198424E17E0D40A00B619C7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -855,23 +786,25 @@
 		8198425617E0D40A00B619C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					.,
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
+					/Users/chriscantley/Documents/XCodeProjects/DealerInventoryImageManager,
+					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					./DealerInventoryImageManager/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/InventoryImageManagerApp_iOS/trunk/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/InventoryImageManagerApp_iOS/trunk/DealerInventoryImageManager/ZBarSDK,
+					/Users/chriscantley/Downloads,
+					/Users/chriscantley/Documents/XCodeProjects/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -882,22 +815,24 @@
 		8198425717E0D40A00B619C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					.,
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
+					/Users/chriscantley/Documents/XCodeProjects/DealerInventoryImageManager,
+					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManager/DealerInventoryImageManager-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					./DealerInventoryImageManager/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/InventoryImageManagerApp_iOS/trunk/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/InventoryImageManagerApp_iOS/trunk/DealerInventoryImageManager/ZBarSDK,
+					/Users/chriscantley/Downloads,
+					/Users/chriscantley/Documents/XCodeProjects/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
+					/Users/Ben/Documents/Projects/Xcode/DealerInventoryImageManager/DealerInventoryImageManager/ZBarSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -980,16 +915,6 @@
 			currentVersion = 8198423B17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodel */;
 			name = DealerInventoryImageManager.xcdatamodeld;
 			path = DealerInventoryImageManager/DealerInventoryImageManager.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */,
-			);
-			currentVersion = B5691B8818B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodel */;
-			path = DealerInventoryImageManager.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

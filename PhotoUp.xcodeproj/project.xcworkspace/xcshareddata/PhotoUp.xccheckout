@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1983F5B7-5E6C-4E3A-ACB3-5B974E799D22</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoUp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F622DE7E-1985-41CE-AE25-6E28ED2EDBA3</key>
+		<string>https://github.com/myersb/DealerInventoryImageManager.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoUp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F622DE7E-1985-41CE-AE25-6E28ED2EDBA3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/myersb/DealerInventoryImageManager.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F622DE7E-1985-41CE-AE25-6E28ED2EDBA3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F622DE7E-1985-41CE-AE25-6E28ED2EDBA3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DealerInventoryImageManager</string>
+		</dict>
+	</array>
+</dict>
+</plist>

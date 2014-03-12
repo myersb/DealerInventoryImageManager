@@ -85,12 +85,25 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+	[self adjustHeightOfTableview];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)adjustHeightOfTableview
+{
+	if ([[UIScreen mainScreen] bounds].size.height < 520)
+	{
+		// now set the frame accordingly
+		NSLog(@"BOOM");
+		CGRect frame = self.inventoryListTable.frame;
+		frame.size.height = 100;
+		self.inventoryListTable.frame = frame;
+	}
 }
 
 #pragma mark - Table view data source
@@ -300,35 +313,35 @@
 
 #pragma mark - QR Reader
 
-- (IBAction)scanQRC:(id)sender
-{
-	NSLog(@"InventoryViewController : scanQRC");
-    
-	ZBarReaderViewController *reader = [ZBarReaderViewController new];
-	reader.readerDelegate = self;
-	reader.supportedOrientationsMask = ZBarOrientationMaskAll;
-	reader.allowsEditing = NO;
-	reader.readerView.torchMode = NO;
-	
-	ZBarImageScanner *scanner = reader.scanner;
-	[scanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to:0];
-	
-	[self presentViewController:reader animated:YES completion:nil];
-	
-}
+//- (IBAction)scanQRC:(id)sender
+//{
+//	NSLog(@"InventoryViewController : scanQRC");
+//    
+//	ZBarReaderViewController *reader = [ZBarReaderViewController new];
+//	reader.readerDelegate = self;
+//	reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+//	reader.allowsEditing = NO;
+//	reader.readerView.torchMode = NO;
+//	
+//	ZBarImageScanner *scanner = reader.scanner;
+//	[scanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to:0];
+//	
+//	[self presentViewController:reader animated:YES completion:nil];
+//	
+//}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    
-	id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
-    ZBarSymbol *symbol = nil;
-    for(symbol in results)
-	{
-		_resultText = symbol.data;
-		[self performSegueWithIdentifier:@"segueToHomeDetails" sender:self];
-	}
-	[picker dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//    
+//	id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+//    ZBarSymbol *symbol = nil;
+//    for(symbol in results)
+//	{
+//		_resultText = symbol.data;
+//		[self performSegueWithIdentifier:@"segueToHomeDetails" sender:self];
+//	}
+//	[picker dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
