@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
->>>>>>> FETCH_HEAD
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -35,7 +31,6 @@
                                     <action selector="offKeyboardButton:" destination="uAE-a2-xjx" eventType="touchUpInside" id="vTy-Yl-r8T"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
                                 <rect key="frame" x="34" y="285" width="254" height="30"/>
                                 <constraints>
@@ -51,61 +46,35 @@
                                     <constraint firstAttribute="width" constant="254" id="40l-xq-C8B"/>
                                     <constraint firstAttribute="height" constant="30" id="ov9-jz-qct"/>
                                 </constraints>
-=======
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
-                                <rect key="frame" x="28" y="254" width="263" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
-                                <rect key="frame" x="28" y="292" width="263" height="30"/>
->>>>>>> FETCH_HEAD
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="endTyping:" destination="uAE-a2-xjx" eventType="editingDidEndOnExit" id="pzi-8A-rSj"/>
+                                    <action selector="endTyping:" destination="uAE-a2-xjx" eventType="editingDidEnd" id="zKr-Mp-rde"/>
                                 </connections>
                             </textField>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
-                                <rect key="frame" x="28" y="373" width="119" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
+                                <rect key="frame" x="28" y="373" width="120" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Zda-ne-8Yg"/>
-                                    <constraint firstAttribute="width" constant="119" id="dwo-u4-Mi8"/>
+                                    <constraint firstAttribute="height" constant="36" id="cGC-1o-pCb"/>
+                                    <constraint firstAttribute="width" constant="120" id="hzR-dU-o4P"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="loginBtn.png">
-=======
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
-                                <rect key="frame" x="32" y="332" width="43" height="32"/>
-                                <state key="normal" title="Log In">
->>>>>>> FETCH_HEAD
+                                <state key="normal" image="loginBtn.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="hBm-hf-9cn"/>
+                                    <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="oOv-ex-oLx"/>
                                     <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLogin" id="3jc-5l-dmt"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2x9-CB-1Ie" firstAttribute="top" secondItem="LvJ-wj-cLH" secondAttribute="bottom" constant="265" id="WPc-Ol-PWz"/>
-                            <constraint firstItem="Khh-cQ-2pT" firstAttribute="top" secondItem="LPO-4e-maB" secondAttribute="bottom" constant="14" id="byr-cU-GPB"/>
+                            <constraint firstItem="Khh-cQ-2pT" firstAttribute="top" secondItem="LPO-4e-maB" secondAttribute="bottom" constant="14" id="iP9-b3-lm8"/>
                             <constraint firstItem="LPO-4e-maB" firstAttribute="top" secondItem="2x9-CB-1Ie" secondAttribute="bottom" constant="14" id="ouR-7H-385"/>
                         </constraints>
-=======
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Image Manager" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-sa-QR7">
-                                <rect key="frame" x="77" y="186" width="166" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
->>>>>>> FETCH_HEAD
                     </view>
                     <navigationItem key="navigationItem" id="BvX-dh-Que"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -853,7 +822,6 @@
     </scenes>
     <resources>
         <image name="background.png" width="640" height="1136"/>
-<<<<<<< HEAD
         <image name="bottomGrayBar.png" width="640" height="106"/>
         <image name="dealerSelect.png" width="640" height="1136"/>
         <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
@@ -863,12 +831,6 @@
         <image name="loginBtn.png" width="239" height="72"/>
         <image name="loginScreen.png" width="640" height="1136"/>
         <image name="titleScreen.png" width="640" height="1136"/>
-=======
-        <image name="loadScreen.png" width="640" height="1136"/>
-        <image name="loginScreen.png" width="640" height="1136"/>
-        <image name="logoutBtn.png" width="60" height="60"/>
-        <image name="qrCode.png" width="30" height="30"/>
->>>>>>> FETCH_HEAD
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -877,19 +839,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-        <segue reference="tnu-uY-fSb"/>
->>>>>>> FETCH_HEAD
->>>>>>> FETCH_HEAD
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="dje-3c-QTt"/>
         <segue reference="5g9-aW-HAN"/>
+        <segue reference="VBY-Wv-O0o"/>
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="5yM-gN-tF0"/>
+        <segue reference="dje-3c-QTt"/>
         <segue reference="h4U-di-CFe"/>
         <segue reference="3jc-5l-dmt"/>
-        <segue reference="5yM-gN-tF0"/>
     </inferredMetricsTieBreakers>
 </document>
