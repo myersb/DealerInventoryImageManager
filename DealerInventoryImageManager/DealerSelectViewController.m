@@ -70,6 +70,13 @@
 	if ([[segue identifier] isEqualToString:@"segueFromDealerSelectToIventoryView"]) {
 		InventoryViewController *ivc = [segue destinationViewController];
 		ivc.chosenDealerNumber = _tfDealerNumber.text;
+		
+		UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+									   initWithTitle:@"Select"
+									   style:UIBarButtonItemStylePlain
+									   target:nil
+									   action:nil];
+		self.navigationItem.backBarButtonItem = backButton;
 	}
 }
 

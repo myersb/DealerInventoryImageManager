@@ -72,6 +72,43 @@ NSMutableArray *models;
 	[self loadDetails];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+	[self adjustHeightOfTableview];
+}
+
+
+- (void)adjustHeightOfTableview
+{
+//	if ([[UIScreen mainScreen] bounds].size.height < 520)
+//	{
+//		// now set the frame accordingly
+//		CGRect frame = self.imageTableView.frame;
+//		frame.size.height = 100;
+//		self.imageTableView.frame = frame;
+//	}
+	if ([[UIScreen mainScreen] bounds].size.height < 520)
+	{
+
+	CGFloat height = self.imageTableView.contentSize.height;
+    CGFloat maxHeight = self.imageTableView.superview.frame.size.height - self.imageTableView.frame.origin.y;
+	
+    // if the height of the content is greater than the maxHeight of
+    // total space on the screen, limit the height to the size of the
+    // superview.
+	
+    if (height > maxHeight)
+        height = maxHeight;
+	
+    // now set the height constraint accordingly
+	
+    [UIView animateWithDuration:0.25 animations:^{
+        self.tableViewHeightConstraint.constant = height;
+        [self.view needsUpdateConstraints];
+    }];
+	}
+}
+
 -(void)backToInventoryViewController
 {
     
@@ -500,8 +537,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"HomeDetailsViewController : prepareForSegue");
-    
-    NSLog(@"%@", sender);
     
 	if ([[segue identifier]isEqualToString:@"segueToRetailWeb"]) {
 		RetailWebViewController *retailWebViewController = [segue destinationViewController];
