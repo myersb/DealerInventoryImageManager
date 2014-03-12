@@ -285,6 +285,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
