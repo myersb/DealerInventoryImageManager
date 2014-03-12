@@ -89,7 +89,7 @@
     [request setHTTPMethod:@"POST"];
 	
     // Setup Post Body
-    NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=1&username=%@&password=%@", userName, password];
+    NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=0&username=%@&password=%@", userName, password];
 	
     // setup request header
     [request addValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-length"];
@@ -184,12 +184,19 @@
                 }
                 
                 //  Add the dealer info to the entity
-                //
-                NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
-                dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
+                // Try to process this as a string, and if not, then process as a number
+                @try {
+                    dealer.dealerNumber = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil);
+                }
+                @catch (NSException *exception) {
+                    NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
+                    dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
+                }
+
                 dealer.userName = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_USERNAME], nil);
                 dealer.lastAuthorizationDate = [NSDate date];
                 
+                NSLog(@"%@", dealer);
                 
                 // Commit the entity to storage
                 //
