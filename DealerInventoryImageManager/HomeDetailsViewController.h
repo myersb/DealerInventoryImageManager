@@ -39,11 +39,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblSqFt;
 @property (strong, nonatomic) IBOutlet UILabel *lblLength;
 @property (strong, nonatomic) IBOutlet UILabel *lblWidth;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
 //Handles the Activity view that will show up.
 @property (weak, nonatomic) IBOutlet UIView *activityViewBackground;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
-
 
 @property (strong, nonatomic) IBOutlet UIView *detailsView;
 @property (strong, nonatomic) IBOutlet UITableView *imageTableView;
@@ -57,18 +57,15 @@
 @property (strong, nonatomic) NSData *imageData;
 @property (strong, nonatomic) UIImage *imageToSync;
 
-
 @property (nonatomic, strong) UIAlertView *alert;		// Instantiate an alert object
 @property (nonatomic, assign) BOOL modelAvailable;
 
 @property (nonatomic, strong) NSOperationQueue *imageDownloadingQueue;
 @property (nonatomic, strong) NSCache *imageCache;
 
-
 @property (assign, nonatomic) BOOL isConnected;
 
 - (IBAction)addPhoto:(id)sender;
 - (void) checkOnlineConnection;
-+ (UIImage*)resizeImage:(UIImage*)image withWidth:(int)width withHeight:(int)height;
 
 @end

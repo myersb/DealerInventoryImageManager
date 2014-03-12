@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+>>>>>>> FETCH_HEAD
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -31,39 +35,50 @@
                                     <action selector="offKeyboardButton:" destination="uAE-a2-xjx" eventType="touchUpInside" id="vTy-Yl-r8T"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
-                                <rect key="frame" x="28" y="254" width="263" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-CB-1Ie">
+                                <rect key="frame" x="34" y="285" width="254" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="fIu-Cz-q0M"/>
+                                    <constraint firstAttribute="height" constant="30" id="hKY-EP-jQ0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
-                                <rect key="frame" x="28" y="292" width="263" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LPO-4e-maB">
+                                <rect key="frame" x="34" y="329" width="254" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="40l-xq-C8B"/>
+                                    <constraint firstAttribute="height" constant="30" id="ov9-jz-qct"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="endTyping:" destination="uAE-a2-xjx" eventType="editingDidEndOnExit" id="pzi-8A-rSj"/>
+                                    <action selector="endTyping:" destination="uAE-a2-xjx" eventType="editingDidEnd" id="zKr-Mp-rde"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
-                                <rect key="frame" x="32" y="332" width="43" height="32"/>
-                                <state key="normal" title="Log In">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-cQ-2pT">
+                                <rect key="frame" x="28" y="373" width="120" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="cGC-1o-pCb"/>
+                                    <constraint firstAttribute="width" constant="120" id="hzR-dU-o4P"/>
+                                </constraints>
+                                <state key="normal" image="loginBtn.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="hBm-hf-9cn"/>
+                                    <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="oOv-ex-oLx"/>
                                     <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLogin" id="3jc-5l-dmt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Image Manager" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-sa-QR7">
-                                <rect key="frame" x="77" y="186" width="166" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2x9-CB-1Ie" firstAttribute="top" secondItem="LvJ-wj-cLH" secondAttribute="bottom" constant="265" id="WPc-Ol-PWz"/>
+                            <constraint firstItem="Khh-cQ-2pT" firstAttribute="top" secondItem="LPO-4e-maB" secondAttribute="bottom" constant="14" id="iP9-b3-lm8"/>
+                            <constraint firstItem="LPO-4e-maB" firstAttribute="top" secondItem="2x9-CB-1Ie" secondAttribute="bottom" constant="14" id="ouR-7H-385"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BvX-dh-Que"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -95,7 +110,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="app-tG-Ihp">
-                                <rect key="frame" x="0.0" y="20" width="320" height="453"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="495"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -116,19 +131,22 @@
                                     <outlet property="delegate" destination="iEF-6x-NNF" id="ZI8-CV-Hy3"/>
                                 </connections>
                             </tableView>
-                            <imageView hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="qrCode.png" translatesAutoresizingMaskIntoConstraints="NO" id="T33-B3-Ldy">
-                                <rect key="frame" x="20" y="531" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ygv-Rg-BkZ">
+                                <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="-39" maxX="0.0" maxY="39"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="YS3-5A-P41" appends="YES" id="8iY-UN-kcq"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0SC-gm-hiI"/>
+                                    <constraint firstAttribute="height" constant="53" id="cUv-ww-jAL"/>
+                                </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
-                                <rect key="frame" x="107" y="531" width="107" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
+                                <rect key="frame" x="108" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Dealer">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="W7u-XL-ia6"/>
+                                    <constraint firstAttribute="height" constant="53" id="bSl-Ze-dFz"/>
+                                </constraints>
+                                <state key="normal" image="inventoryListChangeDealerBtn.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -137,14 +155,14 @@
                                     <segue destination="vo6-7G-XIw" kind="push" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
-                                <rect key="frame" x="270" y="531" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
+                                <rect key="frame" x="215" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="emo-ei-a71"/>
-                                    <constraint firstAttribute="width" constant="30" id="f8y-xp-hwf"/>
+                                    <constraint firstAttribute="width" constant="105" id="bC4-Af-a7o"/>
+                                    <constraint firstAttribute="height" constant="53" id="fb5-0t-bv7"/>
                                 </constraints>
-                                <state key="normal" image="logoutBtn.png">
+                                <state key="normal" image="inventoryListLogoutBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -159,10 +177,10 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="app-tG-Ihp" firstAttribute="top" secondItem="Kye-Ro-FZh" secondAttribute="bottom" id="339-Ka-aQT"/>
-                            <constraint firstItem="INq-Ys-OyA" firstAttribute="top" secondItem="app-tG-Ihp" secondAttribute="bottom" constant="60" id="6bF-ke-iXC"/>
-                            <constraint firstAttribute="bottom" secondItem="PLu-kd-AeA" secondAttribute="bottom" constant="15" id="Y1N-iQ-eff"/>
-                            <constraint firstAttribute="bottom" secondItem="vMW-kT-bJn" secondAttribute="bottom" constant="15" id="sYK-zi-sJI"/>
-                            <constraint firstAttribute="bottom" secondItem="T33-B3-Ldy" secondAttribute="bottom" constant="15" id="wNB-gE-aEc"/>
+                            <constraint firstItem="INq-Ys-OyA" firstAttribute="top" secondItem="app-tG-Ihp" secondAttribute="bottom" constant="50" id="6bF-ke-iXC"/>
+                            <constraint firstAttribute="bottom" secondItem="Ygv-Rg-BkZ" secondAttribute="bottom" id="ttC-ux-w2e"/>
+                            <constraint firstAttribute="bottom" secondItem="PLu-kd-AeA" secondAttribute="bottom" id="uBl-ri-WSo"/>
+                            <constraint firstAttribute="bottom" secondItem="vMW-kT-bJn" secondAttribute="bottom" id="zBM-3y-jYN"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -173,7 +191,6 @@
                     <connections>
                         <outlet property="btnChangeDealer" destination="vMW-kT-bJn" id="MvE-SK-bqO"/>
                         <outlet property="inventoryListTable" destination="app-tG-Ihp" id="fRJ-lg-6gn"/>
-                        <outlet property="qrcScanner" destination="T33-B3-Ldy" id="OQ6-Kh-nc2"/>
                         <outlet property="searchDisplayController" destination="b0D-wl-cVc" id="rk3-Io-Syj"/>
                     </connections>
                 </viewController>
@@ -206,10 +223,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="HGT-Bb-i3w">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moh-qe-Huk">
                                 <rect key="frame" x="16" y="129" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -315,10 +328,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-Xj-8in">
-                                <rect key="frame" x="0.0" y="223" width="320" height="302"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-Xj-8in">
+                                <rect key="frame" x="0.0" y="223" width="320" height="345"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="345" id="qDf-WD-WbU"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="6ag-gr-1KJ" rowHeight="60" style="IBUITableViewCellStyleDefault" id="NN4-y7-oHa">
                                         <rect key="frame" x="0.0" y="55" width="320" height="60"/>
@@ -359,7 +375,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inventory Home" id="8qs-qP-1EQ">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Pw4-sp-BJy">
@@ -382,6 +398,7 @@
                         <outlet property="lblSerialNumber" destination="gCN-vC-Mb3" id="yUl-Ha-gZK"/>
                         <outlet property="lblSqFt" destination="Sg6-25-FD6" id="L43-0J-5uJ"/>
                         <outlet property="lblWidth" destination="BxT-1N-UHb" id="5D9-6q-ji4"/>
+                        <outlet property="tableViewHeightConstraint" destination="qDf-WD-WbU" id="P4G-yR-kb4"/>
                         <segue destination="iEF-6x-NNF" kind="push" identifier="noInventorySegue" id="VBY-Wv-O0o"/>
                     </connections>
                 </viewController>
@@ -672,7 +689,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loadScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="vUJ-vt-6uw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="titleScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="vUJ-vt-6uw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -701,27 +718,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLw-WR-DVZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dealerSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLw-WR-DVZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a dealer number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-zx-jjD">
-                                <rect key="frame" x="20" y="80" width="170" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Qf-Fkq">
+                                <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="4EN-eK-pcB"/>
+                                    <constraint firstAttribute="width" constant="320" id="BUL-wS-swf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a dealer number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-zx-jjD">
+                                <rect key="frame" x="30" y="76" width="170" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XxZ-JH-Dts">
-                                <rect key="frame" x="20" y="109" width="140" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XxZ-JH-Dts">
+                                <rect key="frame" x="33" y="112" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-LU-8ar">
-                                <rect key="frame" x="20" y="147" width="93" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-LU-8ar">
+                                <rect key="frame" x="28" y="157" width="161" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get Inventory">
+                                <state key="normal" image="getInventoryBtn.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -729,14 +754,14 @@
                                     <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="jG9-tX-G0C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
-                                <rect key="frame" x="270" y="531" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
+                                <rect key="frame" x="212" y="515" width="108" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="KES-oc-NFs"/>
-                                    <constraint firstAttribute="height" constant="30" id="mQX-zx-YS6"/>
+                                    <constraint firstAttribute="height" constant="53" id="AdO-m7-Iwy"/>
+                                    <constraint firstAttribute="width" constant="108" id="BHF-MU-6am"/>
                                 </constraints>
-                                <state key="normal" image="logoutBtn.png">
+                                <state key="normal" image="dealerSelectLogoutBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -747,7 +772,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="bhp-z6-QHV" secondAttribute="bottom" constant="15" id="1dx-6a-6Ed"/>
+                            <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="bhp-z6-QHV" secondAttribute="bottom" id="Xcl-Ch-w8T"/>
+                            <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="TIf-Qf-Fkq" secondAttribute="bottom" id="b97-cy-4tG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dealer Select" id="XV2-bv-Yja"/>
@@ -800,10 +826,15 @@
     </scenes>
     <resources>
         <image name="background.png" width="640" height="1136"/>
-        <image name="loadScreen.png" width="640" height="1136"/>
+        <image name="bottomGrayBar.png" width="640" height="106"/>
+        <image name="dealerSelect.png" width="640" height="1136"/>
+        <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
+        <image name="getInventoryBtn.png" width="321" height="72"/>
+        <image name="inventoryListChangeDealerBtn.png" width="210" height="106"/>
+        <image name="inventoryListLogoutBtn.png" width="216" height="106"/>
+        <image name="loginBtn.png" width="239" height="72"/>
         <image name="loginScreen.png" width="640" height="1136"/>
-        <image name="logoutBtn.png" width="60" height="60"/>
-        <image name="qrCode.png" width="30" height="30"/>
+        <image name="titleScreen.png" width="640" height="1136"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -812,12 +843,16 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="tnu-uY-fSb"/>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="jG9-tX-G0C"/>
-        <segue reference="dje-3c-QTt"/>
+=======
         <segue reference="5g9-aW-HAN"/>
+        <segue reference="VBY-Wv-O0o"/>
+>>>>>>> FETCH_HEAD
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="5yM-gN-tF0"/>
+        <segue reference="dje-3c-QTt"/>
         <segue reference="h4U-di-CFe"/>
-        <segue reference="BF5-Bq-G8l"/>
+        <segue reference="3jc-5l-dmt"/>
     </inferredMetricsTieBreakers>
 </document>

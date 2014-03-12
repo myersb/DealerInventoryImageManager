@@ -99,7 +99,6 @@
 	if ([[UIScreen mainScreen] bounds].size.height < 520)
 	{
 		// now set the frame accordingly
-		NSLog(@"BOOM");
 		CGRect frame = self.inventoryListTable.frame;
 		frame.size.height = 100;
 		self.inventoryListTable.frame = frame;

@@ -111,6 +111,8 @@
 	if (_currentDealer) {
 		_userName.text = _currentDealer.userName;
 	}
+	
+	_password.delegate = self;
     
     
 }
