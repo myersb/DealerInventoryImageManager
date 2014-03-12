@@ -44,6 +44,7 @@
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
+		81E9216518D0DABB00581CE4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6217FDCC0000619E3D /* qrCode@2x.png */; };
 		B525AB6817FF123F00619E3D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6717FF123F00619E3D /* icon@2x.png */; };
 		B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6917FF138100619E3D /* settingsicon58x58@2x.png */; };
@@ -260,12 +261,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E9216518D0DABB00581CE4 /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
-<<<<<<< HEAD
-=======
-				8192119C18CF5D1A005ACA92 /* Crashlytics.framework in Frameworks */,
-				B5691BAD18B3E8AF00FE34AE /* libzbar.a in Frameworks */,
->>>>>>> FETCH_HEAD
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
 				B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */,
@@ -704,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./Crashlytics.framework/run b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd 3feeb08100895a4a2684bdbbf7ae45bf7b19eab8ca5fc35f7f67b1eed4392147";
 		};
 		8198424017E0D40A00B619C7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -869,6 +866,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
+					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
@@ -894,6 +892,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
+					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
