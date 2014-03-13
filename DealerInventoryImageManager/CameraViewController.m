@@ -108,11 +108,14 @@
 }
 
 - (IBAction)selectPhoto:(id)sender {
+	[_spinner startAnimating];
+	_spinner.hidden = FALSE;
+	
 	_picker = [[UIImagePickerController alloc]init];
 	_picker.delegate = self;
 	_picker.allowsEditing = NO;
 	_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-	
+
 	[self presentViewController:_picker animated:YES completion:NULL];
 }
 
@@ -124,6 +127,55 @@
 - (IBAction)dismissCameraView:(UIButton *)sender {
 	[_picker dismissViewControllerAnimated:YES completion:nil];
 	_endAlerts = YES;
+}
+
+- (IBAction)editImage:(id)sender {
+	_editingControlerView.hidden = FALSE;
+	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
+	
+	_coreImageContext = [CIContext contextWithOptions:nil];
+	
+	_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
+	
+	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _gammaFilter.outputImage, @"inputEV", @0.5, nil];
+}
+
+- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
+	float slideValue = slider.value;
+	NSLog(@"Gamma: %f", slideValue);
+	
+	UIImageOrientation originalOrientation = _imageView.image.imageOrientation;
+	CGFloat originalScale = _imageView.image.scale;
+	
+	[_gammaFilter setValue:_beginImage forKeyPath:kCIInputImageKey];
+	[_gammaFilter setValue:@(slideValue) forKey:@"inputPower"];
+	
+	CIImage *outputImage = [_gammaFilter outputImage];
+	CGImageRef cgimg = [_coreImageContext createCGImage:outputImage fromRect:[outputImage extent]];
+	UIImage *alteredImage = [UIImage imageWithCGImage:cgimg scale:originalScale orientation:originalOrientation];
+	
+	_imageView.image = alteredImage;
+	
+	CGImageRelease(cgimg);
+}
+
+- (IBAction)exposureSliderValueDidChange:(UISlider *)slider {
+	float slideValue = slider.value;
+	NSLog(@"Exposure: %f", slideValue);
+	
+	UIImageOrientation originalOrientation = _imageView.image.imageOrientation;
+	CGFloat originalScale = _imageView.image.scale;
+	
+	[_exposureFilter setValue:_beginImage forKeyPath:kCIInputImageKey];
+	[_exposureFilter setValue:@(slideValue) forKey:@"inputEV"];
+	
+	CIImage *outputImage = [_exposureFilter outputImage];
+	CGImageRef cgimg = [_coreImageContext createCGImage:outputImage fromRect:[outputImage extent]];
+	UIImage *alteredImage = [UIImage imageWithCGImage:cgimg scale:originalScale orientation:originalOrientation];
+	
+	_imageView.image = alteredImage;
+	
+	CGImageRelease(cgimg);
 }
 
 
@@ -140,14 +192,15 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	
 	_showAlert = NO;
 	_alertIsShowing = NO;
 	
-	UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-	int yCoord = (selectedImage.size.height - ((selectedImage.size.width*2)/3))/2;
-	UIImage *croppedImage = [self cropImage:selectedImage andFrame:CGRectMake(0, yCoord, selectedImage.size.width, ((selectedImage.size.width*2)/3))];
+	_selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	int yCoord = (_selectedImage.size.height - ((_selectedImage.size.width*2)/3))/2;
+	UIImage *croppedImage = [self cropImage:_selectedImage andFrame:CGRectMake(0, yCoord, _selectedImage.size.width, ((_selectedImage.size.width*2)/3))];
 	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
 		_endAlerts = YES;
 		UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
@@ -181,6 +234,7 @@
 	
 	_showAlert = NO;
 	_alertIsShowing = NO;
+	[_spinner stopAnimating];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

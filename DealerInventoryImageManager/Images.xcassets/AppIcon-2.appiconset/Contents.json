@@ -9,31 +9,31 @@
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "icon114x114@2x.png",
+      "filename" : "icon114x114.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon@2x.png",
+      "filename" : "icon120x120.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "spotlighticon29x29.png",
+      "filename" : "icon29x29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "settingsicon58x58@2x.png",
+      "filename" : "icon58x58.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "spotlighticon80x80@2x.png",
+      "filename" : "icon80x80.png",
       "scale" : "2x"
     }
   ],
