@@ -450,8 +450,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCb-Yp-3EC">
-                                <rect key="frame" x="0.0" y="133" width="320" height="213"/>
+                                <rect key="frame" x="0.0" y="123" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="tQT-La-xKg">
+                                <rect key="frame" x="0.0" y="515" width="320" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="nfG-gz-aR1"/>
+                                    <constraint firstAttribute="height" constant="53" id="rx6-8w-vZB"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
                                 <rect key="frame" x="0.0" y="515" width="105" height="53"/>
@@ -513,12 +521,67 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxl-0Y-Xuv">
+                                <rect key="frame" x="226" y="81" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Edit Image">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editImage:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="n7r-MR-QBg"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-RV-Ome">
+                                <rect key="frame" x="0.0" y="337" width="320" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.75" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jLc-Zl-49t">
+                                        <rect key="frame" x="18" y="12" width="284" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.56078431370000004" green="0.7725490196" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="gammaSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="2Al-Wa-g3G"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-gz-QaK">
+                                        <rect key="frame" x="18" y="63" width="284" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.56078431370000004" green="0.7725490196" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="exposureSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="1pN-hu-33E"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gamma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-4g-jC1">
+                                        <rect key="frame" x="20" y="32" width="65" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exposure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-lb-Bxg">
+                                        <rect key="frame" x="20" y="82" width="65" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ylc-Nc-xuA">
+                                <rect key="frame" x="142" y="221" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="4St-zb-Bw9" secondAttribute="bottom" id="5ON-gl-2NF"/>
                             <constraint firstItem="3Ix-x1-M4M" firstAttribute="leading" secondItem="GZP-Uy-Uhv" secondAttribute="trailing" constant="2" id="HN2-FL-Gvv"/>
                             <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" id="NWD-ek-HsS"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="tQT-La-xKg" secondAttribute="bottom" id="UzP-GR-hS4"/>
                             <constraint firstItem="4St-zb-Bw9" firstAttribute="leading" secondItem="3Ix-x1-M4M" secondAttribute="trailing" constant="2" id="qLT-BS-YU8"/>
                             <constraint firstItem="GZP-Uy-Uhv" firstAttribute="width" secondItem="4St-zb-Bw9" secondAttribute="width" id="wfR-Ue-qt4"/>
                             <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="3Ix-x1-M4M" secondAttribute="bottom" id="zhb-Hz-4LO"/>
@@ -528,10 +591,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="jDF-Kc-uIV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="editingControlerView" destination="6BZ-RV-Ome" id="d0u-O7-CbI"/>
                         <outlet property="imageView" destination="KCb-Yp-3EC" id="mHO-WU-XKR"/>
                         <outlet property="lblSerialNumber" destination="Hvr-jg-QM4" id="fzr-lS-4yU"/>
                         <outlet property="saveBtn" destination="3Ix-x1-M4M" id="6Ff-a7-zFO"/>
                         <outlet property="selectPhotoBtn" destination="GZP-Uy-Uhv" id="mQc-pu-VnC"/>
+                        <outlet property="spinner" destination="Ylc-Nc-xuA" id="G5X-wF-ldR"/>
                         <outlet property="takePhotoBtn" destination="4St-zb-Bw9" id="bAg-dx-Shm"/>
                     </connections>
                 </viewController>
@@ -662,11 +727,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6D-2w-NuZ">
-                                <rect key="frame" x="0.0" y="515" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="BEm-CO-Hnl"/>
-                                    <constraint firstAttribute="height" constant="55" id="C4c-hT-Ub9"/>
+                                    <constraint firstAttribute="height" constant="53" id="r7U-IB-sOe"/>
+                                    <constraint firstAttribute="width" constant="320" id="svR-Bv-bwp"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riA-ba-P9h">
@@ -686,8 +751,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="h6D-2w-NuZ" secondAttribute="bottom" id="Dcp-8b-VZd"/>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="riA-ba-P9h" secondAttribute="bottom" id="HHe-sg-1V0"/>
-                            <constraint firstAttribute="bottom" secondItem="h6D-2w-NuZ" secondAttribute="bottom" constant="-2" id="W70-KV-B1k"/>
+
+                            <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="xXJ-Qf-9hB" secondAttribute="bottom" constant="44" id="qmm-zb-zDE"/>
+
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -890,11 +958,19 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+
         <segue reference="dje-3c-QTt"/>
         <segue reference="jG9-tX-G0C"/>
         <segue reference="yYU-7B-a5w"/>
         <segue reference="3jc-5l-dmt"/>
         <segue reference="h4U-di-CFe"/>
+
+        <segue reference="jG9-tX-G0C"/>
+        <segue reference="dje-3c-QTt"/>
+        <segue reference="yYU-7B-a5w"/>
+        <segue reference="h4U-di-CFe"/>
+        <segue reference="3jc-5l-dmt"/>
+
         <segue reference="kgZ-Z3-I4F"/>
         <segue reference="BF5-Bq-G8l"/>
     </inferredMetricsTieBreakers>
