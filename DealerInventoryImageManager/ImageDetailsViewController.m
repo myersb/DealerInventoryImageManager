@@ -59,6 +59,11 @@
     
     if (!_currentInventoryModel.serialNumber) {
 		_homeImage.image = _selectedImage;
+		NSMutableArray *barButtonItems = [self.navigationItem.rightBarButtonItems mutableCopy];
+		
+		// This is how you remove the button from the toolbar and animate it
+		[barButtonItems removeObject:_deleteButton];
+		[self.navigationItem setRightBarButtonItems:barButtonItems animated:YES];
 	}
 	else{
 		
@@ -549,7 +554,11 @@
             actualHeight = imgRatio * actualHeight;
             actualWidth = 1920.0;
         }
+    } else {
+        actualHeight = 1280.0;
+        actualWidth = 1920.0;
     }
+    
     CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
     UIGraphicsBeginImageContext(rect.size);
     [_homeImage.image drawInRect:rect];

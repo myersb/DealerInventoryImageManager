@@ -515,17 +515,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-jg-QM4">
-                                <rect key="frame" x="106" y="85" width="194" height="21"/>
+                                <rect key="frame" x="97" y="85" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxl-0Y-Xuv">
-                                <rect key="frame" x="226" y="81" width="74" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxl-0Y-Xuv">
+                                <rect key="frame" x="215" y="78" width="87" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Edit Image">
+                                <state key="normal" image="editImageBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -533,48 +532,48 @@
                                     <action selector="editImage:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="n7r-MR-QBg"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-4c-qLa">
+                                <rect key="frame" x="0.0" y="336" width="320" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-RV-Ome">
-                                <rect key="frame" x="0.0" y="337" width="320" height="130"/>
+                                <rect key="frame" x="0.0" y="336" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.75" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jLc-Zl-49t">
-                                        <rect key="frame" x="18" y="12" width="284" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.56078431370000004" green="0.7725490196" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="gammaSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="2Al-Wa-g3G"/>
-                                        </connections>
-                                    </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-gz-QaK">
-                                        <rect key="frame" x="18" y="63" width="284" height="31"/>
+                                        <rect key="frame" x="18" y="11" width="284" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.56078431370000004" green="0.7725490196" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="exposureSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="1pN-hu-33E"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gamma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-4g-jC1">
-                                        <rect key="frame" x="20" y="32" width="65" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXPOSURE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-lb-Bxg">
+                                        <rect key="frame" x="20" y="30" width="125" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exposure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-lb-Bxg">
-                                        <rect key="frame" x="20" y="82" width="65" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ylc-Nc-xuA">
                                 <rect key="frame" x="142" y="221" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4S-8J-HnZ">
+                                <rect key="frame" x="236" y="78" width="45" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="doneEditingBtn.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopEditingImage:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="B7K-Ze-m9c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -591,6 +590,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="jDF-Kc-uIV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneEditingImageBtn" destination="o4S-8J-HnZ" id="YSy-Ao-MkG"/>
+                        <outlet property="editImageBtn" destination="Wxl-0Y-Xuv" id="zmM-0t-O3O"/>
                         <outlet property="editingControlerView" destination="6BZ-RV-Ome" id="d0u-O7-CbI"/>
                         <outlet property="imageView" destination="KCb-Yp-3EC" id="mHO-WU-XKR"/>
                         <outlet property="lblSerialNumber" destination="Hvr-jg-QM4" id="fzr-lS-4yU"/>
@@ -769,13 +770,16 @@
                     <connections>
                         <outlet property="activityIndicatorBackground" destination="6iv-Pd-7Im" id="CHK-KN-buQ"/>
                         <outlet property="activityIndicatorImage" destination="aS3-p5-xru" id="fub-zY-vHL"/>
+                        <outlet property="deleteButton" destination="0VV-bd-QpX" id="Rlz-Z6-hEU"/>
                         <outlet property="featuresField" destination="P0g-Na-YMT" id="qNE-Na-1tM"/>
                         <outlet property="homeDescriptionLabel" destination="LRq-dK-1jZ" id="dK3-Wj-mcd"/>
                         <outlet property="homeImage" destination="UT5-NQ-fWg" id="Bcj-zQ-qf5"/>
                         <outlet property="imageTag" destination="8aF-Gc-mYG" id="Csn-2N-nIp"/>
                         <outlet property="imageTypeField" destination="0Wu-8K-hA3" id="5zu-gP-fEI"/>
                         <outlet property="pickerViewContainer" destination="kYE-IB-D4x" id="r5Y-tT-rQA"/>
-                        <outlet property="saveButton" destination="riA-ba-P9h" id="HGO-K5-QbL"/>
+
+                        <outlet property="saveButton" destination="riA-ba-P9h" id="ag9-RY-3cQ"/>
+
                         <outlet property="serialNumberLabel" destination="81D-DA-qtt" id="fGC-DT-wxK"/>
                         <outlet property="theScrollView" destination="xXJ-Qf-9hB" id="oA8-4m-UND"/>
                         <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetailsFromImageDetails" id="kgZ-Z3-I4F"/>
@@ -938,6 +942,8 @@
         <image name="bottomGrayBar.png" width="640" height="106"/>
         <image name="dealerSelect.png" width="640" height="1136"/>
         <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
+        <image name="doneEditingBtn.png" width="91" height="72"/>
+        <image name="editImageBtn.png" width="173" height="72"/>
         <image name="getInventoryBtn.png" width="321" height="72"/>
         <image name="imageDetailsSaveBtn.png" width="216" height="106"/>
         <image name="inputBG.png" width="562" height="72"/>
@@ -958,12 +964,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-
-        <segue reference="dje-3c-QTt"/>
-        <segue reference="jG9-tX-G0C"/>
-        <segue reference="yYU-7B-a5w"/>
-        <segue reference="3jc-5l-dmt"/>
-        <segue reference="h4U-di-CFe"/>
 
         <segue reference="jG9-tX-G0C"/>
         <segue reference="dje-3c-QTt"/>
