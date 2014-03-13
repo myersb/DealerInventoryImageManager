@@ -179,6 +179,7 @@
 		
 		HomeDetailsViewController *homeDetails = [segue destinationViewController];
         homeDetails.selectedSerialNumber = _selectedSerialNumber;
+		homeDetails.imageWasSaved = TRUE;
 
 	}
 }

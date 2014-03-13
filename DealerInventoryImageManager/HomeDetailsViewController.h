@@ -40,6 +40,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblLength;
 @property (strong, nonatomic) IBOutlet UILabel *lblWidth;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
 
 //Handles the Activity view that will show up.
 @property (weak, nonatomic) IBOutlet UIView *activityViewBackground;
@@ -64,6 +65,7 @@
 @property (nonatomic, strong) NSCache *imageCache;
 
 @property (assign, nonatomic) BOOL isConnected;
+@property (assign, nonatomic) BOOL imageWasSaved;
 
 - (IBAction)addPhoto:(id)sender;
 - (void) checkOnlineConnection;

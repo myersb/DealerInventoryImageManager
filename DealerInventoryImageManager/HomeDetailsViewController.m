@@ -49,12 +49,6 @@ NSMutableArray *models;
     activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
     activityViewBackground.layer.borderWidth = 1;
     
-    // Setup overriding back button with text and a call to a method when selected.
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToInventoryViewController)];
-    
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = item;
-    
     // Instantiate container for Image objects
     images = [[NSMutableArray alloc] init];
     models = [[NSMutableArray alloc] init];
@@ -67,6 +61,11 @@ NSMutableArray *models;
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext  = [delegate managedObjectContext];
 	_isConnected = TRUE;
+	
+	if (_imageWasSaved) {
+		_doneButton.hidden = FALSE;
+		self.navigationItem.hidesBackButton = YES;
+	}
 	
 	[self checkOnlineConnection];
 	[self loadDetails];
