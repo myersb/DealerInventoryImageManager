@@ -7,6 +7,20 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8198421C17E0D40900B619C7"
+               BuildableName = "DealerInventoryImageManager.app"
+               BlueprintName = "DealerInventoryImageManager"
+               ReferencedContainer = "container:DealerInventoryImageManager.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
@@ -15,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8198421C17E0D40900B619C7"
-               BuildableName = "DealerInventoryImageManager.app"
-               BlueprintName = "DealerInventoryImageManager"
-               ReferencedContainer = "container:DealerInventoryImageManager.xcodeproj">
+               BuildableName = "PhotoUp.app"
+               BlueprintName = "PhotoUp"
+               ReferencedContainer = "container:PhotoUp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -62,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "DealerInventoryImageManager.app"
-            BlueprintName = "DealerInventoryImageManager"
-            ReferencedContainer = "container:DealerInventoryImageManager.xcodeproj">
+            BuildableName = "PhotoUp.app"
+            BlueprintName = "PhotoUp"
+            ReferencedContainer = "container:PhotoUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "DealerInventoryImageManager.app"
-            BlueprintName = "DealerInventoryImageManager"
-            ReferencedContainer = "container:DealerInventoryImageManager.xcodeproj">
+            BuildableName = "PhotoUp.app"
+            BlueprintName = "PhotoUp"
+            ReferencedContainer = "container:PhotoUp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

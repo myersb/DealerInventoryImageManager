@@ -44,9 +44,6 @@
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
-<<<<<<< HEAD
-		81E9216518D0DABB00581CE4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
-=======
 		B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */; };
 		B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */; };
@@ -57,7 +54,6 @@
 		B5163CFF18D0C3B100DDBFD4 /* getInventoryBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CFE18D0C3B100DDBFD4 /* getInventoryBtn.png */; };
 		B5163D0218D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163D0018D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png */; };
 		B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163D0118D0C72F00DDBFD4 /* inventoryListLogoutBtn.png */; };
->>>>>>> FETCH_HEAD
 		B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6217FDCC0000619E3D /* qrCode@2x.png */; };
 		B525AB6817FF123F00619E3D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6717FF123F00619E3D /* icon@2x.png */; };
 		B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6917FF138100619E3D /* settingsicon58x58@2x.png */; };
@@ -277,11 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				81E9216518D0DABB00581CE4 /* Crashlytics.framework in Frameworks */,
-=======
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
->>>>>>> FETCH_HEAD
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
 				81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */,
@@ -898,14 +890,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
-<<<<<<< HEAD
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
-=======
 					"$(PROJECT_DIR)",
->>>>>>> FETCH_HEAD
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				GCC_WARN_SHADOW = YES;
 				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -928,14 +917,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
-<<<<<<< HEAD
-					/Users/chriscantley/Documents/GITXCodeRepository/DealerInventoryImageManager,
-=======
 					"$(PROJECT_DIR)",
->>>>>>> FETCH_HEAD
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				GCC_WARN_SHADOW = YES;
 				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (

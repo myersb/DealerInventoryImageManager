@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
->>>>>>> FETCH_HEAD
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -843,16 +839,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="tnu-uY-fSb"/>
-=======
+        <segue reference="3jc-5l-dmt"/>
         <segue reference="5g9-aW-HAN"/>
         <segue reference="VBY-Wv-O0o"/>
->>>>>>> FETCH_HEAD
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="5yM-gN-tF0"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="BF5-Bq-G8l"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="h4U-di-CFe"/>
-        <segue reference="3jc-5l-dmt"/>
     </inferredMetricsTieBreakers>
 </document>
