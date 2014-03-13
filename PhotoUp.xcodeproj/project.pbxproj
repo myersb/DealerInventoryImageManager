@@ -45,6 +45,12 @@
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
 		B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
+		B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */; };
+		B5006AB918D0E9710024A94B /* inputBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB618D0E9710024A94B /* inputBG.png */; };
+		B5006ABA18D0E9710024A94B /* photoDetailsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB718D0E9710024A94B /* photoDetailsBackground.png */; };
+		B5006ABE18D0EDE80024A94B /* newPhotoSaveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */; };
+		B5006ABF18D0EDE80024A94B /* newPhotoSelectBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */; };
+		B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */; };
 		B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */; };
 		B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */; };
 		B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF218D0C1EE00DDBFD4 /* loginBtn.png */; };
@@ -184,6 +190,12 @@
 		81CA9CA017EA331E00E6E1CC /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
 		81CA9CA117EA331E00E6E1CC /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
 		81D7A7D41887374400F561DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageDetailsSaveBtn.png; sourceTree = "<group>"; };
+		B5006AB618D0E9710024A94B /* inputBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBG.png; sourceTree = "<group>"; };
+		B5006AB718D0E9710024A94B /* photoDetailsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsBackground.png; sourceTree = "<group>"; };
+		B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newPhotoSaveBtn.png; sourceTree = "<group>"; };
+		B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newPhotoSelectBtn.png; sourceTree = "<group>"; };
+		B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newPhotoTakeBtn.png; sourceTree = "<group>"; };
 		B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomGrayBar.png; sourceTree = "<group>"; };
 		B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealerSelect.png; sourceTree = "<group>"; };
 		B5163CF218D0C1EE00DDBFD4 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
@@ -273,6 +285,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
@@ -398,6 +414,12 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */,
+				B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */,
+				B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */,
+				B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */,
+				B5006AB618D0E9710024A94B /* inputBG.png */,
+				B5006AB718D0E9710024A94B /* photoDetailsBackground.png */,
 				B5163D0018D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png */,
 				B5163D0118D0C72F00DDBFD4 /* inventoryListLogoutBtn.png */,
 				B5163CFE18D0C3B100DDBFD4 /* getInventoryBtn.png */,
@@ -656,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */,
+				B5006AB918D0E9710024A94B /* inputBG.png in Resources */,
 				B5163D0218D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png in Resources */,
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
@@ -668,6 +691,8 @@
 				B5364DBC18C61460005E84EF /* settingsicon29x29.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
+				B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */,
+				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
 				B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
 				B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */,
@@ -678,6 +703,8 @@
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
 				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
 				81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */,
+				B5006ABF18D0EDE80024A94B /* newPhotoSelectBtn.png in Resources */,
+				B5006ABE18D0EDE80024A94B /* newPhotoSaveBtn.png in Resources */,
 				8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */,
 				B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */,
 				8198426B17E0E28A00B619C7 /* bgUpper.jpg in Resources */,
@@ -688,6 +715,7 @@
 				8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
 				8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */,
 				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
+				B5006ABA18D0E9710024A94B /* photoDetailsBackground.png in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */,
 				B5364DBA18C61460005E84EF /* icon57x57.png in Resources */,
