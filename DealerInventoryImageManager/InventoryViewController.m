@@ -242,7 +242,7 @@
     
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
-	_imagesPredicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", serialNumber];
+	_imagesPredicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && group <> 'm-360' && imageSource <> 'MDL'", serialNumber];
 	
 	[_imagesFetchRequest setEntity:_entity];
 	[_imagesFetchRequest setPredicate:_imagesPredicate];

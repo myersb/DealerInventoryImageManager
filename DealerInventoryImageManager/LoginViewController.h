@@ -10,6 +10,9 @@
 #import "Dealer.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
+{
+    __weak IBOutlet UIScrollView *loginScrollView;
+}
 
 @property (strong, nonatomic) NSFetchRequest *fetchRequest;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

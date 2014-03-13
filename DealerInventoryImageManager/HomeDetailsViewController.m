@@ -363,9 +363,11 @@ NSMutableArray *models;
     
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
-	_predicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && imageSource <> 'MDL'", _selectedSerialNumber];
+	_predicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && group <> 'm-360' && imageSource <> 'MDL'", _selectedSerialNumber];
 	_sort = [NSSortDescriptor sortDescriptorWithKey:@"group" ascending:YES];
-	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, nil];
+    _imagesIDSort = [NSSortDescriptor sortDescriptorWithKey:@"imagesId" ascending:YES];
+	_sortDescriptors = [[NSArray alloc]initWithObjects:_sort, _imagesIDSort, nil];
+    
 	
 	[_imagesFetchRequest setSortDescriptors:_sortDescriptors];
 	[_imagesFetchRequest setEntity:_entity];

@@ -114,6 +114,17 @@
 	
 	_password.delegate = self;
     
+    // manage Keyboard
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
     
 }
 
@@ -126,6 +137,49 @@
     [self.view endEditing:YES];
 }
 
+- (void) keyboardWillHide:(NSNotification *)notification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    loginScrollView.contentInset = contentInsets;
+    loginScrollView.scrollIndicatorInsets = contentInsets;
+}
+
+
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    
+    // Step 1: Get the size of the keyboard.
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
+    
+    int keyboardHeight;
+    
+    // Adjust scroll view distance based on the screen size.
+    if([UIScreen mainScreen].bounds.size.height == 568){
+        keyboardHeight = keyboardSize.height-25;
+    } else{
+        keyboardHeight = keyboardSize.height-40;
+    }
+    
+    
+    // Step 2: Adjust the bottom content inset of your scroll view by the keyboard height.
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    loginScrollView.contentInset = contentInsets;
+    loginScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // Step 3: Scroll the target text field into view.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= keyboardHeight;
+    
+    
+    //if (!CGRectContainsPoint(aRect, self.activeTextField.frame.origin) ) {
+    CGPoint scrollPoint = CGPointMake(0.0, (keyboardHeight));
+    [loginScrollView setContentOffset:scrollPoint animated:YES];
+    //}
+    
+    
+}
 
 
 
@@ -228,6 +282,9 @@
 		return NO;
 	}
 }
+
+
+
 
 
 /* ****************************************************

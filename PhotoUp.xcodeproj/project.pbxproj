@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810CBC7D18D204920091AB24 /* Done_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 810CBC7C18D204920091AB24 /* Done_btn.png */; };
 		8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */; };
 		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
@@ -112,7 +113,6 @@
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
-		B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810CBC7C18D204920091AB24 /* Done_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Done_btn.png; sourceTree = "<group>"; };
 		811870D118BBD9B4002FFBA6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActivityIndicator.png; sourceTree = "<group>"; };
 		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTags.h; sourceTree = "<group>"; };
@@ -271,7 +272,6 @@
 		B5922EBD18181C9D000B15DF /* HomeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailsViewController.h; sourceTree = "<group>"; };
 		B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsViewController.m; sourceTree = "<group>"; };
 		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
-		B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraCaptureArea.png; sourceTree = "<group>"; };
 		B5CDF8FC18C77EE60063CC0F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
 		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
@@ -285,10 +285,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-=======
-
->>>>>>> FETCH_HEAD
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
@@ -414,6 +410,7 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				810CBC7C18D204920091AB24 /* Done_btn.png */,
 				B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */,
 				B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */,
 				B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */,
@@ -430,7 +427,6 @@
 				B5163CF318D0C1EE00DDBFD4 /* loginScreen.png */,
 				B5163CF418D0C1EE00DDBFD4 /* titleScreen.png */,
 				B591F064189BFB3B003AB1D9 /* blankThumbnail.png */,
-				B5CDF8FA18C65FB10063CC0F /* cameraCaptureArea.png */,
 				B59070B718ABC70E00E15B2C /* cancelBtn.png */,
 				8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */,
 				B5691B8718B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld */,
@@ -695,7 +691,6 @@
 				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
 				B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
-				B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */,
 				B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */,
 				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,
 				B5163CF918D0C1EE00DDBFD4 /* titleScreen.png in Resources */,
@@ -715,6 +710,7 @@
 				8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
 				8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */,
 				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
+				810CBC7D18D204920091AB24 /* Done_btn.png in Resources */,
 				B5006ABA18D0E9710024A94B /* photoDetailsBackground.png in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B525AB6B17FF138100619E3D /* settingsicon58x58@2x.png in Resources */,

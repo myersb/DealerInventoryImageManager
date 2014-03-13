@@ -216,6 +216,18 @@
     // Step 1: Get the size of the keyboard.
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
+    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
+    
+    int keyboardHeight;
+    
+    // Adjust scroll view distance based on the screen size.
+    if([UIScreen mainScreen].bounds.size.height == 568){
+        keyboardHeight = keyboardSize.height+20;
+    } else{
+        keyboardHeight = keyboardSize.height-55;
+    }
+
+    
     // Step 2: Adjust the bottom content inset of your scroll view by the keyboard height.
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
     theScrollView.contentInset = contentInsets;
@@ -223,14 +235,13 @@
     
     // Step 3: Scroll the target text field into view.
     CGRect aRect = self.view.frame;
-    aRect.size.height -= keyboardSize.height;
+    aRect.size.height -= keyboardHeight;
+
     
-    NSLog(@"%f", aRect.size.height -= keyboardSize.height);
-    
-    if (!CGRectContainsPoint(aRect, self.activeTextField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.activeTextField.frame.origin.y - (keyboardSize.height+20));
+    //if (!CGRectContainsPoint(aRect, self.activeTextField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.activeTextField.frame.origin.y - (keyboardHeight));
         [theScrollView setContentOffset:scrollPoint animated:YES];
-    }
+    //}
     
     // The picker comes up behind the keyboard.  This needs to dismiss this view when the keyboard goes away.
     self.pickerViewContainer.frame = CGRectMake(0, 800, 320, 226);
@@ -500,7 +511,14 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         // Shift the view to these coordinates
-        pickerViewContainer.frame = CGRectMake(0, 232, 320, 226);
+        
+        if([UIScreen mainScreen].bounds.size.height == 568){
+            pickerViewContainer.frame = CGRectMake(0, 232, 320, 226);
+        } else{
+            pickerViewContainer.frame = CGRectMake(0, 150, 320, 226);
+        }
+        
+        
         [UIView commitAnimations];
         return NO;
     }
