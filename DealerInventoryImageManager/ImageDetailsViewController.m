@@ -487,18 +487,22 @@
 // This prevents the keyboard from popping up.
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    // hide the save button
-    self.saveButton.hidden = TRUE;
     
     if( [ textField.restorationIdentifier isEqualToString:@"imageTypeField" ] )
     {
-    // Display the view that contains the picker.
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    // Shift the view to these coordinates
-    pickerViewContainer.frame = CGRectMake(0, 232, 320, 226);
-    [UIView commitAnimations];
-    return NO;
+        //dismiss the keyboard if it is up
+        [self.activeTextField resignFirstResponder];
+        
+        // unhide the save button
+        self.saveButton.hidden = TRUE;
+        
+        // Display the view that contains the picker.
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        // Shift the view to these coordinates
+        pickerViewContainer.frame = CGRectMake(0, 232, 320, 226);
+        [UIView commitAnimations];
+        return NO;
     }
     
     return YES;
