@@ -59,6 +59,11 @@
     
     if (!_currentInventoryModel.serialNumber) {
 		_homeImage.image = _selectedImage;
+		NSMutableArray *barButtonItems = [self.navigationItem.rightBarButtonItems mutableCopy];
+		
+		// This is how you remove the button from the toolbar and animate it
+		[barButtonItems removeObject:_deleteButton];
+		[self.navigationItem setRightBarButtonItems:barButtonItems animated:YES];
 	}
 	else{
 		

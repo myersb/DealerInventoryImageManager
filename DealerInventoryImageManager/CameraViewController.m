@@ -76,6 +76,8 @@
 
 - (IBAction)presentCameraView:(id)sender {
 	
+	_editingControlerView.hidden = TRUE;
+	_doneEditingImageBtn.hidden = TRUE;
 	_picker = [[UIImagePickerController alloc] init];
 	_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	
@@ -110,6 +112,8 @@
 - (IBAction)selectPhoto:(id)sender {
 	[_spinner startAnimating];
 	_spinner.hidden = FALSE;
+	_editingControlerView.hidden = TRUE;
+	_doneEditingImageBtn.hidden = TRUE;
 	
 	_picker = [[UIImagePickerController alloc]init];
 	_picker.delegate = self;
@@ -130,38 +134,46 @@
 }
 
 - (IBAction)editImage:(id)sender {
+	
 	_editingControlerView.hidden = FALSE;
+	_doneEditingImageBtn.hidden = FALSE;
+	_editImageBtn.hidden = TRUE;
 	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
 	
 	_coreImageContext = [CIContext contextWithOptions:nil];
 	
-	_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
+	//_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
 	
-	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _gammaFilter.outputImage, @"inputEV", @0.5, nil];
+	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
 }
 
-- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
-	float slideValue = slider.value;
-	NSLog(@"Gamma: %f", slideValue);
-	
-	UIImageOrientation originalOrientation = _imageView.image.imageOrientation;
-	CGFloat originalScale = _imageView.image.scale;
-	
-	[_gammaFilter setValue:_beginImage forKeyPath:kCIInputImageKey];
-	[_gammaFilter setValue:@(slideValue) forKey:@"inputPower"];
-	
-	CIImage *outputImage = [_gammaFilter outputImage];
-	CGImageRef cgimg = [_coreImageContext createCGImage:outputImage fromRect:[outputImage extent]];
-	UIImage *alteredImage = [UIImage imageWithCGImage:cgimg scale:originalScale orientation:originalOrientation];
-	
-	_imageView.image = alteredImage;
-	
-	CGImageRelease(cgimg);
+- (IBAction)stopEditingImage:(id)sender {
+	_editingControlerView.hidden = TRUE;
+	_doneEditingImageBtn.hidden = TRUE;
+	_editImageBtn.hidden = FALSE;
 }
+
+//- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
+//	float slideValue = slider.value;
+//	NSLog(@"Gamma: %f", slideValue);
+//	
+//	UIImageOrientation originalOrientation = _imageView.image.imageOrientation;
+//	CGFloat originalScale = _imageView.image.scale;
+//	
+//	[_gammaFilter setValue:_beginImage forKeyPath:kCIInputImageKey];
+//	[_gammaFilter setValue:@(slideValue) forKey:@"inputPower"];
+//	
+//	CIImage *outputImage = [_gammaFilter outputImage];
+//	CGImageRef cgimg = [_coreImageContext createCGImage:outputImage fromRect:[outputImage extent]];
+//	UIImage *alteredImage = [UIImage imageWithCGImage:cgimg scale:originalScale orientation:originalOrientation];
+//	
+//	_imageView.image = alteredImage;
+//	
+//	CGImageRelease(cgimg);
+//}
 
 - (IBAction)exposureSliderValueDidChange:(UISlider *)slider {
 	float slideValue = slider.value;
-	NSLog(@"Exposure: %f", slideValue);
 	
 	UIImageOrientation originalOrientation = _imageView.image.imageOrientation;
 	CGFloat originalScale = _imageView.image.scale;
@@ -184,14 +196,9 @@
 	_endAlerts = YES;
 }
 
-- (void)takePicture:(NSNotification *)notification
-{
-	_picker = [[UIImagePickerController alloc] init];
-	[_picker takePicture];
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+	_editImageBtn.hidden = FALSE;
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	

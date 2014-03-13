@@ -73,6 +73,8 @@
 		B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9617FF34BD00619E3D /* QuartzCore.framework */; };
 		B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9817FF34C600619E3D /* libiconv.dylib */; };
 		B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5364DBE18C6477B005E84EF /* Images.xcassets */; };
+		B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527018D233E5007CBDB1 /* doneEditingBtn.png */; };
+		B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527118D233E5007CBDB1 /* editImageBtn.png */; };
 		B5691B6718B2AF0200FE34AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198422E17E0D40900B619C7 /* main.m */; };
 		B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5691B6818B2AF2100FE34AE /* InfoPlist.strings */; };
 		B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198423217E0D40900B619C7 /* AppDelegate.m */; };
@@ -217,6 +219,8 @@
 		B525AB9617FF34BD00619E3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B525AB9817FF34C600619E3D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		B5364DBE18C6477B005E84EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B53A527018D233E5007CBDB1 /* doneEditingBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneEditingBtn.png; sourceTree = "<group>"; };
+		B53A527118D233E5007CBDB1 /* editImageBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editImageBtn.png; sourceTree = "<group>"; };
 		B5659AEC18034256009C4E38 /* InventoryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryImage.h; sourceTree = "<group>"; };
 		B5659AED18034256009C4E38 /* InventoryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryImage.m; sourceTree = "<group>"; };
 		B5659AEF18034257009C4E38 /* InventoryHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryHome.h; sourceTree = "<group>"; };
@@ -408,6 +412,8 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B53A527018D233E5007CBDB1 /* doneEditingBtn.png */,
+				B53A527118D233E5007CBDB1 /* editImageBtn.png */,
 				B5006AC118D2129A0024A94B /* icon29x29.png */,
 				B5006AC218D2129A0024A94B /* icon57x57.png */,
 				B5006AC318D2129A0024A94B /* icon58x58.png */,
@@ -675,6 +681,7 @@
 				B5163D0218D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png in Resources */,
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
+				B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */,
 				B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
@@ -693,6 +700,7 @@
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
 				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
+				B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */,
 				B5006AC918D2129A0024A94B /* icon58x58.png in Resources */,
 				81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */,
 				B5006ABF18D0EDE80024A94B /* newPhotoSelectBtn.png in Resources */,

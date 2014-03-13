@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectPhotoBtn;
 @property (strong, nonatomic) IBOutlet UIButton *takePhotoBtn;
 @property (strong, nonatomic) IBOutlet UIButton *saveBtn;
+@property (strong, nonatomic) IBOutlet UIButton *editImageBtn;
+@property (strong, nonatomic) IBOutlet UIButton *doneEditingImageBtn;
 @property (strong, nonatomic) UIImagePickerController *picker;
 
 // Image filtering properties
@@ -47,7 +49,7 @@
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)dismissCameraView:(UIButton *)sender;
 
-- (IBAction)gammaSliderValueDidChange:(UISlider *)slider;
 - (IBAction)exposureSliderValueDidChange:(UISlider *)slider;
 - (IBAction)editImage:(id)sender;
+- (IBAction)stopEditingImage:(id)sender;
 @end
