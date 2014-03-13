@@ -914,6 +914,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				GCC_WARN_SHADOW = YES;
 				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -940,6 +941,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/PhotoUp-Prefix.pch";
+				GCC_WARN_SHADOW = YES;
 				INFOPLIST_FILE = "DealerInventoryImageManager/PhotoUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
