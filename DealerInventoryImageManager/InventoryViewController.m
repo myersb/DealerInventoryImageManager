@@ -86,6 +86,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 	[self adjustHeightOfTableview];
+	[_inventoryListTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning
