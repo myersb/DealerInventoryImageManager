@@ -412,21 +412,15 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-
-
 				810CBC7C18D204920091AB24 /* Done_btn.png */,
-
-
 				B53A527018D233E5007CBDB1 /* doneEditingBtn.png */,
 				B53A527118D233E5007CBDB1 /* editImageBtn.png */,
-
 				B5006AC118D2129A0024A94B /* icon29x29.png */,
 				B5006AC218D2129A0024A94B /* icon57x57.png */,
 				B5006AC318D2129A0024A94B /* icon58x58.png */,
 				B5006AC418D2129A0024A94B /* icon80x80.png */,
 				B5006AC518D2129A0024A94B /* icon114x114.png */,
 				B5006AC618D2129A0024A94B /* icon120x120.png */,
-
 				B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */,
 				B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */,
 				B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */,
@@ -700,12 +694,6 @@
 				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
 				B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
-
-				B5364DBD18C61460005E84EF /* spotlighticon29x29.png in Resources */,
-				B525AB6817FF123F00619E3D /* icon@2x.png in Resources */,
-
-				B5CDF8FB18C65FB10063CC0F /* cameraCaptureArea.png in Resources */,
-
 				B5163CF918D0C1EE00DDBFD4 /* titleScreen.png in Resources */,
 				B5006ACA18D2129A0024A94B /* icon80x80.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
@@ -924,7 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -952,7 +940,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Cantley (5LYW4MG863)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

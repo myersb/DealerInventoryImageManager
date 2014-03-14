@@ -92,7 +92,7 @@
 	_picker.allowsEditing = NO;
 	_picker.cameraOverlayView = _overlay;
 	_picker.showsCameraControls = NO;
-	CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 71.0); //This slots the preview exactly in the middle of the screen by moving it down 71 points
+	CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 0.0); //This slots the preview exactly in the middle of the screen by moving it down 71 points
     CGAffineTransform scale = CGAffineTransformScale(translate, 0.8888889, 1);
     _picker.cameraViewTransform = scale;
 	[self presentViewController:_picker animated:YES completion:NULL];

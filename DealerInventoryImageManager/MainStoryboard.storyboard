@@ -553,13 +553,6 @@
                                 <rect key="frame" x="0.0" y="336" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-gz-QaK">
-                                        <rect key="frame" x="18" y="11" width="284" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="exposureSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="1pN-hu-33E"/>
-                                        </connections>
-                                    </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXPOSURE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-lb-Bxg">
                                         <rect key="frame" x="20" y="30" width="125" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -567,6 +560,13 @@
                                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-gz-QaK">
+                                        <rect key="frame" x="18" y="11" width="284" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="exposureSliderValueDidChange:" destination="jT0-Dd-hZP" eventType="valueChanged" id="1pN-hu-33E"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -633,7 +633,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
                                 <rect key="frame" x="0.0" y="66" width="320" height="458"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -766,9 +766,7 @@
                         <constraints>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="h6D-2w-NuZ" secondAttribute="bottom" id="Dcp-8b-VZd"/>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="riA-ba-P9h" secondAttribute="bottom" id="HHe-sg-1V0"/>
-
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="xXJ-Qf-9hB" secondAttribute="bottom" constant="44" id="qmm-zb-zDE"/>
-
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -789,9 +787,7 @@
                         <outlet property="imageTag" destination="8aF-Gc-mYG" id="Csn-2N-nIp"/>
                         <outlet property="imageTypeField" destination="0Wu-8K-hA3" id="5zu-gP-fEI"/>
                         <outlet property="pickerViewContainer" destination="kYE-IB-D4x" id="r5Y-tT-rQA"/>
-
                         <outlet property="saveButton" destination="riA-ba-P9h" id="ag9-RY-3cQ"/>
-
                         <outlet property="serialNumberLabel" destination="81D-DA-qtt" id="fGC-DT-wxK"/>
                         <outlet property="theScrollView" destination="xXJ-Qf-9hB" id="oA8-4m-UND"/>
                         <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetailsFromImageDetails" id="kgZ-Z3-I4F"/>
@@ -976,21 +972,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-
-        <segue reference="jG9-tX-G0C"/>
-
-        <segue reference="FLP-ej-MJ0"/>
-        <segue reference="kgZ-Z3-I4F"/>
-        <segue reference="5yM-gN-tF0"/>
         <segue reference="VBY-Wv-O0o"/>
-
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="BF5-Bq-G8l"/>
+        <segue reference="FLP-ej-MJ0"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="yYU-7B-a5w"/>
         <segue reference="3jc-5l-dmt"/>
-
-
-        <segue reference="kgZ-Z3-I4F"/>
-        <segue reference="BF5-Bq-G8l"/>
-
     </inferredMetricsTieBreakers>
 </document>
