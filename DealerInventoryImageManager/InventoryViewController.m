@@ -85,8 +85,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	[self adjustHeightOfTableview];
 	[_inventoryListTable reloadData];
+	[self adjustHeightOfTableview];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,7 +101,7 @@
 	{
 		// now set the frame accordingly
 		CGRect frame = self.inventoryListTable.frame;
-		frame.size.height = 100;
+		frame.size.height = 364;
 		self.inventoryListTable.frame = frame;
 	}
 }
