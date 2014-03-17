@@ -631,7 +631,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
                                 <rect key="frame" x="0.0" y="66" width="320" height="458"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -764,7 +764,6 @@
                         <constraints>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="h6D-2w-NuZ" secondAttribute="bottom" id="Dcp-8b-VZd"/>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="riA-ba-P9h" secondAttribute="bottom" id="HHe-sg-1V0"/>
-                            <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="xXJ-Qf-9hB" secondAttribute="bottom" constant="44" id="qmm-zb-zDE"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
