@@ -469,16 +469,16 @@
                                 <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="nfG-gz-aR1"/>
-                                    <constraint firstAttribute="height" constant="53" id="rx6-8w-vZB"/>
+                                    <constraint firstAttribute="width" constant="320" id="LR4-l0-Hyn"/>
+                                    <constraint firstAttribute="height" constant="53" id="d0h-W3-zFB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Uy-Uhv">
                                 <rect key="frame" x="0.0" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="IGI-Bt-7fW"/>
-                                    <constraint firstAttribute="width" constant="105" id="jPa-c7-kEZ"/>
+                                    <constraint firstAttribute="height" constant="53" id="LKU-he-cXh"/>
+                                    <constraint firstAttribute="width" constant="105" id="iOX-5U-UqW"/>
                                 </constraints>
                                 <state key="normal" image="newPhotoSelectBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -488,12 +488,12 @@
                                     <action selector="selectPhoto:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="Oxq-0h-OXL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4St-zb-Bw9">
                                 <rect key="frame" x="215" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="iwE-eX-vhQ"/>
-                                    <constraint firstAttribute="width" constant="105" id="sdx-QI-nhs"/>
+                                    <constraint firstAttribute="width" constant="105" id="eNf-Rs-2ef"/>
+                                    <constraint firstAttribute="height" constant="53" id="zkh-7H-ci6"/>
                                 </constraints>
                                 <state key="normal" image="newPhotoTakeBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -503,12 +503,12 @@
                                     <action selector="presentCameraView:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="3WS-xD-5Yi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-x1-M4M">
                                 <rect key="frame" x="107" y="515" width="106" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="gpZ-8Y-9C6"/>
-                                    <constraint firstAttribute="width" constant="106" id="wjx-Ew-LJn"/>
+                                    <constraint firstAttribute="height" constant="53" id="21m-on-VKH"/>
+                                    <constraint firstAttribute="width" constant="106" id="aA6-sN-Uh6"/>
                                 </constraints>
                                 <state key="normal" image="newPhotoSaveBtn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -544,11 +544,6 @@
                                     <action selector="editImage:" destination="jT0-Dd-hZP" eventType="touchUpInside" id="n7r-MR-QBg"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-4c-qLa">
-                                <rect key="frame" x="0.0" y="336" width="320" height="179"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-RV-Ome">
                                 <rect key="frame" x="0.0" y="336" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -589,13 +584,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="4St-zb-Bw9" secondAttribute="bottom" id="5ON-gl-2NF"/>
-                            <constraint firstItem="3Ix-x1-M4M" firstAttribute="leading" secondItem="GZP-Uy-Uhv" secondAttribute="trailing" constant="2" id="HN2-FL-Gvv"/>
-                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" id="NWD-ek-HsS"/>
-                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="tQT-La-xKg" secondAttribute="bottom" id="UzP-GR-hS4"/>
-                            <constraint firstItem="4St-zb-Bw9" firstAttribute="leading" secondItem="3Ix-x1-M4M" secondAttribute="trailing" constant="2" id="qLT-BS-YU8"/>
-                            <constraint firstItem="GZP-Uy-Uhv" firstAttribute="width" secondItem="4St-zb-Bw9" secondAttribute="width" id="wfR-Ue-qt4"/>
-                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="3Ix-x1-M4M" secondAttribute="bottom" id="zhb-Hz-4LO"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="4St-zb-Bw9" secondAttribute="bottom" id="1FT-aw-ZFM"/>
+                            <constraint firstAttribute="trailing" secondItem="4St-zb-Bw9" secondAttribute="trailing" id="Dxp-uS-mVE"/>
+                            <constraint firstItem="3Ix-x1-M4M" firstAttribute="leading" secondItem="GZP-Uy-Uhv" secondAttribute="trailing" constant="2" id="J8c-em-5Aa"/>
+                            <constraint firstItem="GZP-Uy-Uhv" firstAttribute="leading" secondItem="CH7-SR-I5w" secondAttribute="leading" id="Pe9-EN-iUD"/>
+                            <constraint firstItem="3Ix-x1-M4M" firstAttribute="leading" secondItem="GZP-Uy-Uhv" secondAttribute="trailing" constant="2" id="Pr7-8H-Kfk"/>
+                            <constraint firstItem="4St-zb-Bw9" firstAttribute="leading" secondItem="3Ix-x1-M4M" secondAttribute="trailing" constant="2" id="Vc7-Pu-L77"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="3Ix-x1-M4M" secondAttribute="bottom" id="bvP-Ds-BKk"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="tQT-La-xKg" secondAttribute="bottom" id="dKi-8h-D5q"/>
+                            <constraint firstItem="ewo-JF-9bL" firstAttribute="top" secondItem="GZP-Uy-Uhv" secondAttribute="bottom" id="dyR-fW-6NW"/>
+                            <constraint firstItem="4St-zb-Bw9" firstAttribute="leading" secondItem="3Ix-x1-M4M" secondAttribute="trailing" constant="2" id="zL2-cM-eEB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Photo" id="0cZ-jg-HVz">
