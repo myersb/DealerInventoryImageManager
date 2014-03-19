@@ -25,10 +25,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3En-OG-aQK">
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3En-OG-aQK">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
+                                        <state key="normal" image="loginScreen.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -969,12 +969,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VBY-Wv-O0o"/>
         <segue reference="kgZ-Z3-I4F"/>
         <segue reference="BF5-Bq-G8l"/>
-        <segue reference="FLP-ej-MJ0"/>
+        <segue reference="VBY-Wv-O0o"/>
         <segue reference="dje-3c-QTt"/>
         <segue reference="yYU-7B-a5w"/>
+        <segue reference="h4U-di-CFe"/>
         <segue reference="3jc-5l-dmt"/>
     </inferredMetricsTieBreakers>
 </document>
