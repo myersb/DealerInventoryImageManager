@@ -12,8 +12,16 @@
 #import "DealerModel.h"
 #import "ImageTagsModel.h"
 #import "ImageTypesModel.h"
+#import "Reachability.h"
+
+#define webServiceAppVerision @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&MethodToInvoke=versionCheck&obj=global&key=LTk0ITREJy9cS1A6KVs5Vk5CUCAgCg%3D%3D&appname=PhotoUp"
+
+#define webServiceInventoryListURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
 
 @interface LaunchViewController ()
+{
+    Reachability *internetReachable;
+}
 
 @property (strong, nonatomic) HB_CoreDataManager *dataHelper;
 
@@ -42,15 +50,21 @@
 {
     [super viewDidLoad];
 
-
-        // Creates a pointer to the AppDelegate
-        // Note needed if I am using DataHelper
-        id delegate = [[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = [delegate managedObjectContext];
-        
-        // This delay is required to allow the view to load and then make a decision as to whether to
-        // direct the user to log in or go to the inventory list.
-        [self performSelector:@selector(loadAuthenticateViewController) withObject:nil afterDelay:1.0];
+	// Creates a pointer to the AppDelegate
+	// Note needed if I am using DataHelper
+	id delegate = [[UIApplication sharedApplication] delegate];
+	self.managedObjectContext = [delegate managedObjectContext];
+	
+	_isConnected = TRUE;
+	[self checkOnlineConnection];
+	
+	if (_isConnected) {
+		[self getAppVersion];
+	}
+	
+	// This delay is required to allow the view to load and then make a decision as to whether to
+	// direct the user to log in or go to the inventory list.
+	[self performSelector:@selector(loadAuthenticateViewController) withObject:nil afterDelay:1.0];
     
 }
 
@@ -139,12 +153,100 @@
     }
 }
 
+- (void)getAppVersion
+{
+	// Get the current version number from CoreData
+	_fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:@"AppVersion" inManagedObjectContext:[self managedObjectContext]];
+	
+	[_fetchRequest setEntity:_entity];
+	
+	NSError *error = nil;
+	_appVersionArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
+	_currentVersion = [_appVersionArray objectAtIndex:0];
+	
+	// Fetch the latest version number from web service
+	NSString *urlString = [NSString stringWithFormat:@"%@", webServiceAppVerision];
+	NSURL *invURL = [NSURL URLWithString:urlString];
+	NSData *data = [NSData dataWithContentsOfURL:invURL];
+	
+	// Sticks all of the jSON data inside of a dictionary
+    _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+	NSLog(@"App Version:%@", _jSON);
+	
+	// Creates a dictionary that goes inside the first data object eg. {data:[
+	_dataDictionary = [_jSON objectForKey:@"data"];
+	
+	// Check for other dictionaries inside of the dataDictionary
+	for (NSDictionary *modelDictionary in _dataDictionary) {
+		_fetchedVersion = NSLocalizedString([modelDictionary objectForKey:@"latestversiondate"], nil);
+		
+		// if version number in CoreData does not match the version number from the web service
+		// then clear the entity and insert new version number
+		if (![_currentVersion.versionNumber isEqualToString:_fetchedVersion]) {
+			[self clearEntity:@"AppVersion" withFetchRequest:_fetchRequest];
+			
+			AppVersion *appVersion = [NSEntityDescription insertNewObjectForEntityForName:@"AppVersion" inManagedObjectContext:[self managedObjectContext]];
+			
+			appVersion.versionNumber = NSLocalizedString([modelDictionary objectForKey:@"latestversiondate"], nil);
+			
+			_alert = [[UIAlertView alloc]initWithTitle:@"App Update" message:[NSString stringWithFormat:@"There is a new version of the PhotoUp app available for you to download. From your device please visit the admin portal for your home center web site to download the latest version."] delegate:self cancelButtonTitle:@"Canel" otherButtonTitles:@"Download", nil];
+			[_alert show];
+		}
+	}
+	[_managedObjectContext save:nil];
+
+}
 
 
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.cmhsitemanagement.com"]];
+    }
+}
 
+- (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
+{
+	fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+	
+	[fetchRequest setEntity:_entity];
+	
+	NSError *error = nil;
+	NSArray* result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	
+	for (NSManagedObject *object in result) {
+		[[self managedObjectContext] deleteObject:object];
+	}
+	
+	NSError *saveError = nil;
+	if (![[self managedObjectContext] save:&saveError]) {
+		NSLog(@"An error has occurred: %@", saveError);
+	}
+}
 
-
-
+- (void) checkOnlineConnection {
+	
+	
+    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Internet is not reachable
+    // NOTE - change "reachableBlock" to "unreachableBlock"
+    
+    internetReachable.unreachableBlock = ^(Reachability*reach)
+    {
+		_isConnected = FALSE;
+    };
+	
+	internetReachable.reachableBlock = ^(Reachability*reach)
+    {
+		_isConnected = TRUE;
+    };
+    
+    [internetReachable startNotifier];
+    
+}
 
 @end
