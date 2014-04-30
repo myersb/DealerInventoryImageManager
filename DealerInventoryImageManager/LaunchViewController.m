@@ -163,7 +163,10 @@
 	
 	NSError *error = nil;
 	_appVersionArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
-	_currentVersion = [_appVersionArray objectAtIndex:0];
+
+	if ([_appVersionArray count]) {
+		_currentVersion = [_appVersionArray objectAtIndex:0];
+	}
 	
 	// Fetch the latest version number from web service
 	NSString *urlString = [NSString stringWithFormat:@"%@", webServiceAppVerision];
@@ -183,14 +186,14 @@
 		
 		// if version number in CoreData does not match the version number from the web service
 		// then clear the entity and insert new version number
-		if (![_currentVersion.versionNumber isEqualToString:_fetchedVersion]) {
+		if (![_currentVersion.versionNumber isEqualToString:_fetchedVersion] && [_appVersionArray count]) {
 			[self clearEntity:@"AppVersion" withFetchRequest:_fetchRequest];
 			
 			AppVersion *appVersion = [NSEntityDescription insertNewObjectForEntityForName:@"AppVersion" inManagedObjectContext:[self managedObjectContext]];
 			
 			appVersion.versionNumber = NSLocalizedString([modelDictionary objectForKey:@"latestversiondate"], nil);
 			
-			_alert = [[UIAlertView alloc]initWithTitle:@"App Update" message:[NSString stringWithFormat:@"There is a new version of the PhotoUp app available for you to download. From your device please visit the admin portal for your home center web site to download the latest version."] delegate:self cancelButtonTitle:@"Canel" otherButtonTitles:@"Download", nil];
+			_alert = [[UIAlertView alloc]initWithTitle:@"App Update" message:[NSString stringWithFormat:@"There is a new version of the PhotoUp app available for you to download. From your device please visit the admin portal for your home center web site to download the latest version."] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Download", nil];
 			[_alert show];
 		}
 	}
