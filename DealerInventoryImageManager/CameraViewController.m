@@ -26,6 +26,9 @@
 
 - (void)viewDidLoad
 {
+    // This is the google analitics
+    self.screenName = @"CameraViewController";
+    
     [super viewDidLoad];
 	_lblSerialNumber.text = _selectedSerialNumber;
 	[self prefersStatusBarHidden];

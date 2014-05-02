@@ -36,6 +36,9 @@
     [super viewDidLoad];
     NSLog(@"InventoryViewController : viewDidLoad");
     
+    // This is the google analytics
+    self.screenName = @"CameraViewController";
+    
 
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];

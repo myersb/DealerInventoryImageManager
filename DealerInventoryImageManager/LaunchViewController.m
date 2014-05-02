@@ -42,7 +42,6 @@
 {
     [super viewDidLoad];
 
-
         // Creates a pointer to the AppDelegate
         // Note needed if I am using DataHelper
         id delegate = [[UIApplication sharedApplication] delegate];

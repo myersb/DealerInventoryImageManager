@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 //#import "ZBarSDK.h"
 #import "InventoryCell.h"
+#import "GAITrackedViewController.h"
 
-@interface InventoryViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
+@interface InventoryViewController : GAITrackedViewController  <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet InventoryCell *inventoryCell;
 

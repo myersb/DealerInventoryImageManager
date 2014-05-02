@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface DealerSelectViewController : UIViewController <UIAlertViewDelegate>
+@interface DealerSelectViewController : GAITrackedViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;

@@ -32,6 +32,9 @@
     NSLog(@"ImageDetailesViewController : viewDidLoad");
     
     
+    // This is the google analytics
+    self.screenName = @"ImageDetailsViewController";
+    
     // Do any additional setup after loading the view.
     // Draw the activity view background
     activityIndicatorBackground.layer.cornerRadius = 10.0;
@@ -269,6 +272,7 @@
 // Set activeTextField to nil
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    self.saveButton.hidden = FALSE;
     self.activeTextField = nil;
 }
 
@@ -279,6 +283,7 @@
     self.saveButton.hidden = FALSE;
     
     [self.activeTextField resignFirstResponder];
+    
 
 }
 
@@ -289,6 +294,7 @@
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
+    
     //One column
     return 1;
 }
@@ -300,6 +306,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    
     //set item per row
     // Return value that will be displayed
     ImageTags *imageTagData = [imageTagArray objectAtIndex:row];
@@ -499,19 +506,19 @@
 }
 
 - (IBAction)imageTypeFieldTouch:(id)sender {
+    // unhide the save button
+    self.saveButton.hidden = FALSE;
 }
 
 // This prevents the keyboard from popping up.
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    self.saveButton.hidden = FALSE;
     
     if( [ textField.restorationIdentifier isEqualToString:@"imageTypeField" ] )
     {
         //dismiss the keyboard if it is up
         [self.activeTextField resignFirstResponder];
-        
-        // unhide the save button
-        self.saveButton.hidden = TRUE;
         
         // Display the view that contains the picker.
         [UIView beginAnimations:nil context:nil];
@@ -524,6 +531,8 @@
             pickerViewContainer.frame = CGRectMake(0, 150, 320, 226);
         }
         
+        // unhide the save button
+        self.saveButton.hidden = TRUE;
         
         [UIView commitAnimations];
         return NO;

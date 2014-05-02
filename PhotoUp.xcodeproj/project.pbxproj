@@ -13,6 +13,7 @@
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
 		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
+		814A0CA7190EEB0C00660D62 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 814A0CA6190EEB0C00660D62 /* libGoogleAnalyticsServices.a */; };
 		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
@@ -145,6 +146,13 @@
 		8142C97F1888410000C32E83 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		8142C9801888410000C32E83 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
 		8142C9811888410000C32E83 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCell.xib; sourceTree = "<group>"; };
+		814A0CA0190EEAFD00660D62 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		814A0CA1190EEAFD00660D62 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		814A0CA2190EEAFD00660D62 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		814A0CA3190EEAFD00660D62 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		814A0CA4190EEAFD00660D62 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		814A0CA5190EEAFD00660D62 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		814A0CA6190EEB0C00660D62 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -295,6 +303,7 @@
 				B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */,
 				B525AB9417FF34B500619E3D /* CoreMedia.framework in Frameworks */,
 				B525AB9517FF34B500619E3D /* CoreVideo.framework in Frameworks */,
+				814A0CA7190EEB0C00660D62 /* libGoogleAnalyticsServices.a in Frameworks */,
 				B525AB9117FF34A600619E3D /* AVFoundation.framework in Frameworks */,
 				8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */,
 				8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */,
@@ -412,6 +421,13 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				814A0CA6190EEB0C00660D62 /* libGoogleAnalyticsServices.a */,
+				814A0CA0190EEAFD00660D62 /* GAI.h */,
+				814A0CA1190EEAFD00660D62 /* GAIDictionaryBuilder.h */,
+				814A0CA2190EEAFD00660D62 /* GAIFields.h */,
+				814A0CA3190EEAFD00660D62 /* GAILogger.h */,
+				814A0CA4190EEAFD00660D62 /* GAITrackedViewController.h */,
+				814A0CA5190EEAFD00660D62 /* GAITracker.h */,
 				810CBC7C18D204920091AB24 /* Done_btn.png */,
 				B53A527018D233E5007CBDB1 /* doneEditingBtn.png */,
 				B53A527118D233E5007CBDB1 /* editImageBtn.png */,
@@ -928,6 +944,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,
+					"$(PROJECT_DIR)/DealerInventoryImageManager",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -955,6 +972,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,
+					"$(PROJECT_DIR)/DealerInventoryImageManager",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

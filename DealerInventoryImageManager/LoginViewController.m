@@ -103,6 +103,12 @@
  ***************************************************** */
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+    
+    // This is the google analitics
+    self.screenName = @"ViewDidAppear";
+    
+    
     id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
     // Are we online?

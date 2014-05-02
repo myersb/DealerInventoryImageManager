@@ -44,6 +44,9 @@ NSMutableArray *models;
     [super viewDidLoad];
     NSLog(@"HomeDetailsViewController : viewDidLoad");
     
+    // This is the google analytics
+    self.screenName = @"HomeDetailsViewController";
+    
     // Draw the activity view background
     activityViewBackground.layer.cornerRadius = 10.0;
     activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
