@@ -110,6 +110,7 @@
 		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
 		B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */; };
 		B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BB118B50CAB00FE34AE /* logoutBtn.png */; };
+		B57D0F381906B5FD009A83D6 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = B57D0F371906B5FD009A83D6 /* AppVersion.m */; };
 		B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58F819E18CFA354003822FD /* CoreImage.framework */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
@@ -275,6 +276,8 @@
 		B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerSelectViewController.h; sourceTree = "<group>"; };
 		B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerSelectViewController.m; sourceTree = "<group>"; };
 		B5691BB118B50CAB00FE34AE /* logoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutBtn.png; sourceTree = "<group>"; };
+		B57D0F361906B5FD009A83D6 /* AppVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppVersion.h; sourceTree = "<group>"; };
+		B57D0F371906B5FD009A83D6 /* AppVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppVersion.m; sourceTree = "<group>"; };
 		B58F819E18CFA354003822FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B59070B718ABC70E00E15B2C /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		B59070BB18ABEAC100E15B2C /* shutterBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shutterBtn.png; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 		813B81C317FB5DBA0011A2DD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B57D0F361906B5FD009A83D6 /* AppVersion.h */,
+				B57D0F371906B5FD009A83D6 /* AppVersion.m */,
 				811B9C3D183D223C0075EB20 /* ImageTypes.h */,
 				811B9C3E183D223C0075EB20 /* ImageTypes.m */,
 				811B9C3A183D223B0075EB20 /* ImageTags.h */,
@@ -803,6 +808,7 @@
 				B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */,
 				B5691B7618B2AFFD00FE34AE /* DealerModel.m in Sources */,
 				B5691B7718B2AFFD00FE34AE /* Reachability.m in Sources */,
+				B57D0F381906B5FD009A83D6 /* AppVersion.m in Sources */,
 				B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */,
 				B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */,
 				B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */,

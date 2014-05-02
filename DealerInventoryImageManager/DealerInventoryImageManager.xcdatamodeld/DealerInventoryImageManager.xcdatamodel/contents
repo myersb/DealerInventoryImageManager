@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AppVersion" representedClassName="AppVersion" syncable="YES">
+        <attribute name="versionNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Dealer" representedClassName="Dealer" syncable="YES">
         <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastAuthorizationDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -53,10 +56,11 @@
         <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryHome" inverseName="images" inverseEntity="InventoryHome" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Dealer" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ImageTags" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ImageTypes" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="InventoryHome" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="InventoryImage" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AppVersion" positionX="9" positionY="135" width="128" height="58"/>
+        <element name="Dealer" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ImageTags" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ImageTypes" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="InventoryHome" positionX="0" positionY="0" width="128" height="300"/>
+        <element name="InventoryImage" positionX="0" positionY="0" width="128" height="285"/>
     </elements>
 </model>
