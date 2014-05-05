@@ -153,7 +153,9 @@
 - (IBAction)stopEditingImage:(id)sender {
 	_editingControlerView.hidden = TRUE;
 	_doneEditingImageBtn.hidden = TRUE;
-	_editImageBtn.hidden = FALSE;
+//TODO: Fix the response time for the edit image button.
+// Below set to "true" to keep the edit button image hidden.
+	_editImageBtn.hidden = TRUE;
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -201,7 +203,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	_editImageBtn.hidden = FALSE;
+    //TODO: Fix the response time for the edit image button.
+    // Below set to "true" to keep the edit button image hidden.
+    //_editImageBtn.hidden = FALSE;
+    
+	_editImageBtn.hidden = TRUE;
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	
