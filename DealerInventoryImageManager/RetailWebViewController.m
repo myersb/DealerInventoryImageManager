@@ -28,6 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // This is the google analitics
+    self.screenName = @"RetailWebViewController";
+    
 	NSURL *urlString = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cmhInfoURL,_requestedURL]];
 	NSLog(@"URL Request: %@", urlString);
 	_urlRequest = [NSURLRequest requestWithURL:urlString];

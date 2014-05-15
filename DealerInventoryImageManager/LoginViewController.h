@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Dealer.h"
+#import "GAITrackedViewController.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate>
+@interface LoginViewController : GAITrackedViewController  <UITextFieldDelegate>
 {
     __weak IBOutlet UIScrollView *loginScrollView;
 }

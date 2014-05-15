@@ -12,8 +12,9 @@
 #import "ImageTags.h"
 #import "ImageTypes.h"
 #import "HomeDetailsViewController.h"
+#import "GAITrackedViewController.h"
 
-@interface ImageDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate>
+@interface ImageDetailsViewController : GAITrackedViewController  <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate>
 {
     
     __weak IBOutlet UIScrollView *theScrollView;

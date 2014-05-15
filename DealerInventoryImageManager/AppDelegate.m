@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
+#import "GAI.h"
 
 // Added as it will be needed to setup and use the MainView
 
@@ -22,6 +23,18 @@
     //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
 
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-50420442-2"];
     
 	return YES;
     

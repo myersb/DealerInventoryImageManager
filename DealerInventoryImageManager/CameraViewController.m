@@ -26,6 +26,9 @@
 
 - (void)viewDidLoad
 {
+    // This is the google analitics
+    self.screenName = @"CameraViewController";
+    
     [super viewDidLoad];
 	_lblSerialNumber.text = _selectedSerialNumber;
 	_alert.delegate = self;
@@ -152,7 +155,9 @@
 - (IBAction)stopEditingImage:(id)sender {
 	_editingControlerView.hidden = TRUE;
 	_doneEditingImageBtn.hidden = TRUE;
-	_editImageBtn.hidden = FALSE;
+//TODO: Fix the response time for the edit image button.
+// Below set to "true" to keep the edit button image hidden.
+	_editImageBtn.hidden = TRUE;
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -200,8 +205,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	
-	
 	CGRect screenBound = [[UIScreen mainScreen] bounds];
 	CGSize screenSize = screenBound.size;
 	CGFloat screenHeight = screenSize.height;
@@ -210,6 +213,11 @@
 		_editImageBtn.hidden = FALSE;
 	}
 	
+    //TODO: Fix the response time for the edit image button.
+    // Below set to "true" to keep the edit button image hidden.
+    //_editImageBtn.hidden = FALSE;
+    
+	_editImageBtn.hidden = TRUE;
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	

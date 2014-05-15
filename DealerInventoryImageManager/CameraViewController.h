@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraOverlayView.h"
+#import "GAITrackedViewController.h"
 
-@interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
+@interface CameraViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet CameraOverlayView *cameraOverlayView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
