@@ -28,14 +28,16 @@
 {
     [super viewDidLoad];
 	_lblSerialNumber.text = _selectedSerialNumber;
-	[self prefersStatusBarHidden];
 	_alert.delegate = self;
+	
 	if (_imageView.image) {
 		_saveBtn.hidden = NO;
 	}
 	else{
 		_saveBtn.hidden = YES;
 	}
+	
+	[self prefersStatusBarHidden];
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,7 +200,16 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	_editImageBtn.hidden = FALSE;
+	
+	
+	CGRect screenBound = [[UIScreen mainScreen] bounds];
+	CGSize screenSize = screenBound.size;
+	CGFloat screenHeight = screenSize.height;
+	
+	if (screenHeight >= 568) {
+		_editImageBtn.hidden = FALSE;
+	}
+	
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	

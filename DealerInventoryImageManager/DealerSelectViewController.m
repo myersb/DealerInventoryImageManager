@@ -8,10 +8,13 @@
 
 #import "DealerSelectViewController.h"
 #import "InventoryViewController.h"
+#import "Reachability.h"
 
 
 @interface DealerSelectViewController ()
-
+{
+	Reachability *internetReachability;
+}
 @end
 
 @implementation DealerSelectViewController
@@ -31,6 +34,7 @@
 
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
+	internetReachability = [[Reachability alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

@@ -55,10 +55,10 @@
 	id delegate = [[UIApplication sharedApplication] delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
 	
-	_isConnected = TRUE;
-	[self checkOnlineConnection];
+	internetReachable = [[Reachability alloc] init];
+	[internetReachable checkOnlineConnection];
 	
-	if (_isConnected) {
+	if (internetReachable.isConnected) {
 		[self getAppVersion];
 	}
 	

@@ -34,15 +34,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"InventoryViewController : viewDidLoad");
-    
-
+	
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	
-	_isConnected = TRUE;
-	[self checkOnlineConnection];
+	internetReachable = [[Reachability alloc] init];
+	[internetReachable checkOnlineConnection];
 	DealerModel *dealer = [[DealerModel alloc]init];
 	
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
@@ -51,14 +49,13 @@
 	NSError *error = nil;
 	NSArray *dealerObj =  [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 	Dealer *savedDealer = [dealerObj objectAtIndex:0];
-	
 	[dealer getDealerNumber];
 	if (!_chosenDealerNumber.length) {
 		_dealerNumber = dealer.dealerNumber;
 	}
 	else{
 		_dealerNumber = _chosenDealerNumber;
-		savedDealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
+		//savedDealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
 		savedDealer.dealerNumber = _chosenDealerNumber;
 		dealer.dealerNumber = _chosenDealerNumber;
 		_btnChangeDealer.hidden = NO;
@@ -73,7 +70,7 @@
 		_btnChangeDealer.hidden = NO;
 	}
 	
-	if (_isConnected == TRUE) {
+	if (internetReachable.isConnected) {
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
 	}
@@ -81,6 +78,8 @@
 		[self loadInventory];
 		[self loadImages];
 	}
+	
+	[self.navigationItem setHidesBackButton:YES];
 	
 }
 
@@ -143,11 +142,9 @@
 
 - (void)downloadInventoryData:(NSString *)dealerNumber
 {
-    NSLog(@"InventoryViewController : downloadInventoryData");
-    
 	[self loadInventory];
 	
-	if (_isConnected == 1 && [_modelsArray count] > 0) {
+	if (internetReachable.isConnected && [_modelsArray count] > 0) {
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	
@@ -182,11 +179,10 @@
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
-    NSLog(@"InventoryViewController : downloadImages");
     
 	[self loadImages];
 	
-	if (_isConnected == 1 && [_imagesArray count] > 0) {
+	if (internetReachable.isConnected == 1 && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest];
 	}
 
@@ -216,9 +212,6 @@
 
 - (void)loadInventory
 {
-    
-    NSLog(@"InventoryViewController : loadInventory");
-    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
     
@@ -238,10 +231,7 @@
 
 - (NSNumber *)loadImagesBySerialNumber: (NSString *)serialNumber
 {
-    
-    NSLog(@"InventoryViewController : loadImagesBySerialNumber");
-    
-	_imagesFetchRequest = [[NSFetchRequest alloc]init];
+    _imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_imagesPredicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && group <> 'm-360' && imageSource <> 'MDL'", serialNumber];
 	
@@ -258,8 +248,6 @@
 
 - (void)loadImages
 {
-    NSLog(@"InventoryViewController : loadImages");
-    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	
@@ -305,7 +293,6 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
 		_logoutSegue = YES;
-		NSLog(@"logout");
 		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
 		[self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
 	}
@@ -348,28 +335,6 @@
 	[self performSegueWithIdentifier:@"segueToHomeDetails" sender:nil];
 }
 
-- (void) checkOnlineConnection {
-	
-	
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = FALSE;
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = TRUE;
-    };
-    
-    [internetReachable startNotifier];
-    
-}
-
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
 	if (_logoutSegue == NO){
 		return NO;
@@ -382,7 +347,6 @@
 		return YES;
 	}
 }
-
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

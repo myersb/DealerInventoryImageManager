@@ -123,7 +123,6 @@
         //
         if ( [isActive isEqualToString:@"1"] &&  [isError isEqualToString:@"0"])
         {
-            
             // Creates a pointer to the AppDelegate
             // Note needed if I am using DataHelper
             //
@@ -192,7 +191,7 @@
                     NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
                     dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
                 }
-
+				
                 dealer.userName = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_USERNAME], nil);
                 dealer.lastAuthorizationDate = [NSDate date];
                 

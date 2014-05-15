@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -68,7 +68,7 @@
                                         </state>
                                         <connections>
                                             <action selector="logInSubmit:" destination="uAE-a2-xjx" eventType="touchUpInside" id="oOv-ex-oLx"/>
-                                            <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLogin" id="3jc-5l-dmt"/>
+                                            <segue destination="rLb-Ye-k1x" kind="modal" identifier="segueToDealerSelectFromLogin" id="Dgj-Z3-ZFt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,7 +149,7 @@
                                 </state>
                                 <connections>
                                     <action selector="changeDelear:" destination="iEF-6x-NNF" eventType="touchUpInside" id="Npe-32-X98"/>
-                                    <segue destination="vo6-7G-XIw" kind="push" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
+                                    <segue destination="rLb-Ye-k1x" kind="modal" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLu-kd-AeA">
@@ -442,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGi-3U-GNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3436" y="-174"/>
+            <point key="canvasLocation" x="3962" y="-174"/>
         </scene>
         <!--Camera View Controller - New Photo-->
         <scene sceneID="Chg-Ld-21A">
@@ -815,7 +815,7 @@
                     <connections>
                         <segue destination="uAE-a2-xjx" kind="modal" identifier="segueToLoginViewController" modalTransitionStyle="crossDissolve" id="rI9-Rh-EZV"/>
                         <segue destination="RVn-5p-Q6b" kind="modal" identifier="segueToInventoryViewControllerFromLaunch" id="bFb-T4-uZA"/>
-                        <segue destination="c0V-EJ-AeT" kind="modal" identifier="segueToDealerSelectFromLaunch" id="tnu-uY-fSb"/>
+                        <segue destination="rLb-Ye-k1x" kind="modal" identifier="segueToDealerSelectFromLaunch" id="Zad-Np-FVW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6f-8P-hth" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -867,7 +867,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="jG9-tX-G0C"/>
+                                    <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="xJ4-jD-6Z0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
@@ -922,20 +922,20 @@
             <point key="canvasLocation" x="1400" y="488"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="H77-6K-3y6">
+        <scene sceneID="1hk-A9-VMA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c0V-EJ-AeT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rLb-Ye-k1x" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LQC-jz-GRL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qzw-jZ-39B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vo6-7G-XIw" kind="relationship" relationship="rootViewController" id="GDo-zE-Kvu"/>
+                        <segue destination="vo6-7G-XIw" kind="relationship" relationship="rootViewController" id="N0h-Q2-si6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="51D-QQ-NMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flr-jT-iso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1400" y="-174"/>
         </scene>
@@ -968,15 +968,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tnu-uY-fSb"/>
-        <segue reference="rI9-Rh-EZV"/>
-        <segue reference="bFb-T4-uZA"/>
-        <segue reference="dje-3c-QTt"/>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="kgZ-Z3-I4F"/>
-        <segue reference="BF5-Bq-G8l"/>
-        <segue reference="yYU-7B-a5w"/>
+        <segue reference="Oqx-SE-310"/>
         <segue reference="h4U-di-CFe"/>
-        <segue reference="3jc-5l-dmt"/>
+        <segue reference="yYU-7B-a5w"/>
+        <segue reference="dje-3c-QTt"/>
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="BF5-Bq-G8l"/>
     </inferredMetricsTieBreakers>
 </document>

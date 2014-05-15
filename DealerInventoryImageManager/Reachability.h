@@ -77,6 +77,7 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 
 
 @property (nonatomic, assign) BOOL reachableOnWWAN;
+@property (nonatomic, assign) BOOL isConnected;
 
 +(Reachability*)reachabilityWithHostname:(NSString*)hostname;
 +(Reachability*)reachabilityForInternetConnection;
@@ -91,6 +92,7 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 -(BOOL)isReachable;
 -(BOOL)isReachableViaWWAN;
 -(BOOL)isReachableViaWiFi;
+- (BOOL)checkOnlineConnection;
 
 // WWAN may be available, but not active until a connection has been established.
 // WiFi may require a connection for VPN on Demand.
