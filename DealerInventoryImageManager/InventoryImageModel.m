@@ -40,6 +40,7 @@
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
     
+    // Inventory Data
     // Data object call
     NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"InventoryImage"];
     
@@ -49,6 +50,7 @@
     
     // Put data into new object based on filtered fetch request.
     InventoryImage *changeImageData = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    
     
     [self.managedObjectContext deleteObject:changeImageData];
     
@@ -63,7 +65,12 @@
     NSString *method = @"processGetJSONArray";
     NSString *obj = @"inventory";
     
-    NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageId=%@&init"
+    // Get dealer info check
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    NSLog(@"Check : %@", getUserInfo);
+
+    NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageId=%@&UN=%@&PID=%@&init"
                              ,url
                              ,method
                              ,methodToInvoke
@@ -71,7 +78,10 @@
                              ,obj
                              
                              ,inventoryPackageId
-                             ,imageId];
+                             ,imageId
+                             ,[getUserInfo objectForKey:@"userName"]
+                             ,[getUserInfo objectForKey:@"phoneId"]
+                             ];
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:queryString]];
@@ -140,8 +150,11 @@
         NSString *method = @"processGetJSONArray";
         NSString *obj = @"inventory";
         
+        DealerModel *getDealerInfo = [[DealerModel alloc]init];
+        NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+        NSLog(@"Check : %@", getUserInfo);
         
-        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageId=%@&imageCaption=%@&imageTypeOrder=%@&searchTagId=%@&init"
+        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageId=%@&imageCaption=%@&imageTypeOrder=%@&searchTagId=%@&UN=%@&PID=%@&init"
                                  ,url
                                  ,method
                                  ,methodToInvoke
@@ -153,7 +166,10 @@
                                  ,imageId
                                  ,[featureText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                                  ,imageTypeOrder
-                                 ,tagId];
+                                 ,tagId
+                                 ,[getUserInfo objectForKey:@"userName"]
+                                 ,[getUserInfo objectForKey:@"phoneId"]
+                                 ];
         
         NSLog(@"%@", queryString);
         
@@ -263,6 +279,13 @@
         // ****************  Submit Data to server ****************** //
         // If online, submit data up to server
         // Create the request.
+        
+        // Get dealer confirmation data
+        DealerModel *getDealerInfo = [[DealerModel alloc]init];
+        NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+        NSLog(@"Check : %@", getUserInfo);
+
+        
         NSString *url = @"https://www.claytonupdatecenter.com/cfide/remoteinvoke.cfc";
         NSString *methodToInvoke = @"PrcHomeInventoryImageInsert";
         
@@ -271,7 +294,7 @@
         NSString *obj = @"inventory";
         
         
-        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&init"
+        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&UN=%@&PID=%@&init"
                                  ,url
                                  ,method
                                  ,methodToInvoke
@@ -284,8 +307,10 @@
                                  //,imageTypeOrder
                                  ,tagId
                                  ,serialNumber
-                                 ,imageSource];
-        
+                                 ,imageSource
+                                 ,[getUserInfo objectForKey:@"userName"]
+                                 ,[getUserInfo objectForKey:@"phoneId"]
+                                 ];
         
         NSURL *completeQueryString = [NSURL URLWithString:queryString];
         NSLog(@"%@", completeQueryString);

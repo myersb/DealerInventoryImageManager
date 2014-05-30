@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
-#import "GAI.h"
+#import "DealerModel.h"
 
 // Added as it will be needed to setup and use the MainView
 
@@ -20,12 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
 
     
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optiona: Set to YES during testing to prevent data from going to Google
+    [[GAI sharedInstance] setDryRun:NO];
     
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
@@ -112,6 +116,8 @@
     return _managedObjectModel;
 }
 
+
+
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
@@ -119,6 +125,7 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
+    
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"DealerInventoryImageManager.sqlite"];
     

@@ -14,6 +14,8 @@
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
 		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
 		814A0CA7190EEB0C00660D62 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 814A0CA6190EEB0C00660D62 /* libGoogleAnalyticsServices.a */; };
+		8161612D1939174C00782BFC /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8161612C1939174C00782BFC /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8161613019391A1200782BFC /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8161612F19391A1200782BFC /* UIDevice+IdentifierAddition.m */; };
 		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
@@ -154,6 +156,10 @@
 		814A0CA4190EEAFD00660D62 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		814A0CA5190EEAFD00660D62 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		814A0CA6190EEB0C00660D62 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		8161612B1939171400782BFC /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		8161612C1939174C00782BFC /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		8161612E193919E600782BFC /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		8161612F19391A1200782BFC /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -353,6 +359,17 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		8161612A193916D800782BFC /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				8161612B1939171400782BFC /* NSString+MD5Addition.h */,
+				8161612C1939174C00782BFC /* NSString+MD5Addition.m */,
+				8161612E193919E600782BFC /* UIDevice+IdentifierAddition.h */,
+				8161612F19391A1200782BFC /* UIDevice+IdentifierAddition.m */,
+			);
+			name = UIDevice;
+			sourceTree = "<group>";
+		};
 		8198421417E0D40900B619C7 = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +420,7 @@
 		8198422817E0D40900B619C7 /* PhotoUp */ = {
 			isa = PBXGroup;
 			children = (
+				8161612A193916D800782BFC /* UIDevice */,
 				B5691B8A18B3E42800FE34AE /* ZBarSDK */,
 				813B81C317FB5DBA0011A2DD /* Data */,
 				8198426217E0D9B300B619C7 /* Models */,
@@ -666,6 +684,7 @@
 		8198421517E0D40900B619C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Chris Cantley";
 				TargetAttributes = {
@@ -796,6 +815,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8161613019391A1200782BFC /* UIDevice+IdentifierAddition.m in Sources */,
 				B5691B6E18B2AFFD00FE34AE /* ImageTypes.m in Sources */,
 				B5691B6F18B2AFFD00FE34AE /* ImageTags.m in Sources */,
 				B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */,
@@ -811,6 +831,7 @@
 				B57D0F381906B5FD009A83D6 /* AppVersion.m in Sources */,
 				B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */,
 				B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */,
+				8161612D1939174C00782BFC /* NSString+MD5Addition.m in Sources */,
 				B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */,
 				8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */,
 				B5691B7B18B2AFFD00FE34AE /* RetailWebViewController.m in Sources */,

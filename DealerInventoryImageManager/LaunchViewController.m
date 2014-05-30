@@ -167,8 +167,8 @@
 	if ([_appVersionArray count]) {
 		_currentVersion = [_appVersionArray objectAtIndex:0];
 	}
-	
-	// Fetch the latest version number from web service
+    
+    // Fetch the latest version number from web service
 	NSString *urlString = [NSString stringWithFormat:@"%@", webServiceAppVerision];
 	NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];

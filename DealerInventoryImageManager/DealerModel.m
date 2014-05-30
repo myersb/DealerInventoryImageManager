@@ -12,6 +12,7 @@
 #import "JSONToArray.h"
 #import "UIDevice-Hardware.h"
 #import "UIDevice-Reachability.h"
+#import "UIDevice+IdentifierAddition.h"
 
 #define modelListDataSector @"data"
 
@@ -88,6 +89,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
 	
+   
     // Setup Post Body
     NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=0&username=%@&password=%@", userName, password];
 	
@@ -293,7 +295,35 @@
 }
 
 
+-(NSDictionary*) getUserNameAndMEID {
+    
+  
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    // Inventory Data
+    // Data object call
+    NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Dealer"];
 
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *dealerData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+  
+    NSDictionary *dict;
+    
+    for(NSManagedObjectContext *info in dealerData)
+    {
+        
+        dict=@{@"userName": [info valueForKey:@"userName"],
+                             @"phoneId":[[UIDevice currentDevice] uniqueDeviceIdentifier]
+                            };
+        
+    }
+    
+
+    return dict;
+    
+}
 
 
 

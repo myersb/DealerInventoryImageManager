@@ -26,5 +26,6 @@
                        WithPassword:(NSString *) password;
 
 - (BOOL) isDealerExpired;
+-(NSDictionary*) getUserNameAndMEID;
 
 @end

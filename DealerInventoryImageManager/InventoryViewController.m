@@ -36,7 +36,8 @@
     [super viewDidLoad];
     
     // This is the google analytics
-    self.screenName = @"CameraViewController";
+    self.screenName = @"InventoryViewController";
+    
     
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
@@ -151,8 +152,15 @@
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	
-	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
-	NSURL *invURL = [NSURL URLWithString:urlString];
+    // Get dealer confirmation data
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    NSLog(@"Check : %@", getUserInfo);
+    
+    
+	NSString *urlString = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@", webServiceInventoryListURL, dealerNumber, [getUserInfo objectForKey:@"userName"], [getUserInfo objectForKey:@"phoneId"] ];
+    
+    NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
 	
 	// Sticks all of the jSON data inside of a dictionary
@@ -189,7 +197,11 @@
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest];
 	}
 
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@",inventoryImageURL, dealerNumber];
+    // Get dealer confirmation data
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@",inventoryImageURL, dealerNumber, [getUserInfo objectForKey:@"userName"], [getUserInfo objectForKey:@"phoneId"] ];
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	
