@@ -12,6 +12,7 @@
 //#import <BugSense-iOS/BugSenseController.h>
 
 @interface LaunchViewController : UIViewController <UIWebViewDelegate>
+@property (strong, nonatomic) NSMutableDictionary *settings;
 
 // CoreData Properties
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
@@ -33,3 +34,4 @@
 @property (nonatomic, strong) UIAlertView *alert;
 
 @end
+	

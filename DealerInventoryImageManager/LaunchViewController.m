@@ -14,9 +14,9 @@
 #import "ImageTypesModel.h"
 #import "Reachability.h"
 
-#define webServiceAppVerision @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&MethodToInvoke=versionCheck&obj=global&key=LTk0ITREJy9cS1A6KVs5Vk5CUCAgCg%3D%3D&appname=PhotoUp"
+#define baseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
+#define appName @"PhotoUp"
 
-#define webServiceInventoryListURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
 
 @interface LaunchViewController ()
 {
@@ -35,9 +35,33 @@
  Life Cycle Methods
  ***************************************************** */
 
+-(id) init{
+    
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"photoUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"photoUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
+    self = [super init];
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -49,8 +73,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-	// Creates a pointer to the AppDelegate
+    [self init];
+	
+    // Creates a pointer to the AppDelegate
 	// Note needed if I am using DataHelper
 	id delegate = [[UIApplication sharedApplication] delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
@@ -58,14 +83,29 @@
 	internetReachable = [[Reachability alloc] init];
 	[internetReachable checkOnlineConnection];
 	
-	if (internetReachable.isConnected) {
-		[self getAppVersion];
-	}
-	
-	// This delay is required to allow the view to load and then make a decision as to whether to
-	// direct the user to log in or go to the inventory list.
-	[self performSelector:@selector(loadAuthenticateViewController) withObject:nil afterDelay:1.0];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
     
+    
+    if (internetReachable.isConnected) {
+        DealerModel *dealerModel = [[DealerModel alloc] init];
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"segueToLoginViewController" sender:self];
+        } else {
+            [self getAppVersion];
+            
+            // This delay is required to allow the view to load and then make a decision as to whether to
+            // direct the user to log in or go to the inventory list.
+            [self performSelector:@selector(loadAuthenticateViewController) withObject:nil afterDelay:1.0];
+            
+        }
+		
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,13 +171,6 @@
     {
         NSLog(@"No dealer?  move into the Login View ");
         
-        // Prefill data into table if it doesn't exist.
-        ImageTagsModel *imageTagsModel = [[ImageTagsModel alloc] init];
-        [imageTagsModel preloadImageTags];
-        
-        ImageTypesModel *imageTypesModel = [[ImageTypesModel alloc] init];
-        [imageTypesModel preloadImageTypes];
-        
         [self performSegueWithIdentifier:@"segueToLoginViewController" sender:self];
     }
     else //1
@@ -169,13 +202,30 @@
 	}
     
     // Fetch the latest version number from web service
-	NSString *urlString = [NSString stringWithFormat:@"%@", webServiceAppVerision];
+	//NSString *urlString = [NSString stringWithFormat:@"%@", webServiceAppVerision];
+    
+    NSString *function = @"versionCheck";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    NSLog(@"%@", accessToken);
+    
+    //		[self performSegueWithIdentifier:@"segueToLoginFromDealerSelect" sender:self];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&appname=%@",
+                           baseURL,
+                           function,
+                           accessToken,
+                           appName
+                           ];
+    
 	NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
 	
 	// Sticks all of the jSON data inside of a dictionary
-    _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSError *jsonError = nil;
+    _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
 	NSLog(@"App Version:%@", _jSON);
+    
 	
 	// Creates a dictionary that goes inside the first data object eg. {data:[
 	_dataDictionary = [_jSON objectForKey:@"data"];

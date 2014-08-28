@@ -12,7 +12,7 @@
 #import "GAITrackedViewController.h"
 
 @interface InventoryViewController : GAITrackedViewController  <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
-
+@property (strong, nonatomic) NSMutableDictionary *settings;
 @property (strong, nonatomic) IBOutlet InventoryCell *inventoryCell;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -46,5 +46,9 @@
 - (IBAction)scanQRC:(id)sender;
 - (IBAction)logout:(id)sender;
 - (IBAction)changeDelear:(id)sender;
+
+
+
+- (void)downloadInventoryData:(NSString *)dealerNumber;
 
 @end

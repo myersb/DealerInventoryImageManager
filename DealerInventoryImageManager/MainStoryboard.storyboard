@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -409,6 +409,7 @@
                         <outlet property="lblWidth" destination="BxT-1N-UHb" id="5D9-6q-ji4"/>
                         <outlet property="tableViewHeightConstraint" destination="qDf-WD-WbU" id="P4G-yR-kb4"/>
                         <segue destination="iEF-6x-NNF" kind="push" identifier="noInventorySegue" id="VBY-Wv-O0o"/>
+                        <segue destination="uAE-a2-xjx" kind="modal" identifier="segueFromHomeDetailsToLogin" modalTransitionStyle="crossDissolve" id="tbg-ob-Eyp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCg-UX-0Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -787,6 +788,7 @@
                         <outlet property="serialNumberLabel" destination="81D-DA-qtt" id="fGC-DT-wxK"/>
                         <outlet property="theScrollView" destination="xXJ-Qf-9hB" id="oA8-4m-UND"/>
                         <segue destination="l4i-wu-eBC" kind="push" identifier="segueToHomeDetailsFromImageDetails" id="kgZ-Z3-I4F"/>
+                        <segue destination="uAE-a2-xjx" kind="modal" identifier="segueFromImageDetailsToLogin" modalTransitionStyle="crossDissolve" id="dN0-ag-r1b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KbM-kf-7L2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -968,11 +970,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Oqx-SE-310"/>
-        <segue reference="h4U-di-CFe"/>
-        <segue reference="yYU-7B-a5w"/>
-        <segue reference="dje-3c-QTt"/>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="BF5-Bq-G8l"/>
+        <segue reference="5yM-gN-tF0"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="FLP-ej-MJ0"/>
+        <segue reference="VBY-Wv-O0o"/>
+        <segue reference="dN0-ag-r1b"/>
+        <segue reference="Zad-Np-FVW"/>
     </inferredMetricsTieBreakers>
 </document>

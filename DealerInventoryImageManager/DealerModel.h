@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString *dealerNumber;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) UITextField *password;
+@property (strong, nonatomic) NSMutableDictionary *settings;  
+
 
 
 
@@ -25,7 +27,10 @@
 - (BOOL) registerDealerWithUsername:(NSString *) userName
                        WithPassword:(NSString *) password;
 
+
 - (BOOL) isDealerExpired;
+
+
 -(NSDictionary*) getUserNameAndMEID;
 
 @end

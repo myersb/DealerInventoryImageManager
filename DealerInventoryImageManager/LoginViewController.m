@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "InventoryViewController.h"
 #import "Reachability.h"
 #import "DealerModel.h"
 
@@ -35,6 +34,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSLog(@"loginViewController : textFieldShouldReturn");
+    
     [textField resignFirstResponder];
     
     return YES;
@@ -52,6 +53,8 @@
 - (void)      alertView:(UIAlertView *)alertView
    clickedButtonAtIndex:(NSInteger)buttonIndex{
     
+    NSLog(@"loginViewController : AlertView");
+    
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
     
     if ([buttonTitle isEqualToString:[self yesButtonTitle]]){
@@ -67,7 +70,7 @@
  Check to see if the phone is online
  ***************************************************** */
 - (void) checkOnlineConnection {
-
+    NSLog(@"loginViewController : checkOnlineConnection");
 
     internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
     
@@ -102,12 +105,13 @@
  Check that user is online
  ***************************************************** */
 - (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"loginViewController : viewDidAppear");
+    
     [super viewDidAppear:animated];
     
     
     // This is the google analitics
     self.screenName = @"ViewDidAppear";
-    
     
     id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
@@ -120,6 +124,7 @@
 	
 	_password.delegate = self;
     
+
     // manage Keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
@@ -131,7 +136,6 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
-    
 }
 
 
@@ -140,10 +144,13 @@
  Remove Keyboard From View
  ***************************************************** */
 - (IBAction)offKeyboardButton:(id)sender {
+    NSLog(@"loginViewController : offKeyboardButton");
+    
     [self.view endEditing:YES];
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
+    NSLog(@"loginViewController : keyboardWillHide");
     
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     loginScrollView.contentInset = contentInsets;
@@ -153,6 +160,7 @@
 
 - (void)keyboardWasShown:(NSNotification *)notification
 {
+    NSLog(@"loginViewController : keyboardWasShown");
     
     // Step 1: Get the size of the keyboard.
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -193,6 +201,8 @@
  User Login
  ***************************************************** */
 - (IBAction)logInSubmit:(id)sender {
+    NSLog(@"loginViewController : logInSubmit");
+    
     
     
     // If either of the fields is empty, throw an erorr
@@ -222,12 +232,16 @@
         // Was the dealer login successful?
         //
         if (_isDealerSuccess == YES){
+            
+            // Dismiss keyboard
+            [self.view endEditing:YES];
+            
             // Go to the Inventory View
 			if ([_dealerNumber isEqualToString:@"999999"] ) {
-				[self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
+                [self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
 			}
 			else{
-				[self performSegueWithIdentifier:@"segueToInventoryViewController" sender:self];
+                [self performSegueWithIdentifier:@"segueToInventoryViewController" sender:self];
 			}
             
         }
@@ -248,6 +262,8 @@
 
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
 {
+    NSLog(@"loginViewController : clearEntity");
+    
 	fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
 	
@@ -267,6 +283,8 @@
 
 - (void)loadDealer
 {
+    NSLog(@"loginViewController : loadDealer");
+    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
 	
@@ -281,6 +299,8 @@
 
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    NSLog(@"loginViewController : shouldPerformSegueWithIdentifier");
+    
 	if (_isDealerSuccess) {
 		return YES;
 	}
@@ -290,13 +310,13 @@
 }
 
 
-
-
-
 /* ****************************************************
  Prep Segue to Next View
  ***************************************************** */
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"loginViewController : prepareForSegue");
+    
+    [NSThread sleepForTimeInterval:1.0f];
     
     if ([[segue identifier] isEqualToString:@"segueToInventoryViewController"]) {
         
@@ -306,6 +326,8 @@
 }
 
 - (IBAction)endTyping:(id)sender {
+    NSLog(@"loginViewController : endTyping");
+    
 	[sender resignFirstResponder];
 	[self logInSubmit:(id)sender];
 }

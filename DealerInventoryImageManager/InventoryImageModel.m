@@ -12,7 +12,8 @@
 #import "DealerModel.h"
 
 
-#define inventoryImageURL @"https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryImagesRead&key=KzdEOSBGJEdQQzFKM14pWCAK"
+#define inventoryImageURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
+
 
 @interface InventoryImageModel()
 {
@@ -25,6 +26,30 @@
 @implementation InventoryImageModel
 
 @synthesize imageDetails;
+
+
+-(id) init{
+    
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"photoUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"photoUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
+
 
 /* --------------------------------------------------------------- */
 #pragma mark - Delete data
@@ -58,24 +83,20 @@
     // ****************  Submit to server ****************** //
     // If online, submit data up to server
     // Create the request.
-    NSString *url = @"https://www.claytonupdatecenter.com/cfide/remoteinvoke.cfc";
-    NSString *methodToInvoke = @"prcFileReferenceDelete";
+    NSString *url = inventoryImageURL;
+    NSString *function = @"prcFileReferenceDelete";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-    NSString *key = @"LzhWIVlCN0JLSjIiI1IoMjxHJklCCg==";
-    NSString *method = @"processGetJSONArray";
-    NSString *obj = @"inventory";
     
     // Get dealer info check
     DealerModel *getDealerInfo = [[DealerModel alloc]init];
     NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
     NSLog(@"Check : %@", getUserInfo);
 
-    NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageId=%@&UN=%@&PID=%@&init"
+    NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageId=%@&UN=%@&PID=%@&init"
                              ,url
-                             ,method
-                             ,methodToInvoke
-                             ,key
-                             ,obj
+                             ,function
+                             ,accessToken
                              
                              ,inventoryPackageId
                              ,imageId
@@ -143,23 +164,19 @@
         // ****************  Submit to server ****************** //
         // If online, submit data up to server
         // Create the request.
-        NSString *url = @"https://www.claytonupdatecenter.com/cfide/remoteinvoke.cfc";
-        NSString *methodToInvoke = @"PrcHomeInventoryImageUpdate";
         
-        NSString *key = @"LzhWIVlCN0JLSjIiI1IoMjxHJklCCg==";
-        NSString *method = @"processGetJSONArray";
-        NSString *obj = @"inventory";
+        NSString *url = inventoryImageURL;
+        NSString *function = @"PrcHomeInventoryImageUpdate";
+        NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
         
         DealerModel *getDealerInfo = [[DealerModel alloc]init];
         NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
         NSLog(@"Check : %@", getUserInfo);
         
-        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageId=%@&imageCaption=%@&imageTypeOrder=%@&searchTagId=%@&UN=%@&PID=%@&init"
+        NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageType=%@&imageId=%@&imageCaption=%@&imageTypeOrder=%@&searchTagId=%@&UN=%@&PID=%@&modifiedby=photoup&init"
                                  ,url
-                                 ,method
-                                 ,methodToInvoke
-                                 ,key
-                                 ,obj
+                                 ,function
+                                 ,accessToken
                                  
                                  ,inventoryPackageId
                                  ,[typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""]
@@ -286,20 +303,15 @@
         NSLog(@"Check : %@", getUserInfo);
 
         
-        NSString *url = @"https://www.claytonupdatecenter.com/cfide/remoteinvoke.cfc";
-        NSString *methodToInvoke = @"PrcHomeInventoryImageInsert";
-        
-        NSString *key = @"LzhWIVlCN0JLSjIiI1IoMjxHJklCCg==";
-        NSString *method = @"processGetJSONArray";
-        NSString *obj = @"inventory";
+        NSString *url = inventoryImageURL;
+        NSString *function = @"PrcHomeInventoryImageInsert";
+        NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
         
         
-        NSString *queryString = [NSString stringWithFormat:@"%@?method=%@&methodToInvoke=%@&key=%@&obj=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&UN=%@&PID=%@&init"
+        NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&UN=%@&PID=%@&modifiedby=photoup&init"
                                  ,url
-                                 ,method
-                                 ,methodToInvoke
-                                 ,key
-                                 ,obj
+                                 ,function
+                                 ,accessToken
                                  
                                  ,inventoryPackageId
                                  ,[typeId stringByReplacingOccurrencesOfString:@"m-" withString:@""]
@@ -340,11 +352,26 @@
 - (void)downloadImages:(NSString *)dealerNumber
 {
 
-    NSLog(@"InventoryImageModel : downloadImages");
+    NSString *url = inventoryImageURL;
+    NSString *function = @"getDealerInventoryImagesRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@&DealerNumber=%@",inventoryImageURL, dealerNumber];
-	NSURL *url = [NSURL URLWithString:stringImageURL];
-	NSData *imageData = [NSData dataWithContentsOfURL:url];
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    NSLog(@"Check : %@", getUserInfo);
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&dealerNumber=%@&init"
+                             ,url
+                             ,function
+                             ,accessToken
+                             
+                             ,dealerNumber
+                             ];
+    
+    NSLog(@"%@", queryString);
+    
+	NSURL *fullurl = [NSURL URLWithString:queryString];
+	NSData *imageData = [NSData dataWithContentsOfURL:fullurl];
 	
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
 	_dataDictionary = [_jSON objectForKey:@"data"];
@@ -372,7 +399,6 @@
 
 - (void)downloadImagesByinventoryPackageId:(NSString *)inventoryPackageId
 {
-    
     NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId");
     
     
@@ -402,19 +428,32 @@
     // Put data into new object based on filtered fetch request.
     NSArray *checkImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
     NSLog(@"After Delete - %@", checkImageData);
-    
-    
-    
-    
-    
+
     
     
     // Put new Home image data into the database.
     // We do this since we need the imageID for the image we just uploaded
     // --------------------------------------------------
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@&inventoryPackageId=%@",inventoryImageURL, inventoryPackageId];
-	NSURL *url = [NSURL URLWithString:stringImageURL];
-	NSData *imageData = [NSData dataWithContentsOfURL:url];
+    
+    NSString *url = inventoryImageURL;
+    NSString *function = @"getDealerInventoryImagesRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    NSLog(@"Check : %@", getUserInfo);
+    
+    NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&init"
+                             ,url
+                             ,function
+                             ,accessToken
+                             
+                             ,inventoryPackageId
+                             ];
+    
+    NSLog(@"%@", queryString);
+	NSURL *geturl = [NSURL URLWithString:queryString];
+	NSData *imageData = [NSData dataWithContentsOfURL:geturl];
 
 	
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];

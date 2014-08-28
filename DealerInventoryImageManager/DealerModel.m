@@ -1,5 +1,5 @@
 //
-//  DealerMgr.m
+//  DealerModel.m
 //  DealerInventoryImageManager
 //
 //  Created by Chris Cantley on 9/18/13.
@@ -18,20 +18,17 @@
 
 // JSON Header for Dealer data
 //
-#define JSON_DEALER_DEALERNUMBER @"dealernumber"
+#define JSON_DEALER_DEALERNUMBER @"dealerNumber"
 #define JSON_DEALER_LASTAUTHORIZATIONDATE @"lastauthorizationdate"
 #define JSON_DEALER_USERNAME @"username"
 #define JSON_DEALER_ISACTIVE @"isactive"
+#define JSON_DEALER_ACCESSKEY @"AccessToken"
 #define JSON_DEALER_ISERROR @"iserror"
 #define MINUTES_SINCE_LAST_LOGIN_CHECK ((int) 120)  //Used to force re-login if greater than two hours
+#define JSON_DEALER_ACCESSTOKEN_AUTHORIZED @"authorized"
 
 
-
-
-/* TEST URL
- https://www.claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&username=jonest&password=password&datasource=appclaytonweb&linkonly=1
- */
-#define webServiceLoginURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?"
+#define webServiceLoginURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
 
 /* OPTIONS
  username = jonest
@@ -43,8 +40,77 @@
 
 @implementation DealerModel
 
+
 @synthesize dealerNumber = _dealerNumber;
 @synthesize userName = _userName;
+
+-(id) init{
+    
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"photoUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"photoUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+
+    
+    return self;
+}
+
+
+-(void) deleteDealerData{
+
+    // ******** REMOVE ALL DATA **********
+    // it's possible that this is a new user and as a result it is best to just delete all the data.
+    // if the login is bad, this dt
+    
+    // Remove Dealer Data
+    NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Dealer"];
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *deleteDealerData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    
+    // Loop over the results and delete each object.
+    for (id object in deleteDealerData) {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    
+    
+    // Delete all Inventory data
+    NSFetchRequest *fetchRequestInventoryHome=[NSFetchRequest fetchRequestWithEntityName:@"InventoryHome"];
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *deleteInventoryHome = [self.managedObjectContext executeFetchRequest:fetchRequestInventoryHome error:nil] ;
+    
+    // Loop over the results and delete each object.
+    for (id object in deleteInventoryHome) {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    
+    // Delete all Image data
+    NSFetchRequest *fetchRequestInventoryImage=[NSFetchRequest fetchRequestWithEntityName:@"InventoryImage"];
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *deleteInventoryImage = [self.managedObjectContext executeFetchRequest:fetchRequestInventoryImage error:nil] ;
+    
+    // Loop over the results and delete each object.
+    for (id object in deleteInventoryImage) {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+}
+
 
 
 -(void) getDealerNumber
@@ -81,6 +147,21 @@
 - (BOOL) registerDealerWithUsername:(NSString *) userName
                        WithPassword:(NSString *) password {
     
+    
+    // Creates a pointer to the AppDelegate
+    //
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    // Delete all dealer-related data
+    [self deleteDealerData];
+    
+    
+    // ******** SUBMIT LOGIN **********
+    //
+    
+    NSLog(@"%@", self.settings);
+    
 	// Setup params
     NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
 	
@@ -88,210 +169,185 @@
 	
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
-	
-   
-    // Setup Post Body
-    NSString *postString = [NSString stringWithFormat:@"method=processPostJSONArray&obj=LINK&MethodToInvoke=login&key=MDBUSS9CRE9WSlA6I1RJTjVHJU0rX0AgIAo=&datasource=appclaytonweb&linkonly=0&username=%@&password=%@", userName, password];
-	
-    // setup request header
-    [request addValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-length"];
-	
-    // Setup the Body of hte post
+
+    // Get AppToken
+    NSString *appToken = [self.settings objectForKey:@"AppId"];
+
+
+    // Get Get AccessToken from API
+    NSString *postString = [NSString stringWithFormat:@"method=authenticate&format=JSONArray&linkonly=0&un=%@&pw=%@&at=%@", userName, password, appToken];
+    [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[postString length]] forHTTPHeaderField:@"Content-length"];
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-	
-    // Post data and put the returned data into a variable
+    
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
-	
-    // Stick the encoded returned data into a variable
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-	
-    // Display the results
-	
 	NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
 	
-	// Creates a dictionary that goes inside the first data object eg. {data:[
-	NSDictionary *dataDictionary = [jSON objectForKey:@"data"];
-	
-    // Loop over the dealerTopArray, and return the result set of each array loop as a Dictionary.
+    // Check the value
+    NSString *accessTokenValue = [NSString stringWithFormat:@"%@", [jSON objectForKey:JSON_DEALER_ACCESSKEY]];
+    
+    
+    // ******** PROCESS RESULT OF LOGIN **********
     //
-    for (NSDictionary *JSONInfo in dataDictionary)
-    {
-        // These params hold the results of two deciding factors for whether a user is valid.
-        //
-        NSString *isActive = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISACTIVE]];
-        NSString *isError = [NSString stringWithFormat:@"%@", [JSONInfo objectForKey:JSON_DEALER_ISERROR]];
+    // If there is an error, return NO
+	if ( [accessTokenValue isEqualToString:@"Error"] ) {
+        NSLog(@"There was an error with the login");
 
-        //If the return is not in error and the user is active, put their data into the database.
-        //
-        if ( [isActive isEqualToString:@"1"] &&  [isError isEqualToString:@"0"])
-        {
-            // Creates a pointer to the AppDelegate
-            // Note needed if I am using DataHelper
-            //
-            id delegate = [[UIApplication sharedApplication] delegate];
-            self.managedObjectContext = [delegate managedObjectContext];
-            
-  
-            
-            // Check to see if there is dealer data in the database.
-            //
-            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer"
-                                                      inManagedObjectContext:self.managedObjectContext];
-            [fetchRequest setEntity:entity];
-            NSError *error = nil;
-            NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-            if (fetchedObjects == nil)
-            {
-                NSLog(@"problem! %@", error);
-            }
-            
-            // If user IS in the database, edit the date time
-            // If the Dealer IS-NOT in the database, then put them into the table
-            //
-            if ( (unsigned long)fetchedObjects.count != 0) //1
-            {
-             
-                // Change the date in the curren object
-                //
-                for (Dealer *d in fetchedObjects){
-                    d.lastAuthorizationDate = [NSDate date];
-                }
-                
-                // Commit the entity to storage
-                //
-                NSError *savingError = nil;
-                if ([self.managedObjectContext save:&savingError]){
-                    return YES;
-                } else {
-                    NSLog(@"Failed to save new LastAuthorizationDate. Error = %@", savingError);
-                    return NO;
-                }
-                
-                
-            }
-            else
-            {
-                // Create an entity object to fill
-                //
-                Dealer *dealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:self.managedObjectContext];
-                
-                // Check to see if the entity exists.  If it doesn't exist, fail this process.  It will look like the user cant logon
-                //
-                if(dealer == nil)
-                {
-                    NSLog(@"Failed to create the dealer");
-                    return NO;
-                }
-                
-                //  Add the dealer info to the entity
-                // Try to process this as a string, and if not, then process as a number
-                @try {
-                    dealer.dealerNumber = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil);
-                }
-                @catch (NSException *exception) {
-                    NSNumber *getDealerNumber = [NSNumber numberWithInt:[NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_DEALERNUMBER], nil) intValue]];
-                    dealer.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[getDealerNumber unsignedIntegerValue]];
-                }
-				
-                dealer.userName = NSLocalizedString([JSONInfo objectForKey:JSON_DEALER_USERNAME], nil);
-                dealer.lastAuthorizationDate = [NSDate date];
-                
-                NSLog(@"%@", dealer);
-                
-                // Commit the entity to storage
-                //
-                NSError *savingError = nil;
-                if ([self.managedObjectContext save:&savingError]){
-                    return YES;
-                } else {
-                    NSLog(@"Failed to save the new person. Error = %@", savingError);
-                    return NO;
-                }
-            }
-            
-
-               
-        }
-        else
-        {
-            return NO;
-        }
-
+        return NO;
     
+        
+    // If it returns a token, put it into the system and , get the dealer data
+    //
+    } else {
+        // Put retrieved data into the plist that holds other system settings.
+        [self.settings setObject:[jSON objectForKey:@"AccessToken"] forKey:@"AccessToken"];
+        
+        
+        // get path info to be used by the following method
+        NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *docfilePath = [basePath stringByAppendingPathComponent:@"photoUpSettings.plist"];
+        
+        // Write back to the file (remember, this is a copy of the original.  See -init where the copy was created.
+        [self.settings writeToFile:docfilePath atomically:YES];
+        
+        
+        // Get the dealer number out of the accessToken
+        NSArray *items = [accessTokenValue componentsSeparatedByString:@"."];
+        
+        //NSLog(@"%@",items[1]);
+        //NSLog(@"%@",[[NSData alloc] initWithBase64EncodedString:items[1] options:0]);
+        
+        // In order for this to decode correctly, it needs to be divisable by 64.  That means that the string needs to be padded.
+        // Get the count
+        NSString *getBodyItem = items[1];
+        //NSLog(@"getBodyItem - %@", getBodyItem);
+        
+        // Get the count up to the nearest divisable 64 count
+        int getBodyCountTotal = ((floor([getBodyItem length] / 64)) + 1) * 64;
+        //NSLog(@"getBodyCount - %d %lu", getBodyCountTotal, (unsigned long)[getBodyItem length]);
+        
+        // Create Padding of 64 equals (which equates to padding on a 64base string)
+        NSString *padding = @"================================================================";
+        
+        NSString *padBodyItem =  [items[1] stringByAppendingString:padding];
+        //NSLog(@"%@", padBodyItem);
+        
+        
+        NSString *paddedBody = [padBodyItem substringToIndex:getBodyCountTotal];
+        //NSLog(@"%@", paddedBody);
+        
+        
+        
+        
+        NSData *decodedData =[[NSData alloc] initWithBase64EncodedString:paddedBody options:0];
+        //NSLog(@"%@", decodedData);
+        
+        NSDictionary *decodedAccessTokenBody = [NSJSONSerialization JSONObjectWithData:decodedData
+                                        options: NSJSONReadingMutableContainers
+                                          error: nil];
+
+        
+        
+        
+        // Check to see if there is dealer data in the database.
+        //
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError *error = nil;
+        NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        if (fetchedObjects == nil)
+        {
+            NSLog(@"problem! %@", error);
+        }
+        
+            // Create an entity object to fill
+            //
+            Dealer *dealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:self.managedObjectContext];
+            
+            // Check to see if the entity exists.  If it doesn't exist, fail this process.  It will look like the user cant logon
+            //
+            if(dealer == nil)
+            {
+                NSLog(@"Failed to create the dealer");
+                return NO;
+            }
+            
+            NSString *getDealerNumber = [NSString stringWithFormat:@"%@", [decodedAccessTokenBody objectForKey:@"dealernumber"] ];
+            NSString *getUserName = [decodedAccessTokenBody objectForKey:@"username"] ;
+            
+            //  Add the dealer info to the entity
+            dealer.dealerNumber =  getDealerNumber;
+            dealer.userName = getUserName;
+            dealer.lastAuthorizationDate = [NSDate date];
+            
+            NSLog(@"%@", dealer);
+            
+            // Commit the entity to storage
+            //
+            NSError *savingError = nil;
+            if ([self.managedObjectContext save:&savingError]){
+                return YES;
+            } else {
+                NSLog(@"Failed to save the new person. Error = %@", savingError);
+                return NO;
+            }
+
+        
     }
-    
 
+
+    
+    return NO;
 
 }
 
-// CHECK DEALER LOG IN EXPIRATION
-// Determines if the current dealer record is expired.  If the dealer is expired, return TRUE,
-// Otherwise return false (not expired)
+
+
+// CHECK that the accesstoken is authorized and still valid.
 //
 -(BOOL) isDealerExpired
 {
     
-    // Creates a pointer to the AppDelegate
-    // Note needed if I am using DataHelper
-    //
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
+    // Setup params
+    NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+	
+    // Create request
+	
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+
     
+    // Get construct body of request
+    NSString *postString = [NSString stringWithFormat:@"method=authorize&accessToken=%@", accessToken];
+    [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[postString length]] forHTTPHeaderField:@"Content-length"];
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    // Check to see if there is dealer data in the database.
-    //
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer"
-                                              inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error = nil;
-    NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    if (fetchedObjects == nil)
-    {
-        NSLog(@"problem! %@", error);
-    }
+    // Process request and store return.
     
-    
-    // If user IS in the database, Compare time
-    // If the Dealer IS-NOT in the database, then return false
-    //
-    if ( (unsigned long)fetchedObjects.count != 0) //1
-    {
-        
-        // Change the date in the curren object
-        //
-        for (Dealer *d in fetchedObjects){
-            
-            NSDate *priorDealerDate = d.lastAuthorizationDate  ;
-            NSDate *currentDate =[NSDate date];
-            NSInteger numberOfSeconds = MINUTES_SINCE_LAST_LOGIN_CHECK * 60;
-             
-            NSTimeInterval diff = [currentDate timeIntervalSinceDate:priorDealerDate];
-            NSInteger secondsBetween = round(diff);
-            
-            // Get the date
-            NSLog(@"Dealer : %@  and %@", priorDealerDate,  currentDate);
-            if (secondsBetween > numberOfSeconds)
-            {
-                NSLog(@"User is expired by %d seconds", numberOfSeconds - secondsBetween );
-                return YES;
-            }
-            else
-            {
-                NSLog(@"User has %d seconds left", numberOfSeconds - secondsBetween  );
-                return NO;
-            }
-            
-        }
-    }
-    else
-    {
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
+	
+    // This might be nil.  If it is, then return no.
+    if (!returnData){
         return NO;
     }
     
+    NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
+
+    // We are checking to see if the dealer is expired.  So a bad authorization should pass back a "true" to confirm it is expired.
+    if ( [[jSON objectForKey:JSON_DEALER_ACCESSTOKEN_AUTHORIZED] isEqualToString:@"false"] ){
+        
+        // Delete all dealer-related data
+        [self deleteDealerData];
+        
+        return YES;
+    }
+    
     return NO;
+
+
 }
 
 

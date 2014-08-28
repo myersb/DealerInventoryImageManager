@@ -77,6 +77,19 @@ NSMutableArray *models;
 - (void)viewDidAppear:(BOOL)animated
 {
 	[self adjustHeightOfTableview];
+    
+    // Check to see if user should be sent back to login.
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if (internetReachable.isConnected) {
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"segueFromHomeDetailsToLogin" sender:self];
+        }
+		
+	}
 }
 
 

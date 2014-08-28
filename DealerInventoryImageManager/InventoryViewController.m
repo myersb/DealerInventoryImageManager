@@ -14,9 +14,9 @@
 #import "Reachability.h"
 #import "Dealer.h"
 
-#define webServiceInventoryListURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
+#define BaseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
 
-#define inventoryImageURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryImagesRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
+
 
 @interface InventoryViewController ()
 {
@@ -31,9 +31,36 @@
 
 @implementation InventoryViewController
 
+
+-(id) init{
+    NSLog(@"InventoryViewController : init");
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"photoUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"photoUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
+    
+    NSLog(@"InventoryViewController : viewDidLoad");
+    
     [super viewDidLoad];
+    [self init];
     
     // This is the google analytics
     self.screenName = @"InventoryViewController";
@@ -87,9 +114,28 @@
 	
 }
 
+
 -(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"InventoryViewController : viewDidAppear");
+    
 	[_inventoryListTable reloadData];
-	[self adjustHeightOfTableview];
+    [self adjustHeightOfTableview];
+
+    
+    // Check to see if user should be sent back to login.
+    /*
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if (internetReachable.isConnected) {
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
+        }
+		
+	}
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +192,8 @@
 
 - (void)downloadInventoryData:(NSString *)dealerNumber
 {
+    NSLog(@"InventoryViewController : downloadInventoryData");
+    
 	[self loadInventory];
 	
 	if (internetReachable.isConnected && [_modelsArray count] > 0) {
@@ -158,7 +206,19 @@
     NSLog(@"Check : %@", getUserInfo);
     
     
-	NSString *urlString = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@", webServiceInventoryListURL, dealerNumber, [getUserInfo objectForKey:@"userName"], [getUserInfo objectForKey:@"phoneId"] ];
+    NSString *url = BaseURL;
+    NSString *function = @"getDealerInventoryRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    
+	NSString *urlString = [NSString stringWithFormat:@"%@&function=%@&accesstoken=%@&dealerNumber=%@&UN=%@&PID=%@",
+                           url,
+                           function,
+                           accessToken,
+                           
+                           dealerNumber,
+                           [getUserInfo objectForKey:@"userName"],
+                           [getUserInfo objectForKey:@"phoneId"] ];
     
     NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
@@ -190,6 +250,7 @@
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
+    NSLog(@"InventoryViewController : downloadImages");
     
 	[self loadImages];
 	
@@ -200,8 +261,28 @@
     // Get dealer confirmation data
     DealerModel *getDealerInfo = [[DealerModel alloc]init];
     NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    /*
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@"
+                                ,inventoryImageURL
+                                , dealerNumber
+                                , [getUserInfo objectForKey:@"userName"]
+                                , [getUserInfo objectForKey:@"phoneId"] ];
+    */
     
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@",inventoryImageURL, dealerNumber, [getUserInfo objectForKey:@"userName"], [getUserInfo objectForKey:@"phoneId"] ];
+    NSString *function = @"getDealerInventoryImagesRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@&function=%@&accesstoken=%@&dealerNumber=%@&UN=%@&PID=%@",
+                           BaseURL,
+                           function,
+                           accessToken,
+                           
+                           dealerNumber,
+                           [getUserInfo objectForKey:@"userName"],
+                           [getUserInfo objectForKey:@"phoneId"] ];
+    
+    
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	
@@ -227,6 +308,8 @@
 
 - (void)loadInventory
 {
+    NSLog(@"InventoryViewController : loadInventory");
+    
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
     
@@ -246,6 +329,8 @@
 
 - (NSNumber *)loadImagesBySerialNumber: (NSString *)serialNumber
 {
+    NSLog(@"InventoryViewController : loadImagesBySerialNumber");
+    
     _imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	_imagesPredicate = [NSPredicate predicateWithFormat:@"serialNumber = %@ && group <> 'm-FLP' && group <> 'm-360' && imageSource <> 'MDL'", serialNumber];
@@ -263,6 +348,8 @@
 
 - (void)loadImages
 {
+    NSLog(@"InventoryViewController : loadImages");
+    
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
 	
@@ -277,6 +364,8 @@
 
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
 {
+    NSLog(@"InventoryViewController : clearEntity");
+    
 	fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
 	
@@ -296,16 +385,21 @@
 }
 
 - (IBAction)logout:(id)sender {
+    NSLog(@"InventoryViewController : LOGOUT");
+    
 	_alert = [[UIAlertView alloc]initWithTitle:@"Confirm Logout" message:[NSString stringWithFormat:@"Are you sure that you want to logout?"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Logout", nil];
 	[_alert show];
 	_logoutSegue = NO;
 }
 
 - (IBAction)changeDelear:(id)sender {
+    NSLog(@"InventoryViewController : ChangeDealer");
 	[self performSegueWithIdentifier:@"segueToChangeDealerFromInventoryList" sender:self];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"InventoryViewController : alertview");
+    
 	if (buttonIndex == 1) {
 		_logoutSegue = YES;
 		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
@@ -351,6 +445,8 @@
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    NSLog(@"InventoryViewController : shouldPerformSegueWithIdentifier");
+    
 	if (_logoutSegue == NO){
 		return NO;
 		NSLog(@"NO!");
@@ -365,6 +461,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     NSLog(@"InventoryViewController : prepareForSegue");
     
 	if ([[segue identifier]isEqualToString:@"segueToHomeDetails"]) {

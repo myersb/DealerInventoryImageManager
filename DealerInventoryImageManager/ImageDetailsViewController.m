@@ -13,6 +13,7 @@
 #import "ImageTypes.h"
 #import "InventoryImageModel.h"
 #import "Reachability.h"
+#import "DealerModel.h"
 
 @interface ImageDetailsViewController ()
 {
@@ -147,6 +148,28 @@
 }
 
 
+-(void) viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    // This will hide the view setting the X, Y, Width, height
+    // You can get these base numbers from the possition of the view.
+    // setting "Y" to 800 will put the view off the screen.
+    self.pickerViewContainer.frame = CGRectMake(0, 800, 320, 226);
+    
+    // Check to see if user should be sent back to login.
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if (internetReachable.isConnected) {
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"segueFromImageDetailsToLogin" sender:self];
+        }
+		
+	}
+}
+
 /* --------------------------------------------------------------- */
 #pragma mark Lifecycle Management
 /* --------------------------------------------------------------- */
@@ -205,15 +228,6 @@
     //hide your view with Fad animation
     [activityIndicatorBackground setHidden:TRUE];
     //[UIView commitAnimations];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    // This will hide the view setting the X, Y, Width, height
-    // You can get these base numbers from the possition of the view.
-    // setting "Y" to 800 will put the view off the screen.
-    self.pickerViewContainer.frame = CGRectMake(0, 800, 320, 226);
 }
 
 /* --------------------------------------------------------------- */

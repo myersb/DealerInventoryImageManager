@@ -48,6 +48,7 @@
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
+		81FE7AC5199A911200AA13E0 /* photoUpSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE7AC4199A911200AA13E0 /* photoUpSettings.plist */; };
 		B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */; };
 		B5006AB918D0E9710024A94B /* inputBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB618D0E9710024A94B /* inputBG.png */; };
@@ -207,6 +208,7 @@
 		81CA9CA017EA331E00E6E1CC /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
 		81CA9CA117EA331E00E6E1CC /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
 		81D7A7D41887374400F561DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		81FE7AC4199A911200AA13E0 /* photoUpSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = photoUpSettings.plist; sourceTree = "<group>"; };
 		B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageDetailsSaveBtn.png; sourceTree = "<group>"; };
 		B5006AB618D0E9710024A94B /* inputBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBG.png; sourceTree = "<group>"; };
 		B5006AB718D0E9710024A94B /* photoDetailsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsBackground.png; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		8198421417E0D40900B619C7 = {
 			isa = PBXGroup;
 			children = (
+				81FE7AC4199A911200AA13E0 /* photoUpSettings.plist */,
 				B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */,
 				B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */,
 				8198426517E0DA6700B619C7 /* MainStoryboard.storyboard */,
@@ -747,6 +750,7 @@
 				8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */,
 				B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */,
 				8198426B17E0E28A00B619C7 /* bgUpper.jpg in Resources */,
+				81FE7AC5199A911200AA13E0 /* photoUpSettings.plist in Resources */,
 				B5163CFD18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png in Resources */,
 				B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */,
 				8198426D17E0E28A00B619C7 /* bgLower.jpg in Resources */,

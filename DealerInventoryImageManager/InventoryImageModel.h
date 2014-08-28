@@ -11,6 +11,8 @@
 @interface InventoryImageModel : NSObject<NSURLConnectionDelegate>
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic,strong) NSMutableDictionary *imageDetails;
+@property (strong, nonatomic) NSMutableDictionary *settings;
+
 
 @property (nonatomic, strong) NSDictionary *dataDictionary;
 @property (nonatomic, strong) NSDictionary *jSON;

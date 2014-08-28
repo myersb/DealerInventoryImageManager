@@ -7,6 +7,7 @@
 //
 
 #import "DealerInventoryImageManagerTests.h"
+#import "DealerModel.h"
 
 @implementation DealerInventoryImageManagerTests
 
@@ -27,6 +28,22 @@
 - (void)testExample
 {
     STFail(@"Unit tests are not implemented yet in DealerInventoryImageManagerTests");
+}
+
+
+
+- (void)testRegisterDealerWithUsername
+{
+    // test code
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if ( [dealerModel registerDealerWithUsername:@"indi" WithPassword:@"pubweb383"]  ){
+       STComposeString(@"Unit tests are not implemented yet in DealerInventoryImageManagerTests");
+    } else {
+        
+        STFail(@"Unit tests are not implemented yet in DealerInventoryImageManagerTests");
+    }
+    // end test code
+    
 }
 
 @end
